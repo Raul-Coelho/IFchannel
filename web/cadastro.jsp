@@ -10,8 +10,8 @@
 
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="css/style.css"/>
-    <title>Cadastro Usuario</title>
+    <link rel="stylesheet" href="css/cadastro.css"/>
+    <title>CADASTRO USUARIO</title>
 </head>
 <body>
     <div id="divPrincipal">
@@ -68,7 +68,7 @@
                         <td><input name="foto" type="file"> <br></td>
                     </tr>
                     <tr>
-                        <td><input type="submit" value="Cadastrar" name="action"></td>
+                        <td><input type="submit" value="CADASTRAR" name="action"></td>
                     </tr>
                 </table>
             </form>
