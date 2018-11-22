@@ -10,7 +10,7 @@ body{
 }
 
 
-input{
+button,a,input{
     width: 120%;
     padding: 8px 18px;
     margin: 8px 0;
@@ -31,7 +31,7 @@ input[type=password], select {
 }
 
 
-input[type=submit] {
+button,a,input[type=submit] {
     width: 120%;
     background-color: #778899;
     color: white;
@@ -43,8 +43,12 @@ input[type=submit] {
     font-size: medium;
 }
 
-input[type=submit]:hover {
+button,a,input[type=submit]:hover {
     background-color: #2F4F4F;
+}
+
+a{
+    text-decoration: none;
 }
 
 .divForm {

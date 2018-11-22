@@ -33,7 +33,7 @@ public class UsuarioDao {
                 st.setString(7, u.getCidade());
                 st.setString(8, u.getNumero());
                 st.setString(9, u.getCep());
-                st.setString(10, u.getFoto());
+                st.setBytes(10, u.getFoto());
                 st.setString(11, u.getTelefone());
 
                 return st.executeUpdate() > 0;
@@ -59,7 +59,7 @@ public class UsuarioDao {
                 st.setString(6, u.getCidade());
                 st.setString(7, u.getNumero());
                 st.setString(8, u.getCep());
-                st.setString(9, u.getFoto());
+                st.setBytes(9, u.getFoto());
                 st.setString(10, u.getTelefone());
 
                 st.setInt(11, u.getId());
@@ -92,8 +92,8 @@ public class UsuarioDao {
                         resultado.getString("email"),
                         resultado.getString("senha"),
                         resultado.getString("nome"),
+                        resultado.getBytes("foto"),
                         resultado.getString("sexo"),
-                        resultado.getString("foto"),
                         resultado.getString("rua"),
                         resultado.getString("cidade"),
                         resultado.getString("estado"),
@@ -126,8 +126,8 @@ public class UsuarioDao {
                         resultado.getString("email"),
                         resultado.getString("senha"),
                         resultado.getString("nome"),
+                        resultado.getBytes("foto"),
                         resultado.getString("sexo"),
-                        resultado.getString("foto"),
                         resultado.getString("rua"),
                         resultado.getString("cidade"),
                         resultado.getString("estado"),
@@ -159,8 +159,8 @@ public class UsuarioDao {
                         resultado.getString("email"),
                         resultado.getString("senha"),
                         resultado.getString("nome"),
+                        resultado.getBytes("foto"),
                         resultado.getString("sexo"),
-                        resultado.getString("foto"),
                         resultado.getString("rua"),
                         resultado.getString("cidade"),
                         resultado.getString("estado"),

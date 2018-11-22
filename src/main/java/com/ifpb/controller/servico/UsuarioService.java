@@ -11,7 +11,7 @@ public class UsuarioService {
     public UsuarioService() throws SQLException, ClassNotFoundException {
     }
 
-    public boolean salvar(int id, String email, String senha, String nome, String sexo, String foto, String rua,
+    public boolean salvar(int id, String email, String senha, String nome, String sexo, byte[] foto, String rua,
                           String cidade, String estado, String cep, String telefone, String numero) throws SQLException {
         Usuario u = new Usuario(id, email, senha, nome, sexo, foto, rua, cidade, estado, cep, telefone, numero);
 

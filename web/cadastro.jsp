@@ -18,7 +18,7 @@
     <center>
         <h1 id="titulo">Cadastro Usuario</h1>
         <div class="divForm">
-            <form method="post" action="/controller?action=SalvarUsuario">
+            <form method="post" enctype="multipart/form-data" action="/controller?action=SalvarUsuario">
                 <table>
                     <tr>
                         <td><label class="labelform">Nome </label></td>

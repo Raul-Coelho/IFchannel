@@ -6,7 +6,7 @@ CREATE TABLE usuario(
     email VARCHAR(100) NOT NULL,
     senha VARCHAR(50) NOT NULL,
     sexo CHARACTER(1),
-    foto VARCHAR,
+    foto BYTEA,
     rua VARCHAR(50),
     numero VARCHAR(10),
     cidade VARCHAR(50),

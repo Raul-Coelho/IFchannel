@@ -7,7 +7,7 @@ public class Usuario {
     private String senha;
     private String nome;
     private String sexo;
-    private String foto;
+    private byte[] foto;
     private String rua;
     private String cidade;
     private String estado;
@@ -18,7 +18,7 @@ public class Usuario {
     public Usuario() {
     }
 
-    public Usuario(String email, String senha, String nome, String sexo, String foto, String rua, String cidade,
+    public Usuario(String email, String senha, String nome, String sexo, byte[] foto, String rua, String cidade,
                    String estado, String cep, String telefone, String numero) {
         this.email = email;
         this.senha = senha;
@@ -33,7 +33,7 @@ public class Usuario {
         this.numero = numero;
     }
 
-    public Usuario(int id, String email, String senha, String nome, String sexo, String foto, String rua, String cidade, String estado, String cep, String telefone, String numero) {
+    public Usuario(int id, String email, String senha, String nome, String sexo, byte[] foto, String rua, String cidade, String estado, String cep, String telefone, String numero) {
         this.id = id;
         this.email = email;
         this.senha = senha;
@@ -96,11 +96,11 @@ public class Usuario {
         this.sexo = sexo;
     }
 
-    public String getFoto() {
+    public byte[] getFoto() {
         return foto;
     }
 
-    public void setFoto(String foto) {
+    public void setFoto(byte[] foto) {
         this.foto = foto;
     }
 

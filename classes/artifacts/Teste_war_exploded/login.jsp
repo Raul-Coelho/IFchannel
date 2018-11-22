@@ -27,7 +27,7 @@
                         <td><input type="submit" name="logar" value="LOGAR"></td>
                     </tr>
                     <tr>
-                        <td><input type="submit" name="cadastrar" value="CADASTRAR"></td>
+                        <td><button><a href="cadastro.jsp" name="cadastrar">CADASTRAR</a></button></td>
                     </tr>
                 </table>
             </div>
