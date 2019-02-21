@@ -15,6 +15,7 @@ public class ConnectionFactory {
         String usuario = "postgres";
         String senha = "123";
 
+
         System.out.println(url);
         return DriverManager.getConnection(url, usuario, senha);
 
