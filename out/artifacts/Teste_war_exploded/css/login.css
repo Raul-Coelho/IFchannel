@@ -1,0 +1,93 @@
+
+@import url('https://fonts.googleapis.com/css?family=Allan');
+
+body{
+    /*background-image: url("../img/backgroud.jpg");*/
+}
+
+#titulo, label{
+    font-family: "Allan";
+}
+
+
+input{
+    width: 120%;
+    padding: 8px 18px;
+    margin: 8px 0;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-family: Allan;
+}
+
+
+input[type=text], select {
+    display: inline-block;
+    border: 1px solid #ccc;
+}
+
+input[type=password], select {
+    display: inline-block;
+    border: 1px solid #ccc;
+}
+
+
+input[type=submit] {
+    width: 120%;
+    background-color: #778899;
+    color: white;
+    padding: 8px 18px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: medium;
+}
+
+input[type=submit]:hover {
+    background-color: #2F4F4F;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+    font-family: Allan;
+    font-size: medium;
+}
+
+button{
+    width: 120%;
+    background-color: #778899;
+    color: white;
+    padding: 8px 18px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: medium;
+}
+
+button:hover{
+    background-color: #2F4F4F;
+}
+
+.divForm {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    width: 300px;
+    height: 320px;
+    margin-top: 100px;
+
+    -webkit-box-shadow: 9px 10px 35px -4px rgba(0,0,0,1);
+    -moz-box-shadow: 9px 10px 35px -4px rgba(0,0,0,1);
+    box-shadow: 9px 10px 35px -4px rgba(0,0,0,1);
+}
+
+.labelform{
+    margin-left: 20px;
+}
+
+.tablelogin{
+margin-left: -35px;
+    margin-top: -20px;
+}

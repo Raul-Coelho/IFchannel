@@ -7,11 +7,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6f56f880-0b28-4cdf-8c2b-71fc1b6327f8" name="Default" comment="">
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Teste.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Teste.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/classes/artifacts/Teste_war_exploded/WEB-INF/classes/com/ifpb/controller/command/SalvarUsuario.class" beforeDir="false" afterPath="$PROJECT_DIR$/classes/artifacts/Teste_war_exploded/WEB-INF/classes/com/ifpb/controller/command/SalvarUsuario.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ifpb/conexao/ConnectionFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ifpb/conexao/ConnectionFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/ifpb/controller/command/SalvarUsuario.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ifpb/controller/command/SalvarUsuario.class" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/Teste_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/Teste_war_exploded.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Teste.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ifpb/conexao/ConnectionFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ifpb/conexao/ConnectionFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ifpb/conexao/ConnectionFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ifpb/conexao/ConnectionFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ifpb/controller/FrontController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ifpb/controller/FrontController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ifpb/controller/command/SalvarUsuario.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ifpb/controller/command/SalvarUsuario.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ifpb/model/dao/UsuarioDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ifpb/model/dao/UsuarioDao.class" afterDir="false" />
+>>>>>>> bb949d689756ab6e8be3c68f320cef96e7fec86b
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,6 +32,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+<<<<<<< HEAD
   <component name="FUSProjectUsageTrigger">
     <session id="1664737396">
       <usages-collector id="statistics.lifecycle.project">
@@ -140,6 +153,15 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="68">
               <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+=======
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/ifpb/conexao/ConnectionFactory.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="13" column="57" lean-forward="true" selection-start-line="13" selection-start-column="57" selection-end-line="13" selection-end-column="57" />
+>>>>>>> bb949d689756ab6e8be3c68f320cef96e7fec86b
             </state>
           </provider>
         </entry>
@@ -170,17 +192,15 @@
         <option value="$PROJECT_DIR$/src/main/java/com/ifpb/view/App.java" />
         <option value="$PROJECT_DIR$/web/cadastro.jsp" />
         <option value="$PROJECT_DIR$/web/css/login.css" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/src/main/java/com/ifpb/controller/command/SalvarUsuario.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ifpb/conexao/ConnectionFactory.java" />
         <option value="$PROJECT_DIR$/web/home.jsp" />
+=======
+        <option value="$PROJECT_DIR$/src/main/java/com/ifpb/conexao/ConnectionFactory.java" />
+>>>>>>> bb949d689756ab6e8be3c68f320cef96e7fec86b
       </list>
     </option>
-  </component>
-  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsGulpfileManager">
-    <detection-done>true</detection-done>
-    <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
@@ -202,7 +222,11 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+<<<<<<< HEAD
       <pane id="AndroidView" />
+=======
+      <pane id="Scope" />
+>>>>>>> bb949d689756ab6e8be3c68f320cef96e7fec86b
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -245,6 +269,7 @@
               <item name="ifpb" type="462c0819:PsiDirectoryNode" />
               <item name="conexao" type="462c0819:PsiDirectoryNode" />
             </path>
+<<<<<<< HEAD
             <path>
               <item name="Teste" type="b2602c69:ProjectViewProjectNode" />
               <item name="IFchannel" type="462c0819:PsiDirectoryNode" />
@@ -307,18 +332,27 @@
               <item name="IFchannel" type="462c0819:PsiDirectoryNode" />
               <item name="web" type="462c0819:PsiDirectoryNode" />
             </path>
+=======
+>>>>>>> bb949d689756ab6e8be3c68f320cef96e7fec86b
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="PackagesPane" />
+<<<<<<< HEAD
       <pane id="Scope" />
+=======
+>>>>>>> bb949d689756ab6e8be3c68f320cef96e7fec86b
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+<<<<<<< HEAD
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550598586188" />
+=======
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545068682711" />
+>>>>>>> bb949d689756ab6e8be3c68f320cef96e7fec86b
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -352,7 +386,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="TestNG" factoryName="TestNG">
+    <configuration default="true" type="TestNG">
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
       <properties />
       <listeners />
@@ -373,11 +407,11 @@
       <server-settings>
         <option name="BASE_DIRECTORY_NAME" value="Unnamed_Teste_3" />
       </server-settings>
-      <predefined_log_file id="Tomcat" enabled="true" />
-      <predefined_log_file id="Tomcat Catalina" enabled="true" />
-      <predefined_log_file id="Tomcat Manager" enabled="false" />
-      <predefined_log_file id="Tomcat Host Manager" enabled="false" />
-      <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
       <RunnerSettings RunnerId="Debug">
         <option name="DEBUG_PORT" value="57940" />
       </RunnerSettings>
@@ -450,11 +484,16 @@
       <workItem from="1542713369167" duration="5651000" />
       <workItem from="1542730972852" duration="592000" />
       <workItem from="1542804573928" duration="296000" />
+<<<<<<< HEAD
       <workItem from="1542907478376" duration="3432000" />
       <workItem from="1550593777653" duration="1591000" />
       <workItem from="1550595623023" duration="1626000" />
       <workItem from="1550598495636" duration="670000" />
       <workItem from="1550774606017" duration="590000" />
+=======
+      <workItem from="1542907478376" duration="3367000" />
+      <workItem from="1545067833600" duration="691000" />
+>>>>>>> bb949d689756ab6e8be3c68f320cef96e7fec86b
     </task>
     <task id="LOCAL-00001" summary="Adicionando Tela de login">
       <created>1542718966420</created>
@@ -467,13 +506,21 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="20530000" />
+=======
+    <option name="totallyTimeSpent" value="16679000" />
+>>>>>>> bb949d689756ab6e8be3c68f320cef96e7fec86b
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
+    <frame x="0" y="25" width="1366" height="743" extended-state="6" />
     <editor active="true" />
     <layout>
+<<<<<<< HEAD
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2685325" />
+=======
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25757575" />
+>>>>>>> bb949d689756ab6e8be3c68f320cef96e7fec86b
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -481,9 +528,14 @@
       <window_info id="Favorites" order="5" side_tool="true" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="Web" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
+<<<<<<< HEAD
       <window_info anchor="bottom" id="Run" order="2" weight="0.41612902" />
+=======
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.41530946" />
+>>>>>>> bb949d689756ab6e8be3c68f320cef96e7fec86b
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -495,6 +547,7 @@
       <window_info anchor="bottom" id="Java Enterprise" order="11" />
       <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="13" />
+      <window_info anchor="right" id="Maven" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -508,9 +561,6 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
-  </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Adicionando Tela de login" />
@@ -528,6 +578,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/ifpb/model/entidades/Usuario.java">
+<<<<<<< HEAD
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="884">
           <caret line="102" column="30" selection-start-line="102" selection-start-column="30" selection-end-line="102" selection-end-column="30" />
@@ -542,6 +593,8 @@
       </provider>
     </entry>
     <entry file="jar://$USER_HOME$/Downloads/apache-tomcat-8.5.34/lib/servlet-api.jar!/javax/servlet/http/Part.class">
+=======
+>>>>>>> bb949d689756ab6e8be3c68f320cef96e7fec86b
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
@@ -555,6 +608,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="538">
@@ -563,12 +617,16 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/css/login.css">
+=======
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ifpb/model/dao/UsuarioDao.java">
+>>>>>>> bb949d689756ab6e8be3c68f320cef96e7fec86b
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="15" column="10" selection-start-line="15" selection-start-column="10" selection-end-line="15" selection-end-column="10" />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/web/cadastro.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="799">
@@ -580,11 +638,26 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="16" selection-start-line="16" selection-end-line="16" />
+=======
+    <entry file="jar://$USER_HOME$/Downloads/apache-tomcat-8.5.34/lib/servlet-api.jar!/javax/servlet/http/Part.class" />
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="810">
+          <caret line="54" column="10" selection-start-line="54" selection-start-column="10" selection-end-line="54" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/css/cadastro.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
+>>>>>>> bb949d689756ab6e8be3c68f320cef96e7fec86b
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/ifpb/model/dao/UsuarioDao.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="2584">
           <caret line="161" column="43" selection-start-line="161" selection-start-column="43" selection-end-line="161" selection-end-column="43" />
         </state>
@@ -601,6 +674,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="612">
           <caret line="45" column="80" selection-start-line="45" selection-start-column="80" selection-end-line="45" selection-end-column="80" />
+=======
+        <state relative-caret-position="675">
+          <caret line="54" selection-start-line="35" selection-start-column="23" selection-end-line="54" />
+>>>>>>> bb949d689756ab6e8be3c68f320cef96e7fec86b
         </state>
       </provider>
     </entry>
@@ -609,14 +686,23 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/ifpb/controller/FrontController.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="68">
           <caret line="13" column="23" selection-start-line="13" selection-start-column="23" selection-end-line="13" selection-end-column="23" />
+=======
+        <state relative-caret-position="75">
+          <caret line="14" column="10" selection-start-line="14" selection-start-column="10" selection-end-line="14" selection-end-column="10" />
+>>>>>>> bb949d689756ab6e8be3c68f320cef96e7fec86b
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/ifpb/controller/command/Command.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="68">
+=======
+        <state relative-caret-position="60">
+>>>>>>> bb949d689756ab6e8be3c68f320cef96e7fec86b
           <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
         </state>
       </provider>
@@ -625,6 +711,27 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="13" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ifpb/controller/servico/UsuarioService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="13" column="94" selection-start-line="13" selection-start-column="94" selection-end-line="13" selection-end-column="94" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/cadastro.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="20" column="61" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ifpb/conexao/ConnectionFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="13" column="57" lean-forward="true" selection-start-line="13" selection-start-column="57" selection-end-line="13" selection-end-column="57" />
         </state>
       </provider>
     </entry>
@@ -647,7 +754,7 @@
       </state>
       <state key="FacetStructureConfigurable.UI">
         <settings>
-          <last-edited>Web</last-edited>
+          <last-edited>No facets are configured</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -670,7 +777,7 @@
       </state>
       <state key="JdkListConfigurable.UI">
         <settings>
-          <last-edited>1.8</last-edited>
+          <last-edited>11</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
