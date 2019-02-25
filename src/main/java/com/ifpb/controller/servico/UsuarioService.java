@@ -17,4 +17,12 @@ public class UsuarioService {
 
         return dao.salvar(u);
     }
+
+    public boolean authenticate(String login){
+        try {
+            return (dao.searchByLogin(login) != null);
+        } catch (SQLException e) {
+            return false;
+        }
+    }
 }

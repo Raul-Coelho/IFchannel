@@ -110,7 +110,7 @@ public class UsuarioDao {
         }
     }
 
-    public List<Usuario> buscarByName(String nome) throws SQLException{
+    public List<Usuario> searchByName(String nome) throws SQLException{
         String sql = "SELECT * FROM usuario WHERE nome = ?";
         List<Usuario> usuarios = null;
 
@@ -177,6 +177,38 @@ public class UsuarioDao {
         }
     }
 
+    public Usuario searchByLogin(String login) throws SQLException {
+        String sql = "SELECT * FROM usuario WHERE id = ?";
+
+        try(Connection connection = factory.getConnection()){
+            PreparedStatement st = connection.prepareStatement(sql);
+
+            st.setString(1, login);
+            ResultSet resultado = st.executeQuery();
+
+            if(resultado.next()){
+                Usuario u = new Usuario(
+                        resultado.getString("id"),
+                        resultado.getString("email"),
+                        resultado.getString("senha"),
+                        resultado.getString("nome"),
+                        resultado.getBytes("foto"),
+                        resultado.getString("sexo"),
+                        resultado.getString("rua"),
+                        resultado.getString("cidade"),
+                        resultado.getString("estado"),
+                        resultado.getString("cep"),
+                        resultado.getString("telefone")
+                );
+                return u;
+            }
+            return null;
+        }catch (SQLException e){
+            return null;
+        } catch (ClassNotFoundException e) {
+            return null;
+        }
+    }
 
     public boolean deletar(String email) throws SQLException {
         String sql = "DELETE FROM usuario WHERE email = ?";
