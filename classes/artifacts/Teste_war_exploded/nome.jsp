@@ -20,7 +20,7 @@
     <h2>Olha isso!</h2>
 </c:forEach>
 
-<h1>Olá ${nome}</h1>
+<h1>Olá ${name}</h1>
 
 
 </body>

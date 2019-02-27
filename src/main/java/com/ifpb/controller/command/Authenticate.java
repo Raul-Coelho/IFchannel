@@ -1,7 +1,6 @@
 package com.ifpb.controller.command;
 
 import com.ifpb.controller.servico.UsuarioService;
-import com.ifpb.model.entidades.Usuario;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
