@@ -2,17 +2,17 @@
 
 CREATE TABLE usuario(
     id serial,
-    nome VARCHAR(50) NOT NULL,
+    name VARCHAR(50) NOT NULL,
     email VARCHAR(100) NOT NULL,
-    senha VARCHAR(50) NOT NULL,
-    sexo CHARACTER(1),
-    foto BYTEA,
-    rua VARCHAR(50),
-    numero VARCHAR(10),
-    cidade VARCHAR(50),
-    estado CHARACTER(2),
+    password VARCHAR(50) NOT NULL,
+    sex CHARACTER(1),
+    photo BYTEA,
+    street VARCHAR(50),
+    number VARCHAR(10),
+    city VARCHAR(50),
+    state CHARACTER(2),
     cep VARCHAR(15),
-    telefone VARCHAR(20),
+    phone VARCHAR(20),
     CONSTRAINT usuario_pkey PRIMARY KEY (id),
     CONSTRAINT usuario_email_key UNIQUE (email)
 )

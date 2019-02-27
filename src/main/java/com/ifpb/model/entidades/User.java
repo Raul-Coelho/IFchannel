@@ -1,59 +1,59 @@
 package com.ifpb.model.entidades;
 
-public class Usuario {
+public class User {
 
     private int id;
     private String email;
-    private String senha;
-    private String nome;
-    private String sexo;
-    private byte[] foto;
-    private String rua;
-    private String cidade;
-    private String estado;
+    private String password;
+    private String name;
+    private String sex;
+    private byte[] photo;
+    private String street;
+    private String city;
+    private String state;
     private String cep;
-    private String telefone;
-    private String numero;
+    private String phone;
+    private String number;
 
-    public Usuario() {
+    public User() {
     }
 
-    public Usuario(String email, String senha, String nome, String sexo, byte[] foto, String rua, String cidade,
-                   String estado, String cep, String telefone, String numero) {
+    public User(String email, String password, String name, String sex, byte[] photo, String street, String city,
+                String state, String cep, String phone, String number) {
         this.email = email;
-        this.senha = senha;
-        this.nome = nome;
-        this.sexo = sexo;
-        this.foto = foto;
-        this.rua = rua;
-        this.cidade = cidade;
-        this.estado = estado;
+        this.password = password;
+        this.name = name;
+        this.sex = sex;
+        this.photo = photo;
+        this.street = street;
+        this.city = city;
+        this.state = state;
         this.cep = cep;
-        this.telefone = telefone;
-        this.numero = numero;
+        this.phone = phone;
+        this.number = number;
     }
 
-    public Usuario(int id, String email, String senha, String nome, String sexo, byte[] foto, String rua, String cidade, String estado, String cep, String telefone, String numero) {
+    public User(int id, String email, String password, String name, String sex, byte[] photo, String street, String city, String state, String cep, String phone, String number) {
         this.id = id;
         this.email = email;
-        this.senha = senha;
-        this.nome = nome;
-        this.sexo = sexo;
-        this.foto = foto;
-        this.rua = rua;
-        this.cidade = cidade;
-        this.estado = estado;
+        this.password = password;
+        this.name = name;
+        this.sex = sex;
+        this.photo = photo;
+        this.street = street;
+        this.city = city;
+        this.state = state;
         this.cep = cep;
-        this.telefone = telefone;
-        this.numero = numero;
+        this.phone = phone;
+        this.number = number;
     }
 
-    public String getNumero() {
-        return numero;
+    public String getNumber() {
+        return number;
     }
 
-    public void setNumero(String numero) {
-        this.numero = numero;
+    public void setNumber(String number) {
+        this.number = number;
     }
 
     public int getId() {
@@ -72,60 +72,60 @@ public class Usuario {
         this.email = email;
     }
 
-    public String getSenha() {
-        return senha;
+    public String getPassword() {
+        return password;
     }
 
-    public void setSenha(String senha) {
-        this.senha = senha;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public String getNome() {
-        return nome;
+    public String getName() {
+        return name;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getSexo() {
-        return sexo;
+    public String getSex() {
+        return sex;
     }
 
-    public void setSexo(String sexo) {
-        this.sexo = sexo;
+    public void setSex(String sex) {
+        this.sex = sex;
     }
 
-    public byte[] getFoto() {
-        return foto;
+    public byte[] getPhoto() {
+        return photo;
     }
 
-    public void setFoto(byte[] foto) {
-        this.foto = foto;
+    public void setPhoto(byte[] photo) {
+        this.photo = photo;
     }
 
-    public String getRua() {
-        return rua;
+    public String getStreet() {
+        return street;
     }
 
-    public void setRua(String rua) {
-        this.rua = rua;
+    public void setStreet(String street) {
+        this.street = street;
     }
 
-    public String getCidade() {
-        return cidade;
+    public String getCity() {
+        return city;
     }
 
-    public void setCidade(String cidade) {
-        this.cidade = cidade;
+    public void setCity(String city) {
+        this.city = city;
     }
 
-    public String getEstado() {
-        return estado;
+    public String getState() {
+        return state;
     }
 
-    public void setEstado(String estado) {
-        this.estado = estado;
+    public void setState(String state) {
+        this.state = state;
     }
 
     public String getCep() {
@@ -136,28 +136,28 @@ public class Usuario {
         this.cep = cep;
     }
 
-    public String getTelefone() {
-        return telefone;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     @Override
     public String toString() {
-        return "Usuario{" +
+        return "User{" +
                 "id=" + id +
                 ", email='" + email + '\'' +
-                ", senha='" + senha + '\'' +
-                ", nome='" + nome + '\'' +
-                ", sexo=" + sexo +
-                ", foto='" + foto + '\'' +
-                ", rua='" + rua + '\'' +
-                ", cidade='" + cidade + '\'' +
-                ", estado='" + estado + '\'' +
+                ", password='" + password + '\'' +
+                ", name='" + name + '\'' +
+                ", sex=" + sex +
+                ", photo='" + photo + '\'' +
+                ", street='" + street + '\'' +
+                ", city='" + city + '\'' +
+                ", state='" + state + '\'' +
                 ", cep='" + cep + '\'' +
-                ", telefone='" + telefone + '\'' +
+                ", phone='" + phone + '\'' +
                 '}';
     }
 

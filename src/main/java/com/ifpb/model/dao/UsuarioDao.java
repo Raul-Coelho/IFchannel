@@ -1,7 +1,7 @@
 package com.ifpb.model.dao;
 
 import com.ifpb.conexao.ConnectionFactory;
-import com.ifpb.model.entidades.Usuario;
+import com.ifpb.model.entidades.User;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -17,24 +17,24 @@ public class UsuarioDao {
         factory = new ConnectionFactory();
     }
 
-    public boolean salvar(Usuario u) throws SQLException{
+    public boolean salvar(User u) throws SQLException{
         if(u.getId() == 0){
             String sql = "INSERT INTO usuario(nome, email, senha, sexo, rua, estado, cidade, numero, cep, foto, " +
                     "telefone) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
 
             try(Connection connection = factory.getConnection()){
                 PreparedStatement st = connection.prepareStatement(sql);
-                st.setString(1, u.getNome());
+                st.setString(1, u.getName());
                 st.setString(2, u.getEmail() );
-                st.setString(3, u.getSenha());
-                st.setString(4, u.getSexo());
-                st.setString(5, u.getRua());
-                st.setString(6, u.getEstado());
-                st.setString(7, u.getCidade());
-                st.setString(8, u.getNumero());
+                st.setString(3, u.getPassword());
+                st.setString(4, u.getSex());
+                st.setString(5, u.getStreet());
+                st.setString(6, u.getState());
+                st.setString(7, u.getCity());
+                st.setString(8, u.getNumber());
                 st.setString(9, u.getCep());
-                st.setBytes(10, u.getFoto());
-                st.setString(11, u.getTelefone());
+                st.setBytes(10, u.getPhoto());
+                st.setString(11, u.getPhone());
 
                 return st.executeUpdate() > 0;
 
@@ -51,16 +51,16 @@ public class UsuarioDao {
                     "telefone) = (?,?,?,?,?,?,?,?,?,?) WHERE id = ?";
             try(Connection connection = factory.getConnection()){
                 PreparedStatement st = connection.prepareStatement(sql);
-                st.setString(1, u.getNome());
-                st.setString(2, u.getSenha());
-                st.setString(3, u.getSexo());
-                st.setString(4, u.getRua());
-                st.setString(5, u.getEstado());
-                st.setString(6, u.getCidade());
-                st.setString(7, u.getNumero());
+                st.setString(1, u.getName());
+                st.setString(2, u.getPassword());
+                st.setString(3, u.getSex());
+                st.setString(4, u.getStreet());
+                st.setString(5, u.getState());
+                st.setString(6, u.getCity());
+                st.setString(7, u.getNumber());
                 st.setString(8, u.getCep());
-                st.setBytes(9, u.getFoto());
-                st.setString(10, u.getTelefone());
+                st.setBytes(9, u.getPhoto());
+                st.setString(10, u.getPhone());
 
                 st.setInt(11, u.getId());
 
@@ -77,7 +77,7 @@ public class UsuarioDao {
     }
 
 
-    public Usuario buscarById(int id) throws SQLException {
+    public User buscarById(int id) throws SQLException {
         String sql = "SELECT * FROM usuario WHERE id = ?";
 
         try(Connection connection = factory.getConnection()){
@@ -87,7 +87,7 @@ public class UsuarioDao {
             ResultSet resultado = st.executeQuery();
 
             if(resultado.next()){
-                Usuario u = new Usuario(
+                User u = new User(
                         resultado.getString("id"),
                         resultado.getString("email"),
                         resultado.getString("senha"),
@@ -110,9 +110,9 @@ public class UsuarioDao {
         }
     }
 
-    public List<Usuario> searchByName(String nome) throws SQLException{
+    public List<User> searchByName(String nome) throws SQLException{
         String sql = "SELECT * FROM usuario WHERE nome = ?";
-        List<Usuario> usuarios = null;
+        List<User> users = null;
 
         try(Connection connection = factory.getConnection()){
             PreparedStatement st = connection.prepareStatement(sql);
@@ -121,7 +121,7 @@ public class UsuarioDao {
             ResultSet resultado = st.executeQuery();
 
             while(resultado.next()){
-                Usuario u = new Usuario(
+                User u = new User(
                         resultado.getString("id"),
                         resultado.getString("email"),
                         resultado.getString("senha"),
@@ -134,9 +134,9 @@ public class UsuarioDao {
                         resultado.getString("cep"),
                         resultado.getString("telefone")
                 );
-                usuarios.add(u);
+                users.add(u);
             }
-            return usuarios;
+            return users;
         }catch (SQLException e){
             return null;
         } catch (ClassNotFoundException e) {
@@ -144,9 +144,9 @@ public class UsuarioDao {
         }
     }
 
-    public List<Usuario> listar() throws SQLException{
+    public List<User> listar() throws SQLException{
         String sql = "SELECT * FROM usuario";
-        List<Usuario> usuarios = null;
+        List<User> users = null;
 
         try(Connection connection = factory.getConnection()){
             PreparedStatement st = connection.prepareStatement(sql);
@@ -154,7 +154,7 @@ public class UsuarioDao {
             ResultSet resultado = st.executeQuery();
 
             while(resultado.next()){
-                Usuario u = new Usuario(
+                User u = new User(
                         resultado.getString("id"),
                         resultado.getString("email"),
                         resultado.getString("senha"),
@@ -167,9 +167,9 @@ public class UsuarioDao {
                         resultado.getString("cep"),
                         resultado.getString("telefone")
                 );
-                usuarios.add(u);
+                users.add(u);
             }
-            return usuarios;
+            return users;
         }catch (SQLException e){
             return null;
         } catch (ClassNotFoundException e) {
@@ -177,7 +177,7 @@ public class UsuarioDao {
         }
     }
 
-    public Usuario searchByLogin(String login) throws SQLException {
+    public User searchByLogin(String login) throws SQLException {
         String sql = "SELECT * FROM usuario WHERE id = ?";
 
         try(Connection connection = factory.getConnection()){
@@ -187,7 +187,7 @@ public class UsuarioDao {
             ResultSet resultado = st.executeQuery();
 
             if(resultado.next()){
-                Usuario u = new Usuario(
+                User u = new User(
                         resultado.getString("id"),
                         resultado.getString("email"),
                         resultado.getString("senha"),
@@ -224,5 +224,13 @@ public class UsuarioDao {
             return false;
         }
     }
+
+//    public boolean authenticate(String email, String password){
+//        String sql = "SELECT * FROM usuario WHERE email = ?";
+//
+//        try(ConnectionFactory connection = factory.getConnection()){
+//            PreparedStatement st = connection.Pre
+//        }
+//    }
 
 }
