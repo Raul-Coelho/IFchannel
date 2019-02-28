@@ -4,6 +4,7 @@ public class User {
 
     private int id;
     private String email;
+    private String matriculation;
     private String password;
     private String name;
     private String sex;
@@ -18,9 +19,10 @@ public class User {
     public User() {
     }
 
-    public User(String email, String password, String name, String sex, byte[] photo, String street, String city,
+    public User(String email, String matriculation, String password, String name, String sex, byte[] photo, String street, String city,
                 String state, String cep, String phone, String number) {
         this.email = email;
+        this.matriculation = matriculation;
         this.password = password;
         this.name = name;
         this.sex = sex;
@@ -33,9 +35,10 @@ public class User {
         this.number = number;
     }
 
-    public User(int id, String email, String password, String name, String sex, byte[] photo, String street, String city, String state, String cep, String phone, String number) {
+    public User(int id, String email, String matriculation, String password, String name, String sex, byte[] photo, String street, String city, String state, String cep, String phone, String number) {
         this.id = id;
         this.email = email;
+        this.matriculation = matriculation;
         this.password = password;
         this.name = name;
         this.sex = sex;
@@ -46,6 +49,22 @@ public class User {
         this.cep = cep;
         this.phone = phone;
         this.number = number;
+    }
+
+    public String getMatriculation() {
+        return matriculation;
+    }
+
+    public void setMatriculation(String matriculation) {
+        this.matriculation = matriculation;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getNumber() {
@@ -70,14 +89,6 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getSenha() {
-        return password;
-    }
-
-    public void setSenha(String senha) {
-        this.password = senha;
     }
 
     public String getName() {

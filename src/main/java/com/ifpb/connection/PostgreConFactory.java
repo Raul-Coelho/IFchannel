@@ -1,4 +1,4 @@
-package com.ifpb.conexao;
+package com.ifpb.connection;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

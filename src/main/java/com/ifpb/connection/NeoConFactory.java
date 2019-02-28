@@ -1,4 +1,4 @@
-package com.ifpb.conexao;
+package com.ifpb.connection;
 
 import org.neo4j.driver.v1.AuthTokens;
 import org.neo4j.driver.v1.Driver;

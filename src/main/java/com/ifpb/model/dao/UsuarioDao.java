@@ -1,6 +1,6 @@
 package com.ifpb.model.dao;
 
-import com.ifpb.conexao.PostgreConFactory;
+import com.ifpb.connection.PostgreConFactory;
 import com.ifpb.model.entidades.User;
 
 import java.sql.Connection;
@@ -13,20 +13,21 @@ public class UsuarioDao {
 
     private PostgreConFactory factory;
 
-    public UsuarioDao(){
+    public UsuarioDao() {
         factory = new PostgreConFactory();
     }
 
-    public boolean salvar(User u) throws SQLException{
-        if(u.getId() == 0){
-            String sql = "INSERT INTO usuario(nome, email, senha, sexo, rua, estado, cidade, numero, cep, foto, " +
-                    "telefone) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+    public boolean save(User u) throws SQLException {
+        if (u.getId() == 0) {
+            String sql = "INSERT INTO usuario(name, matriculation, email, password, gender, street, state, city, number," +
+                    " cep, photo, phone) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
 
-            try(Connection connection = factory.getConnection()){
+            try (Connection connection = factory.getConnection()) {
                 PreparedStatement st = connection.prepareStatement(sql);
                 st.setString(1, u.getName());
-                st.setString(2, u.getEmail() );
-                st.setString(3, u.getSenha());
+                st.setString(2, u.getMatriculation());
+                st.setString(2, u.getEmail());
+                st.setString(3, u.getPassword());
                 st.setString(4, u.getSex());
                 st.setString(5, u.getStreet());
                 st.setString(6, u.getState());
@@ -45,14 +46,14 @@ public class UsuarioDao {
                 System.out.println(e);
                 return false;
             }
-        }else{
+        } else {
 
             String sql = "UPDATE usuario set (nome, senha, sexo, rua, estado, cidade, numero, cep, foto, " +
                     "telefone) = (?,?,?,?,?,?,?,?,?,?) WHERE id = ?";
-            try(Connection connection = factory.getConnection()){
+            try (Connection connection = factory.getConnection()) {
                 PreparedStatement st = connection.prepareStatement(sql);
                 st.setString(1, u.getName());
-                st.setString(2, u.getSenha());
+                st.setString(2, u.getPassword());
                 st.setString(3, u.getSex());
                 st.setString(4, u.getStreet());
                 st.setString(5, u.getState());
@@ -66,7 +67,7 @@ public class UsuarioDao {
 
                 return st.executeUpdate() > 0;
 
-            }catch (SQLException e){
+            } catch (SQLException e) {
                 System.out.println(e);
                 return false;
             } catch (ClassNotFoundException e) {
@@ -77,100 +78,103 @@ public class UsuarioDao {
     }
 
 
-    public User buscarById(int id) throws SQLException {
+    public User searchById(int id) throws SQLException {
         String sql = "SELECT * FROM usuario WHERE id = ?";
 
-        try(Connection connection = factory.getConnection()){
+        try (Connection connection = factory.getConnection()) {
             PreparedStatement st = connection.prepareStatement(sql);
 
             st.setInt(1, id);
-            ResultSet resultado = st.executeQuery();
+            ResultSet result = st.executeQuery();
 
-            if(resultado.next()){
+            if (result.next()) {
                 User u = new User(
-                        resultado.getString("id"),
-                        resultado.getString("email"),
-                        resultado.getString("senha"),
-                        resultado.getString("nome"),
-                        resultado.getBytes("foto"),
-                        resultado.getString("sexo"),
-                        resultado.getString("rua"),
-                        resultado.getString("cidade"),
-                        resultado.getString("estado"),
-                        resultado.getString("cep"),
-                        resultado.getString("telefone")
+                        result.getString("id"),
+                        result.getString("email"),
+                        result.getString("matriculation"),
+                        result.getString("password"),
+                        result.getString("name"),
+                        result.getBytes("photo"),
+                        result.getString("gender"),
+                        result.getString("street"),
+                        result.getString("city"),
+                        result.getString("state"),
+                        result.getString("cep"),
+                        result.getString("phone")
                 );
                 return u;
             }
             return null;
-        }catch (SQLException e){
+        } catch (SQLException e) {
             return null;
         } catch (ClassNotFoundException e) {
             return null;
         }
     }
 
-    public List<User> searchByName(String nome) throws SQLException{
+    public List<User> searchByName(String nome) throws SQLException {
         String sql = "SELECT * FROM usuario WHERE nome = ?";
         List<User> users = null;
 
-        try(Connection connection = factory.getConnection()){
+        try (Connection connection = factory.getConnection()) {
             PreparedStatement st = connection.prepareStatement(sql);
 
             st.setString(1, nome);
-            ResultSet resultado = st.executeQuery();
+            ResultSet result = st.executeQuery();
 
-            while(resultado.next()){
+            while (result.next()) {
                 User u = new User(
-                        resultado.getString("id"),
-                        resultado.getString("email"),
-                        resultado.getString("senha"),
-                        resultado.getString("nome"),
-                        resultado.getBytes("foto"),
-                        resultado.getString("sexo"),
-                        resultado.getString("rua"),
-                        resultado.getString("cidade"),
-                        resultado.getString("estado"),
-                        resultado.getString("cep"),
-                        resultado.getString("telefone")
+                        result.getString("id"),
+                        result.getString("email"),
+                        result.getString("matriculation"),
+                        result.getString("password"),
+                        result.getString("name"),
+                        result.getBytes("photo"),
+                        result.getString("gender"),
+                        result.getString("street"),
+                        result.getString("city"),
+                        result.getString("state"),
+                        result.getString("cep"),
+                        result.getString("phone")
                 );
                 users.add(u);
             }
             return users;
-        }catch (SQLException e){
+        } catch (SQLException e) {
             return null;
         } catch (ClassNotFoundException e) {
             return null;
         }
     }
 
-    public List<User> listar() throws SQLException{
+    public List<User> listar() throws SQLException {
         String sql = "SELECT * FROM usuario";
         List<User> users = null;
 
-        try(Connection connection = factory.getConnection()){
+        try (Connection connection = factory.getConnection()) {
             PreparedStatement st = connection.prepareStatement(sql);
 
-            ResultSet resultado = st.executeQuery();
+            ResultSet result = st.executeQuery();
 
-            while(resultado.next()){
+            while (result.next()) {
                 User u = new User(
-                        resultado.getString("id"),
-                        resultado.getString("email"),
-                        resultado.getString("senha"),
-                        resultado.getString("nome"),
-                        resultado.getBytes("foto"),
-                        resultado.getString("sexo"),
-                        resultado.getString("rua"),
-                        resultado.getString("cidade"),
-                        resultado.getString("estado"),
-                        resultado.getString("cep"),
-                        resultado.getString("telefone")
+                        result.getString("id"),
+                        result.getString("email"),
+                        result.getString("matriculation"),
+                        result.getString("password"),
+                        result.getString("name"),
+                        result.getBytes("photo"),
+                        result.getString("gender"),
+                        result.getString("street"),
+                        result.getString("city"),
+                        result.getString("state"),
+                        result.getString("cep"),
+                        result.getString("phone")
                 );
                 users.add(u);
             }
             return users;
-        }catch (SQLException e){
+        } catch (SQLException e) {
             return null;
         } catch (ClassNotFoundException e) {
             return null;
@@ -180,37 +184,38 @@ public class UsuarioDao {
     public User searchByLogin(String login) throws SQLException {
         String sql = "SELECT * FROM usuario WHERE id = ?";
 
-        try(Connection connection = factory.getConnection()){
+        try (Connection connection = factory.getConnection()) {
             PreparedStatement st = connection.prepareStatement(sql);
 
             st.setString(1, login);
-            ResultSet resultado = st.executeQuery();
+            ResultSet result = st.executeQuery();
 
-            if(resultado.next()){
+            if (result.next()) {
                 User u = new User(
-                        resultado.getString("id"),
-                        resultado.getString("email"),
-                        resultado.getString("senha"),
-                        resultado.getString("nome"),
-                        resultado.getBytes("foto"),
-                        resultado.getString("sexo"),
-                        resultado.getString("rua"),
-                        resultado.getString("cidade"),
-                        resultado.getString("estado"),
-                        resultado.getString("cep"),
-                        resultado.getString("telefone")
+                        result.getString("id"),
+                        result.getString("email"),
+                        result.getString("matriculation"),
+                        result.getString("password"),
+                        result.getString("name"),
+                        result.getBytes("photo"),
+                        result.getString("gender"),
+                        result.getString("street"),
+                        result.getString("city"),
+                        result.getString("state"),
+                        result.getString("cep"),
+                        result.getString("phone")
                 );
                 return u;
             }
             return null;
-        }catch (SQLException e){
+        } catch (SQLException e) {
             return null;
         } catch (ClassNotFoundException e) {
             return null;
         }
     }
 
-    public boolean deletar(String email) throws SQLException {
+    public boolean delete(String email) throws SQLException {
         String sql = "DELETE FROM usuario WHERE email = ?";
 
         try (Connection connection = factory.getConnection()) {
@@ -225,4 +230,37 @@ public class UsuarioDao {
         }
     }
 
+    public boolean authentic(String matriculation, String password) {
+        String sql = "SELECT * FROM usuario WHERER matriculation = ?";
+
+        try (Connection connection = factory.getConnection()) {
+            PreparedStatement st = connection.prepareStatement(sql);
+            ResultSet result = st.executeQuery();
+
+            User u = new User();
+
+            if (result.next()) {
+                 u = new User(
+                        result.getString("id"),
+                        result.getString("email"),
+                        result.getString("matriculation"),
+                        result.getString("password"),
+                        result.getString("name"),
+                        result.getBytes("photo"),
+                        result.getString("gender"),
+                        result.getString("street"),
+                        result.getString("city"),
+                        result.getString("state"),
+                        result.getString("cep"),
+                        result.getString("phone")
+                );
+            }
+            return (u != null);
+
+        } catch (SQLException e) {
+            return false;
+        } catch (ClassNotFoundException e) {
+            return false;
+        }
+    }
 }

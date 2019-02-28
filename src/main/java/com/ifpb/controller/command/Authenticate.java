@@ -14,11 +14,12 @@ public class Authenticate  implements Command{
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException, ClassNotFoundException {
         HttpSession session = request.getSession();
 
-        String login = request.getParameter("login");
+        String matriculation = request.getParameter("matriculation");
 
         UsuarioService service = new UsuarioService();
 
-        if(service.authenticate(login)){
+        if(service.authenticate(matriculation)){
+            
 
         }
     }
