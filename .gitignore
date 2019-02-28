@@ -9,7 +9,10 @@
 
 # .idea #
 #########
+.idea/*
 .idea/workspace.xml
+.idea/artefacts/*
+.idea/web/*
 
 # Packages #
 # ###########
