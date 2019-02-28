@@ -1,0 +1,41 @@
+# Compiled source #
+# ##################
+* .com
+* .class
+* .dll
+* .exe
+* .o
+* .so
+
+# .idea #
+#########
+*.idea
+
+# Packages #
+# ###########
+# é melhor descompactar esses arquivos e confirmar a origem bruta
+# git tem seus próprios métodos de compactação
+* .7z
+* .dmg
+* .gz
+* .iso
+* .jar
+* .rar
+* .tar
+* .zip
+
+# Logs e bancos de dados #
+# #####################
+* .log
+* .sql
+* .sqlite
+
+# Arquivos gerados pelo SO #
+# #####################
+.DS_Store
+.DS_Store ?
+._ *
+.Spotlight-V100
+.Traças
+ehthumbs.db
+Thumbs.db
