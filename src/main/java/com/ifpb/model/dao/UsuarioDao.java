@@ -1,6 +1,6 @@
 package com.ifpb.model.dao;
 
-import com.ifpb.conexao.ConnectionFactory;
+import com.ifpb.conexao.PostgreConFactory;
 import com.ifpb.model.entidades.User;
 
 import java.sql.Connection;
@@ -11,10 +11,10 @@ import java.util.List;
 
 public class UsuarioDao {
 
-    private ConnectionFactory factory;
+    private PostgreConFactory factory;
 
     public UsuarioDao(){
-        factory = new ConnectionFactory();
+        factory = new PostgreConFactory();
     }
 
     public boolean salvar(User u) throws SQLException{

@@ -22,7 +22,7 @@
                 <table>
                     <tr>
                         <td><label class="labelform">Nome </label></td>
-                        <td><input name="nome" type="text" > <br></td>
+                        <td><input name="name" type="text" > <br></td>
                     </tr>
                     <tr>
                         <td><label class="labelform">Email </label></td>
@@ -30,30 +30,30 @@
                     </tr>
                     <tr>
                         <td><label class="labelform">Senha </label></td>
-                        <td><input name="senha" type="password"> <br></td>
+                        <td><input name="password" type="password"> <br></td>
                     </tr>
                     <tr>
                         <td><label class="labelform">Sexo </label></td>
                         <td>
-                            <input type="radio" value="M" name="sexo" class="inputRadio" checked><label>M</label>
-                            <input type="radio" value="F" name="sexo" class="inputRadio"><label>F</label>
+                            <input type="radio" value="M" name="sex" class="inputRadio" checked><label>M</label>
+                            <input type="radio" value="F" name="sex" class="inputRadio"><label>F</label>
                         </td>
                     </tr>
                     <tr>
                         <td><label class="labelform">Rua </label></td>
-                        <td><input name="rua" type="text"> <br></td>
+                        <td><input name="street" type="text"> <br></td>
                     </tr>
                     <tr>
                         <td><label class="labelform">Numero </label></td>
-                        <td><input name="numero" type="text"> <br></td>
+                        <td><input name="number" type="text"> <br></td>
                     </tr>
                     <tr>
                         <td><label class="labelform">Cidade </label></td>
-                        <td><input name="cidade" type="text"> <br></td>
+                        <td><input name="city" type="text"> <br></td>
                     </tr>
                     <tr>
                         <td><label class="labelform">Estado </label></td>
-                        <td><input name="estado" type="text"> <br></td>
+                        <td><input name="state" type="text"> <br></td>
                     </tr>
                     <tr>
                         <td><label class="labelform">Cep </label></td>
@@ -61,11 +61,11 @@
                     </tr>
                     <tr>
                         <td><label class="labelform">Telefone </label></td>
-                        <td><input name="telefone" type="text"> <br></td>
+                        <td><input name="phone" type="text"> <br></td>
                     </tr>
                     <tr>
                         <td><label class="labelform">Foto </label></td>
-                        <td><input name="foto" type="file"> <br></td>
+                        <td><input name="photo" type="file"> <br></td>
                     </tr>
                     <tr>
                         <td><input type="submit" value="CADASTRAR" name="action"></td>

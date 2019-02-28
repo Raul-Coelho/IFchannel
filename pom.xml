@@ -49,6 +49,18 @@
             <scope>provided</scope>
         </dependency>
 
+        <dependency>
+            <groupId>org.neo4j.driver</groupId>
+            <artifactId>neo4j-java-driver</artifactId>
+            <version>1.7.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mongodb</groupId>
+            <artifactId>mongo-java-driver</artifactId>
+            <version>3.9.1</version>
+        </dependency>
+
 
     </dependencies>
 

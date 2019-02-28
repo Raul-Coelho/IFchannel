@@ -1,0 +1,19 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="Teste:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/Teste_war_exploded</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="Teste" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: org.postgresql:postgresql:9.4.1212" />
+          <element id="library" level="project" name="Maven: jstl:jstl:1.2" />
+          <element id="library" level="project" name="Maven: org.neo4j.driver:neo4j-java-driver:1.7.2" />
+          <element id="library" level="project" name="Maven: org.mongodb:mongo-java-driver:3.9.1" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="Teste/web/Web" />
+    </root>
+  </artifact>
+</component>
