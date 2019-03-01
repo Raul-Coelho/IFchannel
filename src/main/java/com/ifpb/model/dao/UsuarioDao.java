@@ -48,8 +48,8 @@ public class UsuarioDao {
             }
         } else {
 
-            String sql = "UPDATE usuario set (nome, senha, sexo, rua, estado, cidade, numero, cep, foto, " +
-                    "telefone) = (?,?,?,?,?,?,?,?,?,?) WHERE id = ?";
+            String sql = "UPDATE usuario set (name, password, gender, street, state, city, number, cep, photo, " +
+                    "phone, privilege) = (?,?,?,?,?,?,?,?,?,?,?) WHERE id = ?";
             try (Connection connection = factory.getConnection()) {
                 PreparedStatement st = connection.prepareStatement(sql);
                 st.setString(1, u.getName());
@@ -62,6 +62,7 @@ public class UsuarioDao {
                 st.setString(8, u.getCep());
                 st.setBytes(9, u.getPhoto());
                 st.setString(10, u.getPhone());
+                st.setString(11, u.getPrivilege());
 
                 st.setInt(11, u.getId());
 
@@ -90,6 +91,7 @@ public class UsuarioDao {
             if (result.next()) {
                 User u = new User(
                         result.getString("id"),
+                        result.getString("privilege"),
                         result.getString("email"),
                         result.getString("matriculation"),
                         result.getString("password"),
@@ -125,6 +127,7 @@ public class UsuarioDao {
             while (result.next()) {
                 User u = new User(
                         result.getString("id"),
+                        result.getString("privilege"),
                         result.getString("email"),
                         result.getString("matriculation"),
                         result.getString("password"),
@@ -159,6 +162,7 @@ public class UsuarioDao {
             while (result.next()) {
                 User u = new User(
                         result.getString("id"),
+                        result.getString("privilege"),
                         result.getString("email"),
                         result.getString("matriculation"),
                         result.getString("password"),
@@ -193,6 +197,7 @@ public class UsuarioDao {
             if (result.next()) {
                 User u = new User(
                         result.getString("id"),
+                        result.getString("privilege"),
                         result.getString("email"),
                         result.getString("matriculation"),
                         result.getString("password"),
@@ -242,6 +247,7 @@ public class UsuarioDao {
             if (result.next()) {
                  u = new User(
                         result.getString("id"),
+                        result.getString("privilege"),
                         result.getString("email"),
                         result.getString("matriculation"),
                         result.getString("password"),

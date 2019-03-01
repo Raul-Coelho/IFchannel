@@ -3,6 +3,7 @@ package com.ifpb.model.entidades;
 public class User {
 
     private int id;
+    private String privilege;
     private String email;
     private String matriculation;
     private String password;
@@ -19,8 +20,9 @@ public class User {
     public User() {
     }
 
-    public User(String email, String matriculation, String password, String name, String sex, byte[] photo, String street, String city,
+    public User(String privilege, String email, String matriculation, String password, String name, String sex, byte[] photo, String street, String city,
                 String state, String cep, String phone, String number) {
+        this.privilege = privilege;
         this.email = email;
         this.matriculation = matriculation;
         this.password = password;
@@ -35,8 +37,9 @@ public class User {
         this.number = number;
     }
 
-    public User(int id, String email, String matriculation, String password, String name, String sex, byte[] photo, String street, String city, String state, String cep, String phone, String number) {
+    public User(int id, String privilege, String email, String matriculation, String password, String name, String sex, byte[] photo, String street, String city, String state, String cep, String phone, String number) {
         this.id = id;
+        this.privilege = privilege;
         this.email = email;
         this.matriculation = matriculation;
         this.password = password;
@@ -49,6 +52,14 @@ public class User {
         this.cep = cep;
         this.phone = phone;
         this.number = number;
+    }
+
+    public String getPrivilege() {
+        return privilege;
+    }
+
+    public void setPrivilege(String privilege) {
+        this.privilege = privilege;
     }
 
     public String getMatriculation() {

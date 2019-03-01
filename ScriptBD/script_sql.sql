@@ -14,6 +14,7 @@ CREATE TABLE usuario(
     state CHARACTER(2),
     cep VARCHAR(15),
     phone VARCHAR(20),
+    privilege VARCHAR(25),
     CONSTRAINT usuario_pkey PRIMARY KEY (id),
     CONSTRAINT usuario_matriculation_pkey UNIQUE(matriculation),
     CONSTRAINT usuario_email_key UNIQUE (email)
