@@ -39,12 +39,12 @@ public class SalvarUsuario implements Command {
 
         UsuarioService service = new UsuarioService();
 
-        if(service.salvar(id, email, senha, nome, sexo, foto, rua, cidade, estado, cep, telefone, numero)){
-            response.setStatus(200);
-        }else{
-            response.setStatus(400);
-            response.setHeader("ERROR", "Não foi possivel cadastrar o usuário");
-        }
+//        if(service.salvar(id, email, senha, nome, sexo, foto, rua, cidade, estado, cep, telefone, numero)){
+//            response.setStatus(200);
+//        }else{
+//            response.setStatus(400);
+//            response.setHeader("ERROR", "Não foi possivel cadastrar o usuário");
+//        }
 
         request.getRequestDispatcher("index.html").forward(request, response);
 //        RequestDispatcher requestDispatcher = request.getRequestDispatcher("nome.jsp");
