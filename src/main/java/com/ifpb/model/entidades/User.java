@@ -15,13 +15,13 @@ public class User {
     private String state;
     private String cep;
     private String phone;
-    private int number;
+    private String number;
 
     public User() {
     }
 
     public User(String privilege, String email, String matriculation, String password, String name, String sex, byte[] photo, String street, String city,
-                String state, String cep, String phone, int number) {
+                String state, String cep, String phone, String number) {
         this.privilege = privilege;
         this.email = email;
         this.matriculation = matriculation;
@@ -37,7 +37,7 @@ public class User {
         this.number = number;
     }
 
-    public User(int id, String privilege, String email, String matriculation, String password, String name, String sex, byte[] photo, String street, String city, String state, String cep, String phone, int number) {
+    public User(int id, String privilege, String email, String matriculation, String password, String name, String sex, byte[] photo, String street, String city, String state, String cep, String phone, String number) {
         this.id = id;
         this.privilege = privilege;
         this.email = email;
@@ -78,11 +78,11 @@ public class User {
         this.password = password;
     }
 
-    public int getNumber() {
+    public String getNumber() {
         return number;
     }
 
-    public void setNumber(int number) {
+    public void setNumber(String number) {
         this.number = number;
     }
 

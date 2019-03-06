@@ -12,7 +12,7 @@ public class UsuarioService {
     }
 
     public boolean salvar(int id, String privilege, String email, String matriculation, String password, String name, String sex, byte[] photo, String street,
-                          String city, String state, String cep, String phone, int number) throws SQLException {
+                          String city, String state, String cep, String phone, String number) throws SQLException {
         User u = new User(id, privilege, email, matriculation, password, name, sex, photo, street, city, state, cep, phone, number);
 
         return dao.save(u);
