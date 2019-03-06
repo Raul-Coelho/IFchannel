@@ -11,11 +11,11 @@ public class UsuarioService {
     public UsuarioService() throws SQLException, ClassNotFoundException {
     }
 
-    public boolean salvar(int id, String email, String senha, String nome, String sexo, byte[] foto, String rua,
-                          String cidade, String estado, String cep, String telefone, String numero) throws SQLException {
-        User u = new User(id, email, senha, nome, sexo, foto, rua, cidade, estado, cep, telefone, numero);
+    public boolean salvar(int id, String privilege, String email, String matriculation, String password, String name, String sex, byte[] photo, String street,
+                          String city, String state, String cep, String phone, int number) throws SQLException {
+        User u = new User(id, privilege, email, matriculation, password, name, sex, photo, street, city, state, cep, phone, number);
 
-        return dao.salvar(u);
+        return dao.save(u);
     }
 
     public boolean authenticate(String login){
