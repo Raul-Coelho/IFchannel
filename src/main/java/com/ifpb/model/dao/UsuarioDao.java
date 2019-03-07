@@ -20,22 +20,23 @@ public class UsuarioDao {
     public boolean save(User u) throws SQLException {
         if (u.getId() == 0) {
             String sql = "INSERT INTO usuario(name, matriculation, email, password, gender, street, state, city, number," +
-                    " cep, photo, phone) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
+                    " cep, photo, phone, privilege) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
             try (Connection connection = factory.getConnection()) {
                 PreparedStatement st = connection.prepareStatement(sql);
                 st.setString(1, u.getName());
                 st.setString(2, u.getMatriculation());
-                st.setString(2, u.getEmail());
-                st.setString(3, u.getPassword());
-                st.setString(4, u.getSex());
-                st.setString(5, u.getStreet());
-                st.setString(6, u.getState());
-                st.setString(7, u.getCity());
-                st.setString(8, u.getNumber());
-                st.setString(9, u.getCep());
-                st.setBytes(10, u.getPhoto());
-                st.setString(11, u.getPhone());
+                st.setString(3, u.getEmail());
+                st.setString(4, u.getPassword());
+                st.setString(5, u.getSex());
+                st.setString(6, u.getStreet());
+                st.setString(7, u.getState());
+                st.setString(8, u.getCity());
+                st.setString(9, u.getNumber());
+                st.setString(10, u.getCep());
+                st.setBytes(11, u.getPhoto());
+                st.setString(12, u.getPhone());
+                st.setString(13, u.getPrivilege());
 
                 return st.executeUpdate() > 0;
 
