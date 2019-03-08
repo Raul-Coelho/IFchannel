@@ -6,9 +6,10 @@
     <!--NAVBAR-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="css/homepage.css">
+    <script rel="script" src="js/video.js"></script>
 
 </head>
-<body>
+<body onload="playerVideo()" >
 <nav class="navbar navbar-light bg-light justify-content-between">
     <a class="navbar-brand">IFPB Channel</a>
     <form class="form-inline">
@@ -19,11 +20,6 @@
         <button class="btn btn-outline-success mr-sm-3 my-2 my-sm-0" type="submit">Sing Up</button>
     </form>
 </nav>
-    <!--<video class="video" controls muted>-->
-        <!--<source src="https://www.youtube.com/watch?v=MnjE-MVPMfA"/>-->
-    <!--</video>-->
-    <div>
-        <iframe class="video" src="https://www.youtube.com/embed/qN3OueBm9F4"></iframe>
-    </div>
+    <div id="player"></div>
 </body>
 </html>
