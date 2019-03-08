@@ -59,23 +59,6 @@
                 <li class="list-group-item">Information</li>
             </ul>
         </div>
-        <!--PROFILE PROFESSOR-->
-        <%--<div class="card mr-2" style="width: 16rem; left: 82%; margin-top: -690px">--%>
-            <%--<img class="card-img-top" src="images/user.jpg" alt="Card image cap">--%>
-            <%--<div class="card-body">--%>
-                <%--<h5 class="card-title">User Name</h5>--%>
-                <%--<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>--%>
-            <%--</div>--%>
-            <%--<ul class="list-group list-group-flush">--%>
-                <%--<li class="list-group-item">Matriculation</li>--%>
-                <%--<li class="list-group-item">Information</li>--%>
-                <%--<li class="list-group-item">Information</li>--%>
-            <%--</ul>--%>
-            <%--<div class="card-body">--%>
-                <%--<a href="#" class="card-link">Email</a>--%>
-                <%--<a href="#" class="card-link">Other Link</a>--%>
-            <%--</div>--%>
-        <%--</div>--%>
     </div>
 </div>
 <br>
