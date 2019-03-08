@@ -42,6 +42,7 @@ public class SalvarUsuario implements Command {
 
 //             String fotoPerfil = "data:image/jpeg;base64," + Base64.getEncoder().encodeToString(foto);
 
+
         UserService service = new UserService();
 
         if(service.save(id, privilege, email, matriculation, senha, nome, sexo, foto, rua, cidade, estado, cep, telefone, numero)){

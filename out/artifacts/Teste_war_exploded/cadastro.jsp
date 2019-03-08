@@ -25,6 +25,10 @@
                         <td><input name="name" type="text" > <br></td>
                     </tr>
                     <tr>
+                        <td><label class="labelform">Matricula </label></td>
+                        <td><input name="matriculation" type="text" > <br></td>
+                    </tr>
+                    <tr>
                         <td><label class="labelform">Email </label></td>
                         <td><input name="email" type="text"><br></td>
                     </tr>
