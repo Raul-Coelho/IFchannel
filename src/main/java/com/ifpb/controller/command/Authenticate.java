@@ -1,6 +1,6 @@
 package com.ifpb.controller.command;
 
-import com.ifpb.controller.servico.UsuarioService;
+import com.ifpb.controller.servico.UserService;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -16,7 +16,7 @@ public class Authenticate  implements Command{
 
         String matriculation = request.getParameter("matriculation");
 
-        UsuarioService service = new UsuarioService();
+        UserService service = new UserService();
 
         if(service.authenticate(matriculation)){
             

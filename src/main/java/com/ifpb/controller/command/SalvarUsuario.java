@@ -1,6 +1,6 @@
 package com.ifpb.controller.command;
 
-import com.ifpb.controller.servico.UsuarioService;
+import com.ifpb.controller.servico.UserService;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -10,7 +10,6 @@ import javax.servlet.http.Part;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.SQLException;
-import java.util.Base64;
 
 public class SalvarUsuario implements Command {
     @Override
@@ -43,9 +42,9 @@ public class SalvarUsuario implements Command {
 
 //             String fotoPerfil = "data:image/jpeg;base64," + Base64.getEncoder().encodeToString(foto);
 
-        UsuarioService service = new UsuarioService();
+        UserService service = new UserService();
 
-        if(service.salvar(id, privilege, email, matriculation, senha, nome, sexo, foto, rua, cidade, estado, cep, telefone, numero)){
+        if(service.save(id, privilege, email, matriculation, senha, nome, sexo, foto, rua, cidade, estado, cep, telefone, numero)){
             response.setStatus(200);
         }else{
             response.setStatus(400);
