@@ -6,9 +6,48 @@
     <!--NAVBAR-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="css/homepage.css">
+    <script rel="script" src="js/video.js"></script>
+    <script>
+        var tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+        var player;
+
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('player', {
+                height: '360',
+                width: '640',
+                videoId: 'M7lc1UVf-VE',
+                events: {
+                    'onReady': onPlayerReady,
+                    'onStateChange': onPlayerStateChange
+                }
+            });
+        }
+
+        function onPlayerReady(event) {
+            event.target.playVideo();
+        }
+
+        var done = false;
+
+        function onPlayerStateChange(event) {
+            if (event.data == YT.PlayerState.PLAYING && !done) {
+                setTimeout(stopVideo, 6000);
+                done = true;
+            }
+        }
+
+        function stopVideo() {
+            player.stopVideo();
+        }
+    </script>
 
 </head>
-<body>
+<body >
 <nav class="navbar navbar-light bg-light justify-content-between">
     <a class="navbar-brand">IFPB Channel</a>
     <form class="form-inline">
@@ -19,11 +58,7 @@
         <button class="btn btn-outline-success mr-sm-3 my-2 my-sm-0" type="submit">Sing Up</button>
     </form>
 </nav>
-    <!--<video class="video" controls muted>-->
-        <!--<source src="https://www.youtube.com/watch?v=MnjE-MVPMfA"/>-->
-    <!--</video>-->
-    <div class="">
-        <iframe class="video" src="https://www.youtube.com/embed/qN3OueBm9F4"></iframe>
-    </div>
+    <div id="player" class="video"></div>
+    <br>
 </body>
 </html>

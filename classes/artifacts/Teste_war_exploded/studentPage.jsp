@@ -10,7 +10,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>User</title>
+    <title>Student</title>
     <link rel="stylesheet" href="/css/userPage.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="css/homepage.css">
@@ -48,25 +48,16 @@
             </div>
         </div>
         <!--VIDEO-->
-        <div class="">
+        <div class="card my-3 mr-2 my-2" style="width: 40rem; height: auto; left: 50px">
             <iframe class="video-userpage" src="https://www.youtube.com/embed/qN3OueBm9F4"></iframe>
-        </div>
-        <!--PROFILE PROFESSOR-->
-        <div class="card my-3 mr-2 my-2" style="width: 16rem; right: -130px;">
-            <img class="card-img-top" src="images/user.jpg" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">User Name</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            </div>
+            <br>
+            <hr>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item">Matriculation</li>
+                <h2 class="btn btn-outline-success">Materials</h2>
+                <li class="list-group-item">Content</li>
                 <li class="list-group-item">Information</li>
                 <li class="list-group-item">Information</li>
             </ul>
-            <div class="card-body">
-                <a href="#" class="card-link">Email</a>
-                <a href="#" class="card-link">Other Link</a>
-            </div>
         </div>
     </div>
 </div>
