@@ -18,11 +18,11 @@ public class UserService {
         return dao.save(u);
     }
 
-    public boolean authenticate(String login){
-        try {
-            return (dao.searchByLogin(login) != null);
-        } catch (SQLException e) {
-            return false;
-        }
+    public boolean authenticate(String login, String password){
+        return dao.authentic(login, password);
+    }
+
+    public User searchByLogin(String email) throws SQLException {
+        return dao.searchByLogin(email);
     }
 }
