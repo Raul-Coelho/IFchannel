@@ -1,4 +1,5 @@
-<%--
+<%@ page import="com.ifpb.model.entidades.User" %>
+<%@ page import="com.ifpb.controller.servico.UserService" %><%--
   Created by IntelliJ IDEA.
   User: raul
   Date: 10/03/19
@@ -14,6 +15,14 @@
     <link rel="stylesheet" href="css/homepage.css">
 </head>
 <body>
+
+<%
+    User u = (User) session.getAttribute("user");
+
+    UserService service = new UserService();
+%>
+
+
 <!--NAVBAR-->
 <nav class="navbar navbar-light bg-light justify-content-between">
     <a class="navbar-brand">IFPB Channel</a>
@@ -31,7 +40,7 @@
         <div class="card my-3 mr-2 my-2" style="width: 16rem; left: -40px;">
             <img class="card-img-top" src="images/user.jpg" alt="Card image cap">
             <div class="card-body">
-                <h5 class="card-title">User Name</h5>
+                <h5 class="card-title">${sessionScope.user.name}</h5>
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
             </div>
             <ul class="list-group list-group-flush">
@@ -52,6 +61,9 @@
                 <li class="list-group-item">Information</li>
             </ul>
         </div>
+    </div>
+</div>
+
 
 </body>
 </html>

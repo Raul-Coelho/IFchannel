@@ -34,7 +34,7 @@
         <div class="card my-3 mr-2 my-2" style="width: 16rem; left: -40px;">
             <img class="card-img-top" src="images/user.jpg" alt="Card image cap">
             <div class="card-body">
-                <h5 class="card-title">User Name</h5>
+                <h5 class="card-title">${sessionScope.user.name}</h5>
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
             </div>
             <ul class="list-group list-group-flush">

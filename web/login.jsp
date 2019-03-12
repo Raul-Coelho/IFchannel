@@ -1,4 +1,4 @@
-<%--
+<%@ page import="com.ifpb.model.entidades.User" %><%--
   Created by IntelliJ IDEA.
   User: Raul Coelho
   Date: 20/11/2018
@@ -31,6 +31,17 @@
 </head>
 <body>
 
+<%
+    User u = (User) session.getAttribute("user");
+
+    if(u != null){
+        if(u.getPrivilege() == "aluno"){
+            response.sendRedirect("studentPage.jsp");
+        }else{
+            response.sendRedirect("professorPage.jsp");
+        }
+    }
+%>
 <div class="limiter">
     <div class="container-login100">
         <div class="wrap-login100">
@@ -38,7 +49,7 @@
                 <img src="images/img-01.png" alt="IMG">
             </div>
 
-            <form class="login100-form validate-form">
+            <form method="post" action="/controller?action=Authenticate" class="login100-form validate-form">
 					<span class="login100-form-title">
 						IFPB Channel
 					</span>
@@ -52,7 +63,7 @@
                 </div>
                 <!--passoword-->
                 <div class="wrap-input100 validate-input" data-validate = "Password is required">
-                    <input class="input100" type="password" name="pass" placeholder="Password">
+                    <input class="input100" type="password" name="password" placeholder="Password">
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
 							<i class="fa fa-lock" aria-hidden="true"></i>

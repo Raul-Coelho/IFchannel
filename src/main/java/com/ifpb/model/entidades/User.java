@@ -1,5 +1,7 @@
 package com.ifpb.model.entidades;
 
+import java.util.Arrays;
+
 public class User {
 
     private int id;
@@ -170,17 +172,19 @@ public class User {
     public String toString() {
         return "User{" +
                 "id=" + id +
+                ", privilege='" + privilege + '\'' +
                 ", email='" + email + '\'' +
+                ", matriculation='" + matriculation + '\'' +
                 ", password='" + password + '\'' +
                 ", name='" + name + '\'' +
-                ", sex=" + sex +
-                ", photo='" + photo + '\'' +
+                ", sex='" + sex + '\'' +
+                ", photo=" + Arrays.toString(photo) +
                 ", street='" + street + '\'' +
                 ", city='" + city + '\'' +
                 ", state='" + state + '\'' +
                 ", cep='" + cep + '\'' +
                 ", phone='" + phone + '\'' +
+                ", number='" + number + '\'' +
                 '}';
     }
-
 }

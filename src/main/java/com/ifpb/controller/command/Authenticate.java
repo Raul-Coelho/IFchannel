@@ -15,22 +15,36 @@ import java.sql.SQLException;
 public class Authenticate extends HttpServlet implements Command{
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException, ClassNotFoundException {
+
         HttpSession session = request.getSession();
 
-        User user = new User();
+        UserService service = new UserService();
 
-        String matriculation = request.getParameter("matriculation");
+//        String matriculation = request.getParameter("matriculation");
 
-        UserService service = (UserService) session.getAttribute("user");
+        User user = (User) session.getAttribute("user");
+
+        User login = service.searchByLogin(request.getParameter("email"));
 
         if(user != null){
-            response.sendRedirect("index.jsp?sucess=1");
-        }else if (service.authenticate(request.getParameter("email"), request.getParameter("password"))){
-            User actualUser = service.searchByLogin(user.getEmail());
-            session.setAttribute("user", actualUser);
+            if(user.getPrivilege() == "professor"){
+                response.sendRedirect("professorPage.jsp?sucess=1");
+            }else{
+                response.sendRedirect("studentPage.jsp?sucess=1");
+            }
+        }else if (service.authenticate(login.getEmail(), login.getPassword())){
+            session.setAttribute("user", login);
 
-            RequestDispatcher dispatcher =request.getRequestDispatcher("index.jsp?value=1");
-            dispatcher.forward(request, response);
+            if(login.getPrivilege().equals("aluno")){
+                RequestDispatcher dispatcher = request.getRequestDispatcher("studentPage.jsp?value=1");
+                dispatcher.forward(request, response);
+            }else{
+                RequestDispatcher dispatcher = request.getRequestDispatcher("professorPage.jsp?value=1");
+                dispatcher.forward(request, response);
+            }
+
+
+
         }else{
             response.sendRedirect("login.jsp?value=1");
         }

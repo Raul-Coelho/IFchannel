@@ -187,7 +187,7 @@ public class UsuarioDao {
     }
 
     public User searchByLogin(String login) throws SQLException {
-        String sql = "SELECT * FROM usuario WHERE id = ?";
+        String sql = "SELECT * FROM usuario WHERE email = ?";
 
         try (Connection connection = factory.getConnection()) {
             PreparedStatement st = connection.prepareStatement(sql);
@@ -197,12 +197,13 @@ public class UsuarioDao {
 
             if (result.next()) {
                 User u = new User(
-                        result.getString("id"),
+                        result.getInt("id"),
                         result.getString("privilege"),
                         result.getString("email"),
                         result.getString("matriculation"),
                         result.getString("password"),
                         result.getString("name"),
+                        result.getString("gender"),
                         result.getBytes("photo"),
                         result.getString("gender"),
                         result.getString("street"),
@@ -236,23 +237,26 @@ public class UsuarioDao {
         }
     }
 
-    public boolean authentic(String matriculation, String password) {
-        String sql = "SELECT * FROM usuario WHERER matriculation = ?";
+    public boolean authentic(String email, String password) {
+        String sql = "SELECT * FROM usuario WHERE email = ? AND password = ?";
 
         try (Connection connection = factory.getConnection()) {
             PreparedStatement st = connection.prepareStatement(sql);
+            st.setString(1, email);
+            st.setString(2, password);
             ResultSet result = st.executeQuery();
 
             User u = new User();
 
             if (result.next()) {
                  u = new User(
-                        result.getString("id"),
+                        result.getInt("id"),
                         result.getString("privilege"),
                         result.getString("email"),
                         result.getString("matriculation"),
                         result.getString("password"),
                         result.getString("name"),
+                        result.getString("gender"),
                         result.getBytes("photo"),
                         result.getString("gender"),
                         result.getString("street"),
