@@ -20,6 +20,14 @@
     User u = (User) session.getAttribute("user");
 
     UserService service = new UserService();
+
+    if(u == null){
+        response.sendRedirect("login.jsp");
+    }else if(u.getPrivilege().equals("aluno")){
+        response.sendRedirect("studentPage.jsp");
+    }
+
+
 %>
 
 
@@ -30,7 +38,7 @@
         <input class="form-control mr-sm-2 w-full" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
-    <form action="index.html">
+    <form method="post"  action="/controller?action=Logout">
         <button class="btn btn-outline-success mr-sm-3 my-2 my-sm-0" type="submit">Log out</button>
     </form>
 </nav>
@@ -44,7 +52,7 @@
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
             </div>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item">Matriculation</li>
+                <li class="list-group-item">${sessionScope.user.matriculation}n</li>
                 <li class="list-group-item">Information</li>
                 <li class="list-group-item">Information</li>
             </ul>

@@ -1,4 +1,5 @@
-<%--
+<%@ page import="com.ifpb.model.entidades.User" %>
+<%@ page import="com.ifpb.controller.servico.UserService" %><%--
   Created by IntelliJ IDEA.
   User: raul
   Date: 07/03/19
@@ -17,6 +18,17 @@
 
 </head>
 <body>
+<%
+    User u = (User) session.getAttribute("user");
+
+    UserService service = new UserService();
+
+    if(u == null){
+        response.sendRedirect("login.jsp");
+    }else if(u.getPrivilege().equals("professor")){
+        response.sendRedirect("professorPage.jsp");
+    }
+%>
 <!--NAVBAR-->
 <nav class="navbar navbar-light bg-light justify-content-between">
     <a class="navbar-brand">IFPB Channel</a>
@@ -24,7 +36,7 @@
         <input class="form-control mr-sm-2 w-full" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
-    <form action="index.html">
+    <form method="post"  action="/controller?action=Logout">
         <button class="btn btn-outline-success mr-sm-3 my-2 my-sm-0" type="submit">Log out</button>
     </form>
 </nav>
