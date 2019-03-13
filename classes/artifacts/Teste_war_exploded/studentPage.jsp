@@ -60,17 +60,51 @@
             </div>
         </div>
         <!--VIDEO-->
-        <div class="card my-3 mr-2 my-2" style="width: 40rem; height: auto; left: 50px">
-            <iframe class="video-userpage" src="https://www.youtube.com/embed/qN3OueBm9F4"></iframe>
-            <br>
-            <hr>
-            <ul class="list-group list-group-flush">
-                <h2 class="btn btn-outline-success">Materials</h2>
-                <li class="list-group-item">Content</li>
-                <li class="list-group-item">Information</li>
-                <li class="list-group-item">Information</li>
-            </ul>
-        </div>
+        <table style="margin-left: 28%;">
+            <tr class="card my-5 div-video">
+                <td>
+                    <div style="height: 850px">
+                        <video controls  src="video/developer.mp4"></video>
+                        <table>
+                            <tr>
+                                <hr>
+                                <td>
+                                    <p><h3>TITLE</h3></p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p><label>Nome do Professor</label></p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p><label>Disciplina</label></p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p>Descrição</p>
+                                    <textarea name="descricao" style="width: 300px; height: 100px" readonly></textarea>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <form action="" method="post">
+                                        <font face="arial" size="4" color="#0057AE"><b>Comente:</b></font>
+                                        <br>
+                                        <textarea name="comentarios" id="comentarios" style="width: 300px"></textarea>
+                                        <br>
+                                        <input class="form-control mr-sm-2 btn btn-outline-success" action="oi.html" type="submit" value="Comentar">
+                                    </form>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </td>
+            </tr>
+
+        </table>
     </div>
 </div>
 <br>

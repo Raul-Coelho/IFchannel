@@ -6,46 +6,6 @@
     <!--NAVBAR-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="css/homepage.css">
-    <script rel="script" src="js/video.js"></script>
-    <script>
-        var tag = document.createElement('script');
-        tag.src = "https://www.youtube.com/iframe_api";
-
-        var firstScriptTag = document.getElementsByTagName('script')[0];
-        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-        var player;
-
-        function onYouTubeIframeAPIReady() {
-            player = new YT.Player('player', {
-                height: '360',
-                width: '640',
-                videoId: 'M7lc1UVf-VE',
-                events: {
-                    'onReady': onPlayerReady,
-                    'onStateChange': onPlayerStateChange
-                }
-            });
-        }
-
-        function onPlayerReady(event) {
-            event.target.playVideo();
-        }
-
-        var done = false;
-
-        function onPlayerStateChange(event) {
-            if (event.data == YT.PlayerState.PLAYING && !done) {
-                setTimeout(stopVideo, 6000);
-                done = true;
-            }
-        }
-
-        function stopVideo() {
-            player.stopVideo();
-        }
-    </script>
-
 </head>
 <body >
 <nav class="navbar navbar-light bg-light justify-content-between">
@@ -58,7 +18,50 @@
         <button class="btn btn-outline-success mr-sm-3 my-2 my-sm-0" type="submit">Sing Up</button>
     </form>
 </nav>
-    <div id="player" class="video"></div>
-    <br>
+<table style="margin-left: 28%;">
+    <tr class="card my-5 div-video">
+        <td>
+            <div style="height: 250%">
+                <video controls  src="video/developer.mp4"></video>
+                <table>
+                    <tr>
+                        <hr>
+                        <td>
+                            <p><h3>TITLE</h3></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p><label>Nome do Professor</label></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p><label>Disciplina</label></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                           <p>Descrição</p>
+                            <textarea name="descricao" style="width: 300px; height: 100px" readonly></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <form action="" method="post">
+                                <font face="arial" size="4" color="#0057AE"><b>Comente:</b></font>
+                                <br>
+                                <textarea name="comentarios" id="comentarios" style="width: 300px"></textarea>
+                                <br>
+                                <input class="form-control mr-sm-2 btn btn-outline-success" action="oi.html" type="submit" value="Comentar">
+                            </form>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </td>
+    </tr>
+
+</table>
 </body>
 </html>

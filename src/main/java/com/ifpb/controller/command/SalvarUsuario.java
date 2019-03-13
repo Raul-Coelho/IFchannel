@@ -52,7 +52,7 @@ public class SalvarUsuario implements Command {
             response.setHeader("ERROR", "Não foi possivel cadastrar o usuário");
         }
 
-        request.getRequestDispatcher("index.html").forward(request, response);
+        request.getRequestDispatcher("login.jsp").forward(request, response);
 //        RequestDispatcher requestDispatcher = request.getRequestDispatcher("nome.jsp");
 //        requestDispatcher.forward(request, response);
 
