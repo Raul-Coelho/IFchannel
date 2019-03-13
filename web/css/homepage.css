@@ -31,6 +31,12 @@ body{
 
 .video{
     margin-left: 30%;
-    margin-top: 10%;
+    margin-top: 25%;
+}
+
+
+.div-video{
+    width: 600px;
+    height: 400px;
 }
 
