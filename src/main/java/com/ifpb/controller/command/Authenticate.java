@@ -24,7 +24,6 @@ public class Authenticate extends HttpServlet implements Command{
 
         User user = (User) session.getAttribute("user");
 
-        User login = service.searchByLogin(request.getParameter("email"));
 
         if(user != null){
             if(user.getPrivilege() == "professor"){
@@ -32,7 +31,9 @@ public class Authenticate extends HttpServlet implements Command{
             }else{
                 response.sendRedirect("studentPage.jsp?sucess=1");
             }
-        }else if (service.authenticate(login.getEmail(), login.getPassword())){
+        }else if (service.authenticate(request.getParameter("email"), request.getParameter("password"))){
+            User login = service.searchByLogin(request.getParameter("email"));
+
             session.setAttribute("user", login);
 
             if(login.getPrivilege().equals("aluno")){

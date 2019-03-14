@@ -56,11 +56,9 @@
             </div>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">${sessionScope.user.matriculation}</li>
-                <li class="list-group-item">Information</li>
-                <li class="list-group-item">Information</li>
             </ul>
             <div class="card-body">
-                <a href="#" class="card-link">Email</a>
+                <a href="#" class="card-link">${sessionScope.user.email}</a>
                 <a href="#" class="card-link">Other Link</a>
             </div>
         </div>

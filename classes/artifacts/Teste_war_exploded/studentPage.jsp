@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="/css/userPage.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="css/homepage.css">
+    <link rel="stylesheet" href="css/font.css">
 
 </head>
 <body>
@@ -43,27 +44,28 @@
 <!--PROFILE STUDENT-->
 <div class="container">
     <div class="row profile">
-        <div class="card my-3 mr-2 my-2" style="width: 16rem; left: -40px;">
+        <div class="card my-3 mr-2 my-2" style="width: 16rem;height: 40rem;left: -40px;">
             <img class="card-img-top" src="images/user.jpg" alt="Card image cap">
             <div class="card-body">
                 <h5 class="card-title">${sessionScope.user.name}</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <p>Student of Analysis and Development Systems of IFPB-Cajazeiras .</p>
             </div>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item">Matriculation</li>
-                <li class="list-group-item">Information</li>
+                <li class="list-group-item">${sessionScope.user.matriculation}</li>
+                <li class="list-group-item">${sessionScope.user.email}</li>
                 <li class="list-group-item">Information</li>
             </ul>
             <div class="card-body">
-                <a href="#" class="card-link">Email</a>
+                <a href="https://mail.google.com/mail/u/0/#inbox" class="card-link">Email</a>
                 <a href="#" class="card-link">Other Link</a>
             </div>
+
         </div>
         <!--VIDEO-->
-        <table style="margin-left: 28%;">
-            <tr class="card my-5 div-video">
+        <table style="margin-left: 10%; margin-top: 15px">
+            <tr class="card div-video">
                 <td>
-                    <div style="height: 850px">
+                    <div style="height: 250%">
                         <video controls  src="video/developer.mp4"></video>
                         <table>
                             <tr>
@@ -90,8 +92,14 @@
                             </tr>
                             <tr>
                                 <td>
+                                    <p>Avalie</p>
+                                    <input type="range" min="0" max="5">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
                                     <form action="" method="post">
-                                        <font face="arial" size="4" color="#0057AE"><b>Comente:</b></font>
+                                        <font face="Poppins-Regular" size="4" color="#0057AE"><b>Comente:</b></font>
                                         <br>
                                         <textarea name="comentarios" id="comentarios" style="width: 300px"></textarea>
                                         <br>

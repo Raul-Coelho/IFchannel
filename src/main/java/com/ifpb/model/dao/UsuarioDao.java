@@ -238,12 +238,11 @@ public class UsuarioDao {
     }
 
     public boolean authentic(String email, String password) {
-        String sql = "SELECT * FROM usuario WHERE email = ? AND password = ?";
+        String sql = "SELECT * FROM usuario WHERE email = ?";
 
         try (Connection connection = factory.getConnection()) {
             PreparedStatement st = connection.prepareStatement(sql);
             st.setString(1, email);
-            st.setString(2, password);
             ResultSet result = st.executeQuery();
 
             User u = new User();
@@ -266,11 +265,13 @@ public class UsuarioDao {
                         result.getString("phone")
                 );
             }
-            return (u != null);
+            return (u != null && u.getPassword().equals(password));
 
         } catch (SQLException e) {
             return false;
         } catch (ClassNotFoundException e) {
+            return false;
+        }catch (NullPointerException e){
             return false;
         }
     }
