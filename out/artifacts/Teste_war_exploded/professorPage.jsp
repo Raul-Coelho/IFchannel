@@ -64,7 +64,11 @@
             </div>
         </div>
         <div class="card my-3 mr-2 my-2" style="width: 40rem; height: auto; left: 50px">
-           <table class="my-5" style="margin-left: 100px" >
+           <table style="margin-left: 100px; margin-top: 100px">
+               <tr>
+                   <h2 style="color: #1e7e34; margin-left: 240px" class="my-5">Materials</h2>
+                   <hr width="50%" style="margin-left: 150px">
+               </tr>
                <tr>
                    <td>
                        <form action="login.jsp">
