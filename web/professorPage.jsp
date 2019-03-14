@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="css/homepage.css">
     <link rel="stylesheet" href="css/font.css">
+    <link rel="stylesheet" href="css/btn-size.css">
 </head>
 <body>
 
@@ -63,28 +64,28 @@
             </div>
         </div>
         <div class="card my-3 mr-2 my-2" style="width: 40rem; height: auto; left: 50px">
-           <table>
+           <table class="my-5" style="margin-left: 100px" >
                <tr>
                    <td>
                        <form action="login.jsp">
-                           <button class="btn btn-outline-success" type="button">REGISTER</button>
+                           <button class="btn btn-outline-success btn-size" type="button">REGISTER</button>
                        </form>
                    </td>
                    <td>
                        <form action="login.jsp">
-                           <button class="btn btn-outline-success" type="button">REMOVE</button>
+                           <button class="btn btn-outline-success btn-size" type="button">REMOVE</button>
                        </form>
                    </td>
                </tr>
                <tr>
                    <td>
                        <form action="login.jsp">
-                           <button class="btn btn-outline-success" type="button">LISTING</button>
+                           <button class="btn btn-outline-success btn-size" type="button">LIST</button>
                        </form>
                    </td>
                    <td>
                        <form action="login.jsp">
-                           <button class="btn btn-outline-success" type="button">UPDATE</button>
+                           <button class="btn btn-outline-success btn-size" type="button">UPDATE</button>
                        </form>
                    </td>
                </tr>
