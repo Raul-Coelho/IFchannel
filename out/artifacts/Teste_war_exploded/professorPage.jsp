@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="/css/userPage.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="css/homepage.css">
+    <link rel="stylesheet" href="css/font.css">
 </head>
 <body>
 
@@ -52,7 +53,7 @@
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
             </div>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item">${sessionScope.user.matriculation}n</li>
+                <li class="list-group-item">${sessionScope.user.matriculation}</li>
                 <li class="list-group-item">Information</li>
                 <li class="list-group-item">Information</li>
             </ul>
@@ -62,12 +63,32 @@
             </div>
         </div>
         <div class="card my-3 mr-2 my-2" style="width: 40rem; height: auto; left: 50px">
-            <ul class="list-group list-group-flush">
-                <h2 class="btn btn-outline-success">Materials</h2>
-                <li class="list-group-item"><input type="file"></li>
-                <li class="list-group-item">Information</li>
-                <li class="list-group-item">Information</li>
-            </ul>
+           <table>
+               <tr>
+                   <td>
+                       <form action="login.jsp">
+                           <button class="btn btn-outline-success" type="button">REGISTER</button>
+                       </form>
+                   </td>
+                   <td>
+                       <form action="login.jsp">
+                           <button class="btn btn-outline-success" type="button">REMOVE</button>
+                       </form>
+                   </td>
+               </tr>
+               <tr>
+                   <td>
+                       <form action="login.jsp">
+                           <button class="btn btn-outline-success" type="button">LISTING</button>
+                       </form>
+                   </td>
+                   <td>
+                       <form action="login.jsp">
+                           <button class="btn btn-outline-success" type="button">UPDATE</button>
+                       </form>
+                   </td>
+               </tr>
+           </table>
         </div>
     </div>
 </div>
