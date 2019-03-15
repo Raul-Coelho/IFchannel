@@ -64,28 +64,31 @@
                </tr>
                <tr>
                    <td>
-                       <form action="login.jsp">
-                           <button class="btn btn-primary btn-outline-success btn-size" type="button" data-toggle="modal" data-target="#modalExemplo">REGISTER</button>
+                       <form method="post" action="#">
+                           <button class="btn btn-primary btn-outline-success btn-size" type="button" data-toggle="modal" data-target="#modalRegister">REGISTER</button>
                            <!-- MODAL REGISTER -->
                             <jsp:include page="pages/modalregister.jsp"/>
 
                        </form>
                    </td>
                    <td>
-                       <form action="login.jsp">
-                           <button class="btn btn-outline-success btn-size" type="button">REMOVE</button>
+                       <form method="post" action="#">
+                           <button class="btn btn-primary btn-outline-success btn-size" type="button" data-toggle="modal" data-target="#modalRemove">REMOVE</button>
+                           <jsp:include page="pages/modalRemove.jsp"/>
                        </form>
                    </td>
                </tr>
                <tr>
                    <td>
-                       <form action="login.jsp">
-                           <button class="btn btn-outline-success btn-size" type="button">LIST</button>
+                       <form method="post" action="#">
+                           <button class="btn btn-primary btn-outline-success btn-size" type="button" data-toggle="modal" data-target="#modalList">LIST</button>
+                           <jsp:include page="pages/modalList.jsp"/>
                        </form>
                    </td>
                    <td>
-                       <form action="login.jsp">
-                           <button class="btn btn-outline-success btn-size" type="button">UPDATE</button>
+                       <form method="post" action="#">
+                           <button class="btn btn-primary btn-outline-success btn-size" type="button" data-toggle="modal" data-target="#modalUpdate">UPDATE</button>
+                           <jsp:include page="pages/modalUpdate.jsp"/>
                        </form>
                    </td>
                </tr>
