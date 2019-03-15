@@ -34,18 +34,11 @@
 
 
 %>
-<!--NAVBAR-->
-<nav class="navbar navbar-light bg-light justify-content-between">
-    <a class="navbar-brand">IFPB Channel</a>
-    <form class="form-inline">
-        <input class="form-control mr-sm-2 w-full" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
-    <form method="post"  action="/controller?action=Logout">
-        <button class="btn btn-outline-success mr-sm-3 my-2 my-sm-0" type="submit">Log out</button>
-    </form>
-</nav>
-<!--PROFILE STUDENT-->
+<%--NAVBAR--%>
+<jsp:include page="pages/navbar.jsp"/>
+
+
+<!--PROFILE PROFESSOR-->
 <div class="container">
     <div class="row profile">
         <div class="card my-3 mr-2 my-2" style="width: 16rem; left: -40px;">
@@ -56,11 +49,10 @@
             </div>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">${sessionScope.user.matriculation}</li>
-                <li class="list-group-item">Information</li>
-                <li class="list-group-item">Information</li>
+                <li class="list-group-item"><a href="https://mail.google.com/mail/u/0/#inbox?compose=new">${sessionScope.user.email}</a></li>
             </ul>
             <div class="card-body">
-                <a href="#" class="card-link">Email</a>
+                <a href="https://mail.google.com/mail/u/0/#inbox" class="card-link">Email</a>
                 <a href="#" class="card-link">Other Link</a>
             </div>
         </div>
@@ -74,47 +66,8 @@
                    <td>
                        <form action="login.jsp">
                            <button class="btn btn-primary btn-outline-success btn-size" type="button" data-toggle="modal" data-target="#modalExemplo">REGISTER</button>
-                           <!-- MODAL -->
-                           <div class="modal fade" id="modalExemplo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                               <div class="modal-dialog" role="document">
-                                   <div class="modal-content">
-                                       <div class="modal-header">
-                                           <h6 class="modal-title" id="exampleModalLabel">Sign up for a new lesson</h6>
-                                           <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-                                               <span aria-hidden="true">&times;</span>
-                                           </button>
-                                       </div>
-                                       <div class="modal-body">
-                                           <form>
-                                               <div class="form-group">
-                                                   <label for="recipient-title" class="col-form-label">Title:</label>
-                                                   <input type="text" name="title" class="form-control" id="recipient-title">
-                                               </div>
-                                               <div class="form-group">
-                                                   <label for="recipient-name" class="col-form-label">Your Name:</label>
-                                                   <input type="text" name="name" class="form-control" id="recipient-name">
-                                               </div>
-                                               <div class="form-group">
-                                                   <label for="recipient-discipline" class="col-form-label">Discipline:</label>
-                                                   <input type="text" name="discipline" class="form-control" id="recipient-discipline">
-                                               </div>
-                                               <div class="form-group">
-                                                   <label for="recipient-description" class="col-form-label">Description:</label>
-                                                   <input type="text" name="description" class="form-control" id="recipient-description">
-                                               </div>
-                                               <div class="form-group">
-                                                   <label for="recipient-file" class="col-form-label">Video:</label>
-                                                   <input type="file" name="file" class="form-control" id="recipient-file">
-                                               </div>
-                                           </form>
-                                       </div>
-                                       <div class="modal-footer">
-                                           <button type="button" class="btn btn-secondary" data-dismiss="modal">Exit</button>
-                                           <button type="button" class="btn btn-primary">Save</button>
-                                       </div>
-                                   </div>
-                               </div>
-                           </div>
+                           <!-- MODAL REGISTER -->
+                            <jsp:include page="pages/modalregister.jsp"/>
 
                        </form>
                    </td>
