@@ -25,4 +25,8 @@ public class UserService {
     public User searchByLogin(String email) throws SQLException {
         return dao.searchByLogin(email);
     }
+
+    public boolean update(User user) throws SQLException {
+        return dao.save(user);
+    }
 }
