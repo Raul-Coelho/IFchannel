@@ -10,6 +10,7 @@ import javax.servlet.http.Part;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.SQLException;
+import java.util.Base64;
 
 public class SalvarUsuario implements Command {
     @Override
@@ -40,12 +41,12 @@ public class SalvarUsuario implements Command {
         stream.read(foto);
         stream.close();
 
-//             String fotoPerfil = "data:image/jpeg;base64," + Base64.getEncoder().encodeToString(foto);
+        String photo = "data:image/jpeg;base64," + Base64.getEncoder().encodeToString(foto);
 
 
         UserService service = new UserService();
 
-        if(service.save(id, privilege, email, matriculation, senha, nome, sexo, foto, rua, cidade, estado, cep, telefone, numero)){
+        if(service.save(id, privilege, email, matriculation, senha, nome, sexo, photo, rua, cidade, estado, cep, telefone, numero)){
             response.setStatus(200);
         }else{
             response.setStatus(400);

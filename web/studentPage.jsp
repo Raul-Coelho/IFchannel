@@ -45,7 +45,7 @@
 <div class="container">
     <div class="row profile">
         <div class="card my-3 mr-2 my-2" style="width: 16rem;height: 40rem;left: -40px;">
-            <img class="card-img-top" src="images/user.jpg" alt="Card image cap">
+            <img class="card-img-top" src="${sessionScope.user.photo}" alt="Card image cap">
             <div class="card-body">
                 <h5 class="card-title">${sessionScope.user.name}</h5>
                 <p>Student of Analysis and Development Systems of IFPB-Cajazeiras .</p>
@@ -53,7 +53,7 @@
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">${sessionScope.user.matriculation}</li>
                 <li class="list-group-item">${sessionScope.user.email}</li>
-                <li class="list-group-item">Information</li>
+                <li class="list-group-item">${sessionScope.user.phone}</li>
             </ul>
             <div class="card-body">
                 <a href="https://mail.google.com/mail/u/0/#inbox" class="card-link">Email</a>

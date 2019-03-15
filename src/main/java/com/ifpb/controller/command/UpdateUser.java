@@ -8,6 +8,7 @@ import javax.servlet.http.*;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.SQLException;
+import java.util.Base64;
 
 public class UpdateUser extends HttpServlet implements Command {
     @Override
@@ -29,7 +30,8 @@ public class UpdateUser extends HttpServlet implements Command {
         InputStream stream = part.getInputStream();
         stream.read(foto);
         stream.close();
-        user.setPhoto(foto);
+        String photo = "data:image/jpeg;base64," + Base64.getEncoder().encodeToString(foto);
+        user.setPhoto(photo);
 
         user.setSex(request.getParameter("gender"));
         user.setState("state");

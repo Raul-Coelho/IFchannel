@@ -34,7 +34,7 @@ public class UsuarioDao {
                 st.setString(8, u.getCity());
                 st.setString(9, u.getNumber());
                 st.setString(10, u.getCep());
-                st.setBytes(11, u.getPhoto());
+                st.setString(11, u.getPhoto());
                 st.setString(12, u.getPhone());
                 st.setString(13, u.getPrivilege());
 
@@ -61,7 +61,7 @@ public class UsuarioDao {
                 st.setString(6, u.getCity());
                 st.setString(7, u.getNumber());
                 st.setString(8, u.getCep());
-                st.setBytes(9, u.getPhoto());
+                st.setString(9, u.getPhoto());
                 st.setString(10, u.getPhone());
                 st.setString(11, u.getPrivilege());
 
@@ -97,7 +97,7 @@ public class UsuarioDao {
                         result.getString("matriculation"),
                         result.getString("password"),
                         result.getString("name"),
-                        result.getBytes("photo"),
+                        result.getString("photo"),
                         result.getString("gender"),
                         result.getString("street"),
                         result.getString("city"),
@@ -133,7 +133,7 @@ public class UsuarioDao {
                         result.getString("matriculation"),
                         result.getString("password"),
                         result.getString("name"),
-                        result.getBytes("photo"),
+                        result.getString("photo"),
                         result.getString("gender"),
                         result.getString("street"),
                         result.getString("city"),
@@ -168,7 +168,7 @@ public class UsuarioDao {
                         result.getString("matriculation"),
                         result.getString("password"),
                         result.getString("name"),
-                        result.getBytes("photo"),
+                        result.getString("photo"),
                         result.getString("gender"),
                         result.getString("street"),
                         result.getString("city"),
@@ -204,7 +204,7 @@ public class UsuarioDao {
                         result.getString("password"),
                         result.getString("name"),
                         result.getString("gender"),
-                        result.getBytes("photo"),
+                        result.getString("photo"),
                         result.getString("gender"),
                         result.getString("street"),
                         result.getString("city"),
@@ -256,7 +256,7 @@ public class UsuarioDao {
                         result.getString("password"),
                         result.getString("name"),
                         result.getString("gender"),
-                        result.getBytes("photo"),
+                        result.getString("photo"),
                         result.getString("gender"),
                         result.getString("street"),
                         result.getString("city"),

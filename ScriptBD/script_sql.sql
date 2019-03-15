@@ -7,7 +7,7 @@ CREATE TABLE usuario(
     email VARCHAR(100) NOT NULL,
     password VARCHAR(50) NOT NULL,
     gender CHARACTER(1),
-    photo BYTEA,
+    photo VARCHAR,
     street VARCHAR(50),
     number VARCHAR(10),
     city VARCHAR(50),
@@ -18,4 +18,9 @@ CREATE TABLE usuario(
     CONSTRAINT usuario_pkey PRIMARY KEY (id),
     CONSTRAINT usuario_matriculation_pkey UNIQUE(matriculation),
     CONSTRAINT usuario_email_key UNIQUE (email)
-)
+);
+
+CREATE TABLE post(
+    id serial,
+    contend varchar(50),
+    userid int 

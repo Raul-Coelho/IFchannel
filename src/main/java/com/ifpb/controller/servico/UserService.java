@@ -11,7 +11,7 @@ public class UserService {
     public UserService() throws SQLException, ClassNotFoundException {
     }
 
-    public boolean save(int id, String privilege, String email, String matriculation, String password, String name, String sex, byte[] photo, String street,
+    public boolean save(int id, String privilege, String email, String matriculation, String password, String name, String sex, String photo, String street,
                         String city, String state, String cep, String phone, String number) throws SQLException {
         User u = new User(id, privilege, email, matriculation, password, name, sex, photo, street, city, state, cep, phone, number);
 

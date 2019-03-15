@@ -11,7 +11,7 @@ public class User {
     private String password;
     private String name;
     private String sex;
-    private byte[] photo;
+    private String photo;
     private String street;
     private String city;
     private String state;
@@ -22,7 +22,7 @@ public class User {
     public User() {
     }
 
-    public User(String privilege, String email, String matriculation, String password, String name, String sex, byte[] photo, String street, String city,
+    public User(String privilege, String email, String matriculation, String password, String name, String sex, String photo, String street, String city,
                 String state, String cep, String phone, String number) {
         this.privilege = privilege;
         this.email = email;
@@ -39,7 +39,7 @@ public class User {
         this.number = number;
     }
 
-    public User(int id, String privilege, String email, String matriculation, String password, String name, String sex, byte[] photo, String street, String city, String state, String cep, String phone, String number) {
+    public User(int id, String privilege, String email, String matriculation, String password, String name, String sex, String photo, String street, String city, String state, String cep, String phone, String number) {
         this.id = id;
         this.privilege = privilege;
         this.email = email;
@@ -120,11 +120,11 @@ public class User {
         this.sex = sex;
     }
 
-    public byte[] getPhoto() {
+    public String getPhoto() {
         return photo;
     }
 
-    public void setPhoto(byte[] photo) {
+    public void setPhoto(String photo) {
         this.photo = photo;
     }
 
@@ -178,7 +178,7 @@ public class User {
                 ", password='" + password + '\'' +
                 ", name='" + name + '\'' +
                 ", sex='" + sex + '\'' +
-                ", photo=" + Arrays.toString(photo) +
+                ", photo=" + photo + '\'' +
                 ", street='" + street + '\'' +
                 ", city='" + city + '\'' +
                 ", state='" + state + '\'' +
