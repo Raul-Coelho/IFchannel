@@ -1,8 +1,16 @@
-<!DOCTYPE html>
+<%--
+  Created by IntelliJ IDEA.
+  User: raul
+  Date: 16/03/19
+  Time: 07:56
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>HOME</title>
+    <link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
     <!--NAVBAR-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="css/homepage.css">
@@ -43,7 +51,7 @@
                     </tr>
                     <tr>
                         <td>
-                           <p>Descrição</p>
+                            <p>Descrição</p>
                             <textarea name="descricao" style="width: 300px; height: 100px" readonly></textarea>
                         </td>
                     </tr>
@@ -55,12 +63,10 @@
                     </tr>
                     <tr>
                         <td>
-                            <form action="" method="post">
-                                <font face="arial" size="4" color="#0057AE"><b>Comente:</b></font>
-                                <br>
-                                <textarea name="comentarios" id="comentarios" style="width: 300px"></textarea>
-                                <br>
-                                <input class="form-control mr-sm-2 btn btn-outline-success" action="oi.html" type="submit" value="Comentar">
+                            <form action="#" method="post">
+                                <font face="arial" size="4" color="#0057AE"><b>Show Comments:</b></font>
+                                <button class="btn btn-primary btn-outline-success btn-size" type="button" data-toggle="modal" data-target="#modalComment">Show</button>
+                                <jsp:include page="pages/modalComments.jsp"/>
                             </form>
                         </td>
                     </tr>
