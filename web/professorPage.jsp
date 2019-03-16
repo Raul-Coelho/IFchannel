@@ -53,7 +53,8 @@
             </ul>
             <div class="card-body">
                 <a href="https://mail.google.com/mail/u/0/#inbox" class="card-link">Email</a>
-                <a href="#" class="card-link">Other Link</a>
+                <a href="#" class="card-link" data-toggle="modal" data-target="#modalProfile" >Edit Profile</a>
+                <jsp:include page="pages/modalProfile.jsp"/>
             </div>
         </div>
         <div class="card my-3 mr-2 my-2" style="width: 40rem; height: auto; left: 50px">

@@ -42,7 +42,7 @@
 <div class="container">
     <div class="row profile">
         <div class="card my-3 mr-2 my-2" style="width: 16rem; left: -40px;">
-            <img class="card-img-top" src="images/user.jpg" alt="Card image cap">
+            <img class="card-img-top" src="${sessionScope.user.photo}" alt="Card image cap">
             <div class="card-body">
                 <h5 class="card-title">${sessionScope.user.name}</h5>
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -53,7 +53,8 @@
             </ul>
             <div class="card-body">
                 <a href="https://mail.google.com/mail/u/0/#inbox" class="card-link">Email</a>
-                <a href="#" class="card-link">Other Link</a>
+                <a href="#" class="card-link" data-toggle="modal" data-target="#modalProfile" >Edit Profile</a>
+                <jsp:include page="pages/modalProfile.jsp"/>
             </div>
         </div>
         <div class="card my-3 mr-2 my-2" style="width: 40rem; height: auto; left: 50px">
