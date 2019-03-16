@@ -59,7 +59,7 @@
             <div class="modal-footer">
                 <form action="/controller?action=UpdateUser">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Exit</button>
-                    <button type="button" class="btn btn-primary">Save</button>
+                    <button type="button" class="btn btn-primary" name="action" >Save</button>
                 </form>
             </div>
         </div>
