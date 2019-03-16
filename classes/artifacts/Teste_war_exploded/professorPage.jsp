@@ -13,10 +13,10 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
     <link rel="stylesheet" href="/css/userPage.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="css/homepage.css">
-    <link rel="stylesheet" href="css/font.css">
     <link rel="stylesheet" href="css/btn-size.css">
 </head>
 <body>
@@ -53,7 +53,8 @@
             </ul>
             <div class="card-body">
                 <a href="https://mail.google.com/mail/u/0/#inbox" class="card-link">Email</a>
-                <a href="#" class="card-link">Other Link</a>
+                <a href="#" class="card-link" data-toggle="modal" data-target="#modalProfile" >Edit Profile</a>
+                <jsp:include page="pages/modalProfile.jsp"/>
             </div>
         </div>
         <div class="card my-3 mr-2 my-2" style="width: 40rem; height: auto; left: 50px">
@@ -96,7 +97,8 @@
         </div>
     </div>
 </div>
-
+<%--NAV-BOTTOM--%>
+<jsp:include page="pages/navBottom.jsp"/>
 
 </body>
 </html>

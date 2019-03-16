@@ -20,6 +20,7 @@ body{
     background: -o-linear-gradient(-135deg, #28a745, #3c7cb7);
     background: -moz-linear-gradient(-135deg, #28a745, #3c7cb7);
     background: linear-gradient(-135deg, #28a745, #3c7cb7);
+    font-family: Poppins-Regular;
 }
 
 .navbar-brand{

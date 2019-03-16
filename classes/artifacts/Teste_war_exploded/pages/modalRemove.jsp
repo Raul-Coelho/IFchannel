@@ -21,7 +21,24 @@
                 </button>
             </div>
             <div class="modal-body">
-                ...
+                <table>
+                    <thead>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Primeira publicação</td>
+                    </tr>
+                    <tr>
+                        <td>Segunda publicação</td>
+                    </tr>
+                    <tr>
+                        <td>Terceira publicação</td>
+                    </tr>
+                    <tr>
+                        <td>Quarta publicação</td>
+                    </tr>
+                    </tbody>
+                </table>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Exit</button>

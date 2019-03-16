@@ -12,6 +12,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Student</title>
+    <link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
     <link rel="stylesheet" href="/css/userPage.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="css/homepage.css">
@@ -31,16 +32,7 @@
     }
 %>
 <!--NAVBAR-->
-<nav class="navbar navbar-light bg-light justify-content-between">
-    <a class="navbar-brand">IFPB Channel</a>
-    <form class="form-inline">
-        <input class="form-control mr-sm-2 w-full" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
-    <form method="post"  action="/controller?action=Logout">
-        <button class="btn btn-outline-success mr-sm-3 my-2 my-sm-0" type="submit">Log out</button>
-    </form>
-</nav>
+<jsp:include page="pages/navbar.jsp"/>
 <!--PROFILE STUDENT-->
 <div class="container">
     <div class="row profile">
@@ -65,7 +57,7 @@
         <table style="margin-left: 10%; margin-top: 15px">
             <tr class="card div-video">
                 <td>
-                    <div style="height: 250%">
+                    <div style="height: 100%">
                         <video controls  src="video/developer.mp4"></video>
                         <table>
                             <tr>
@@ -111,13 +103,10 @@
                     </div>
                 </td>
             </tr>
-
         </table>
     </div>
 </div>
-<br>
-<br>
-<br>
-
+<%--NAVBAR-BOTTOM--%>
+<jsp:include page="pages/navBottom.jsp"/>
 </body>
 </html>
