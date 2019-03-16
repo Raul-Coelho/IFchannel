@@ -23,4 +23,5 @@ CREATE TABLE usuario(
 CREATE TABLE post(
     id serial,
     contend varchar(50),
-    userid int 
+    userid int
+    );

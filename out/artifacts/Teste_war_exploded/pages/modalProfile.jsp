@@ -32,7 +32,7 @@
                     </div>
                     <div class="form-group">
                         <label for="recipient-street" class="col-form-label">Street:</label>
-                        <input type="text" name="street" class="form-control" id="recipient-street" value="${sessionScope.user.street}">
+                        <input type="text" name="street" class="form-control" id="recipient-street" value="${sessionScope.user.cep}">
                     </div>
                     <div class="form-group">
                         <label for="recipient-number" class="col-form-label">Number:</label>
