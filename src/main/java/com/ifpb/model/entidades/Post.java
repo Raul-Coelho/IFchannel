@@ -6,16 +6,44 @@ import java.util.List;
 public class Post {
     private int id;
     private String title;
-    private byte[] video;
+    private String video;
     private List <Comment> comments;
     private Float evaluation;
+    private String description;
 
-    public Post(int id, String title, byte[] video, List<Comment> comments, Float evaluation) {
+    public Post() {
+    }
+
+    public Post(String title, String video, Float evaluation, String description) {
+        this.title = title;
+        this.video = video;
+        this.evaluation = evaluation;
+        this.description = description;
+    }
+
+    public Post(int id, String title, String video, List<Comment> comments, float evaluation, String description) {
         this.id = id;
         this.title = title;
         this.video = video;
         this.comments = comments;
         this.evaluation = evaluation;
+        this.description = description;
+    }
+
+    public Post(int id, String title, String video, Float evaluation, String description) {
+        this.id = id;
+        this.title = title;
+        this.video = video;
+        this.evaluation = evaluation;
+        this.description = description;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public int getId() {
@@ -34,11 +62,11 @@ public class Post {
         this.title = title;
     }
 
-    public byte[] getVideo() {
+    public String getVideo() {
         return video;
     }
 
-    public void setVideo(byte[] video) {
+    public void setVideo(String video) {
         this.video = video;
     }
 
@@ -58,14 +86,16 @@ public class Post {
         this.evaluation = evaluation;
     }
 
+
     @Override
     public String toString() {
         return "Post{" +
                 "id=" + id +
                 ", title='" + title + '\'' +
-                ", video=" + Arrays.toString(video) +
+                ", video=" + video +
                 ", comments=" + comments +
                 ", evaluation=" + evaluation +
+                ", description='" + description + '\'' +
                 '}';
     }
 }

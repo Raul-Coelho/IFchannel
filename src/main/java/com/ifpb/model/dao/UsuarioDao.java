@@ -91,19 +91,20 @@ public class UsuarioDao {
 
             if (result.next()) {
                 User u = new User(
-                        result.getString("id"),
+                        result.getInt("id"),
                         result.getString("privilege"),
                         result.getString("email"),
                         result.getString("matriculation"),
                         result.getString("password"),
                         result.getString("name"),
-                        result.getString("photo"),
                         result.getString("gender"),
+                        result.getString("photo"),
                         result.getString("street"),
                         result.getString("city"),
                         result.getString("state"),
                         result.getString("cep"),
-                        result.getString("phone")
+                        result.getString("phone"),
+                        result.getString("number")
                 );
                 return u;
             }
@@ -127,19 +128,20 @@ public class UsuarioDao {
 
             while (result.next()) {
                 User u = new User(
-                        result.getString("id"),
+                        result.getInt("id"),
                         result.getString("privilege"),
                         result.getString("email"),
                         result.getString("matriculation"),
                         result.getString("password"),
                         result.getString("name"),
-                        result.getString("photo"),
                         result.getString("gender"),
+                        result.getString("photo"),
                         result.getString("street"),
                         result.getString("city"),
                         result.getString("state"),
                         result.getString("cep"),
-                        result.getString("phone")
+                        result.getString("phone"),
+                        result.getString("number")
                 );
                 users.add(u);
             }
@@ -162,19 +164,20 @@ public class UsuarioDao {
 
             while (result.next()) {
                 User u = new User(
-                        result.getString("id"),
+                        result.getInt("id"),
                         result.getString("privilege"),
                         result.getString("email"),
                         result.getString("matriculation"),
                         result.getString("password"),
                         result.getString("name"),
-                        result.getString("photo"),
                         result.getString("gender"),
+                        result.getString("photo"),
                         result.getString("street"),
                         result.getString("city"),
                         result.getString("state"),
                         result.getString("cep"),
-                        result.getString("phone")
+                        result.getString("phone"),
+                        result.getString("number")
                 );
                 users.add(u);
             }
@@ -205,12 +208,12 @@ public class UsuarioDao {
                         result.getString("name"),
                         result.getString("gender"),
                         result.getString("photo"),
-                        result.getString("gender"),
                         result.getString("street"),
                         result.getString("city"),
                         result.getString("state"),
                         result.getString("cep"),
-                        result.getString("phone")
+                        result.getString("phone"),
+                        result.getString("number")
                 );
                 return u;
             }
@@ -249,20 +252,20 @@ public class UsuarioDao {
 
             if (result.next()) {
                  u = new User(
-                        result.getInt("id"),
-                        result.getString("privilege"),
-                        result.getString("email"),
-                        result.getString("matriculation"),
-                        result.getString("password"),
-                        result.getString("name"),
-                        result.getString("gender"),
-                        result.getString("photo"),
-                        result.getString("gender"),
-                        result.getString("street"),
-                        result.getString("city"),
-                        result.getString("state"),
-                        result.getString("cep"),
-                        result.getString("phone")
+                         result.getInt("id"),
+                         result.getString("privilege"),
+                         result.getString("email"),
+                         result.getString("matriculation"),
+                         result.getString("password"),
+                         result.getString("name"),
+                         result.getString("gender"),
+                         result.getString("photo"),
+                         result.getString("street"),
+                         result.getString("city"),
+                         result.getString("state"),
+                         result.getString("cep"),
+                         result.getString("phone"),
+                         result.getString("number")
                 );
             }
             return (u != null && u.getPassword().equals(password));
