@@ -1,6 +1,11 @@
 package com.ifpb.model.entidades;
 
+import com.datastax.driver.mapping.annotations.PartitionKey;
+import com.datastax.driver.mapping.annotations.Table;
+
+@Table(keyspace = "Comentario", name = "comment")
 public class Comment {
+    @PartitionKey
     private int id;
     private String coment;
     private String username;
