@@ -22,6 +22,11 @@ CREATE TABLE usuario(
 
 CREATE TABLE post(
     id serial,
-    contend varchar(50),
+    title VARCHAR (50),
+    video VARCHAR
+    evaluation float,
+    description VARCHAR (140),
     userid int
+    CONSTRAINT  post_pkey PRIMARY KEY(id),
+    CONSTRAINT  fkey_userid FOREIGN KEY(userid) REFERENCES usuario (id)
     );
