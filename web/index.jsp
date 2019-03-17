@@ -37,7 +37,7 @@
         <td>
             <div style="height: 250%">
                 <video controls  src="video/developer.mp4"></video>
-                <table>
+                <table class="ml-3">
                     <tr>
                         <hr>
                         <td>
@@ -46,7 +46,7 @@
                     </tr>
                     <tr>
                         <td>
-                            <p><label>Nome do Professor</label></p>
+                            <p><label data-toggle="tooltip" title="Professor Email">Nome do Professor</label></p>
                         </td>
                     </tr>
                     <tr>
@@ -68,11 +68,8 @@
                     </tr>
                     <tr>
                         <td>
-                            <form action="#" method="post">
-                                <font face="arial" size="4" color="#0057AE"><b>Show Comments:</b></font>
-                                <button class="btn btn-primary btn-outline-success btn-size" type="button" data-toggle="modal" data-target="#modalComment">Show</button>
-                                <jsp:include page="pages/modalComments.jsp"/>
-                            </form>
+                            <button class="btn btn-primary btn-outline-success btn-size" style="margin-top: 20px" type="button" data-toggle="modal" data-target="#modalComment">Show Comments</button>
+                            <jsp:include page="pages/modalComments.jsp"/>
                         </td>
                     </tr>
                 </table>

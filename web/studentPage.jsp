@@ -18,6 +18,11 @@
     <link rel="stylesheet" href="css/homepage.css">
     <link rel="stylesheet" href="css/font.css">
 
+    <%--SCRIPT--%>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
 </head>
 <body>
 <%
@@ -59,7 +64,7 @@
                 <td>
                     <div style="height: 100%">
                         <video controls  src="video/developer.mp4"></video>
-                        <table>
+                        <table class="ml-3">
                             <tr>
                                 <hr>
                                 <td>
@@ -68,7 +73,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <p><label>Nome do Professor</label></p>
+                                    <p><h5><a  href="" style="text-decoration: none">Professor Name</a></h5></p>
                                 </td>
                             </tr>
                             <tr>
@@ -91,12 +96,16 @@
                             <tr>
                                 <td>
                                     <form action="" method="post">
-                                        <font face="Poppins-Regular" size="4" color="#0057AE"><b>Comente:</b></font>
+                                        <font face="Poppins-Regular" size="3" color="#0057AE"><b>Comment:</b></font>
                                         <br>
                                         <textarea name="comentarios" id="comentarios" style="width: 300px"></textarea>
                                         <br>
-                                        <input class="form-control mr-sm-2 btn btn-outline-success" action="oi.html" type="submit" value="Comentar">
+                                        <input class="form-control mr-sm-2 btn btn-outline-success" action="oi.html" type="submit" value="Send Comment">
                                     </form>
+                                </td>
+                                <td>
+                                    <button class="btn btn-primary btn-outline-success btn-size" style="margin-top: 5.3rem;" type="button" data-toggle="modal" data-target="#modalComment">Show Comments</button>
+                                    <jsp:include page="pages/modalComments.jsp"/>
                                 </td>
                             </tr>
                         </table>
