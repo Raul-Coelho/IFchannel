@@ -27,8 +27,10 @@ public class SavePost implements Command {
 
         post.setId(0);
         post.setIdUser(user.getId());
-        post.setDescription(request.getParameter("description"));
         post.setTitle(request.getParameter("title"));
+        post.setDescription(request.getParameter("description"));
+        post.setExclusivity(request.getParameter("exclusivity"));
+        
         Part part = request.getPart("video");
 
         byte[] bVideo = new byte[(int) part.getSize()];
@@ -36,7 +38,7 @@ public class SavePost implements Command {
         stream.read(bVideo);
         stream.close();
 
-        String video = "data:image/jpeg;base64," + Base64.getEncoder().encodeToString(bVideo);
+        String video = "data:video/Mp4;base64," + Base64.getEncoder().encodeToString(bVideo);
 
         post.setVideo(video);
 

@@ -27,6 +27,7 @@ CREATE TABLE post(
     evaluation float,
     description VARCHAR (140),
     userid int,
+    exclusivity VARCHAR (10),
     CONSTRAINT  post_pkey PRIMARY KEY (id),
     CONSTRAINT  fkey_userid FOREIGN KEY(userid) REFERENCES usuario (id)
     );

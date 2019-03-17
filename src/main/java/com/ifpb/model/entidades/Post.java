@@ -11,34 +11,38 @@ public class Post {
     private List <Comment> comments;
     private Float evaluation;
     private String description;
+    private String exclusivity;
 
     public Post() {
     }
 
-    public Post(int idUser,String title, String video, Float evaluation, String description) {
+    public Post(int idUser,String title, String video, Float evaluation, String description,String exclusivity) {
         this.idUser = idUser;
         this.title = title;
         this.video = video;
         this.evaluation = evaluation;
         this.description = description;
+        this.exclusivity = exclusivity;
     }
 
-    public Post(int id, int idUser, String title, String video, List<Comment> comments, float evaluation, String description) {
+    public Post(int id, int idUser, String title, String video, List<Comment> comments, float evaluation, String description, String exclusivity) {
         this.id = id;
         this.title = title;
         this.video = video;
         this.comments = comments;
         this.evaluation = evaluation;
         this.description = description;
+        this.exclusivity = exclusivity;
     }
 
-    public Post(int id, int idUser, String title, String video, Float evaluation, String description) {
+    public Post(int id, int idUser, String title, String video, Float evaluation, String description, String exclusivity) {
         this.id = id;
         this.idUser = idUser;
         this.title = title;
         this.video = video;
         this.evaluation = evaluation;
         this.description = description;
+        this.exclusivity = exclusivity;
     }
 
     public int getIdUser() {
@@ -97,6 +101,13 @@ public class Post {
         this.evaluation = evaluation;
     }
 
+    public String getExclusivity() {
+        return exclusivity;
+    }
+
+    public void setExclusivity(String exclusivity) {
+        this.exclusivity = exclusivity;
+    }
 
     @Override
     public String toString() {
@@ -108,6 +119,7 @@ public class Post {
                 ", comments=" + comments +
                 ", evaluation=" + evaluation +
                 ", description='" + description + '\'' +
+                ", exclusivity='" + exclusivity + '\'' +
                 '}';
     }
 }

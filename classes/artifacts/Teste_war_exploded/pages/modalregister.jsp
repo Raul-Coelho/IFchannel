@@ -21,7 +21,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form method="post" class="my-5 ml-5" enctype="multipart/form-data" action="/controller?action=SavePost">
+                <form method="post" class="my-5 ml-5" action="/controller?action=SavePost">
                     <div class="form-group">
                         <label for="recipient-title" class="col-form-label">Title:</label>
                         <input type="text" name="title" class="form-control" id="recipient-title">
@@ -29,10 +29,6 @@
                     <div class="form-group">
                         <label for="recipient-name" class="col-form-label">Your Name:</label>
                         <input type="text" name="name" class="form-control" id="recipient-name">
-                    </div>
-                    <div class="form-group">
-                        <label for="recipient-discipline" class="col-form-label">Discipline:</label>
-                        <input type="text" name="discipline" class="form-control" id="recipient-discipline">
                     </div>
                     <div class="form-group">
                         <label for="recipient-description" class="col-form-label">Description:</label>
@@ -46,20 +42,21 @@
                         </tr>
                         <tr>
                             <td>
-                                <input type="radio" name="content" id="recipient-private"><label> Private</label>
+                                <input type="radio" name="exclusivity" id="recipient-private" value="private"><label> Private</label>
                             </td>
                         </tr>
                     </table>
                     <div class="form-group">
                         <label for="recipient-file" class="col-form-label">Video:</label>
-                        <input type="file" name="file" class="form-control" id="recipient-file">
+                        <input type="file" name="video" class="form-control" id="recipient-file">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Exit</button>
+                        <input type="submit" class="btn btn-primary" name="action" value="Save">
                     </div>
                 </form>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Exit</button>
-                <button type="button" class="btn btn-primary">Save</button>
-            </div>
+
         </div>
     </div>
 </div>

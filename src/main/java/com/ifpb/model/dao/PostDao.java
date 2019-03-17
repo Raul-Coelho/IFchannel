@@ -19,7 +19,7 @@ public class PostDao {
 
     public boolean save(Post post){
         if(post.getId() == 0){
-            String sql = "INSERT INTO post(title, video, description, idUser) VALUES(?,?,?,?)";
+            String sql = "INSERT INTO post(title, video, description, exclusivity, idUser) VALUES(?,?,?,?,?)";
 
             try(Connection connection = factory.getConnection()){
                 PreparedStatement st = connection.prepareStatement(sql);
@@ -27,7 +27,8 @@ public class PostDao {
                 st.setString(1, post.getTitle());
                 st.setString(2, post.getVideo());
                 st.setFloat(3, post.getEvaluation());
-                st.setInt(4, post.getIdUser());
+                st.setString(4,post.getExclusivity());
+                st.setInt(5, post.getIdUser());
 
                 return st.executeUpdate()>0;
 
@@ -72,7 +73,8 @@ public class PostDao {
                         result.getString("title"),
                         result.getString("video"),
                         result.getFloat("evaluation"),
-                        result.getString("description")
+                        result.getString("description"),
+                        result.getString("exclusivity")
                 );
             }
             return post;
@@ -99,7 +101,9 @@ public class PostDao {
                         result.getString("title"),
                         result.getString("video"),
                         result.getFloat("evaluation"),
-                        result.getString("description")
+                        result.getString("description"),
+                        result.getString("exclusivity")
+
                 );
                 post.add(p);
             }
