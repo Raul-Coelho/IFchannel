@@ -29,14 +29,13 @@ public class UpdateUser extends HttpServlet implements Command {
 
         user.setPhone(request.getParameter("phone"));
 
-        Part part = request.getPart("photo");
-        byte[] foto = new byte[(int) part.getSize()];
-        InputStream stream = part.getInputStream();
-        stream.read(foto);
-        stream.close();
-        String photo = "data:image/jpeg;base64," + Base64.getEncoder().encodeToString(foto);
-        user.setPhoto(photo);
-
+//        Part part = request.getPart("photo");
+//        byte[] foto = new byte[(int) part.getSize()];
+//        InputStream stream = part.getInputStream();
+//        stream.read(foto);
+//        stream.close();
+//        String photo = "data:image/jpeg;base64," + Base64.getEncoder().encodeToString(foto);
+//        user.setPhoto(photo);
 
 
         if(service.update(user)){

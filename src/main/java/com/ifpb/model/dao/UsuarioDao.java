@@ -65,7 +65,7 @@ public class UsuarioDao {
                 st.setString(10, u.getPhone());
                 st.setString(11, u.getPrivilege());
 
-                st.setInt(11, u.getId());
+                st.setInt(12, u.getId());
 
                 return st.executeUpdate() > 0;
 

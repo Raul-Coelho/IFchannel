@@ -5,6 +5,7 @@ import java.util.List;
 
 public class Post {
     private int id;
+    private int idUser;
     private String title;
     private String video;
     private List <Comment> comments;
@@ -14,14 +15,15 @@ public class Post {
     public Post() {
     }
 
-    public Post(String title, String video, Float evaluation, String description) {
+    public Post(int idUser,String title, String video, Float evaluation, String description) {
+        this.idUser = idUser;
         this.title = title;
         this.video = video;
         this.evaluation = evaluation;
         this.description = description;
     }
 
-    public Post(int id, String title, String video, List<Comment> comments, float evaluation, String description) {
+    public Post(int id, int idUser, String title, String video, List<Comment> comments, float evaluation, String description) {
         this.id = id;
         this.title = title;
         this.video = video;
@@ -30,12 +32,21 @@ public class Post {
         this.description = description;
     }
 
-    public Post(int id, String title, String video, Float evaluation, String description) {
+    public Post(int id, int idUser, String title, String video, Float evaluation, String description) {
         this.id = id;
+        this.idUser = idUser;
         this.title = title;
         this.video = video;
         this.evaluation = evaluation;
         this.description = description;
+    }
+
+    public int getIdUser() {
+        return idUser;
+    }
+
+    public void setIdUser(int idUser) {
+        this.idUser = idUser;
     }
 
     public String getDescription() {
@@ -91,8 +102,9 @@ public class Post {
     public String toString() {
         return "Post{" +
                 "id=" + id +
+                ", idUser=" + idUser +
                 ", title='" + title + '\'' +
-                ", video=" + video +
+                ", video='" + video + '\'' +
                 ", comments=" + comments +
                 ", evaluation=" + evaluation +
                 ", description='" + description + '\'' +

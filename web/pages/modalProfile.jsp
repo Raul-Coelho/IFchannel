@@ -54,10 +54,10 @@
                         <label for="recipient-phone" class="col-form-label">Phone:</label>
                         <input type="text" name="phone" class="form-control" id="recipient-phone" value="${sessionScope.user.phone}">
                     </div>
-                    <div class="form-group">
-                        <label for="recipient-photo" class="col-form-label">Photo:</label>
-                        <input type="file" name="photo" class="form-control" id="recipient-photo">
-                    </div>
+                    <%--<div class="form-group">--%>
+                        <%--<label for="recipient-photo" class="col-form-label">Photo:</label>--%>
+                        <%--<input type="file" name="photo" class="form-control" id="recipient-photo">--%>
+                    <%--</div>--%>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Exit</button>
                         <input type="submit" class="btn btn-primary" name="action" value="Save">

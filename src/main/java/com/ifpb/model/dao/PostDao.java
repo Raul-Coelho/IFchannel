@@ -19,7 +19,7 @@ public class PostDao {
 
     public boolean save(Post post){
         if(post.getId() == 0){
-            String sql = "INSERT INTO post(title, video, description) VALUES(?,?,?)";
+            String sql = "INSERT INTO post(title, video, description, idUser) VALUES(?,?,?,?)";
 
             try(Connection connection = factory.getConnection()){
                 PreparedStatement st = connection.prepareStatement(sql);
@@ -27,6 +27,7 @@ public class PostDao {
                 st.setString(1, post.getTitle());
                 st.setString(2, post.getVideo());
                 st.setFloat(3, post.getEvaluation());
+                st.setInt(4, post.getIdUser());
 
                 return st.executeUpdate()>0;
 
@@ -67,6 +68,7 @@ public class PostDao {
             if(result.next()){
                 post = new Post(
                         result.getInt("id"),
+                        result.getInt("idUser"),
                         result.getString("title"),
                         result.getString("video"),
                         result.getFloat("evaluation"),
@@ -81,17 +83,19 @@ public class PostDao {
         }
     }
 
-    public List<Post> list(){
-        String sql = "SELECT * FROM post";
+    public List<Post> list(int idUser){
+        String sql = "SELECT * FROM post WHERE id = ?";
         List<Post> post = null;
 
         try(Connection connection = factory.getConnection()){
             PreparedStatement st = connection.prepareStatement(sql);
+            st.setInt(1, idUser);
             ResultSet result = st.executeQuery();
 
             while (result.next()){
                 Post p = new Post(
                         result.getInt("id"),
+                        result.getInt("idUser"),
                         result.getString("title"),
                         result.getString("video"),
                         result.getFloat("evaluation"),
@@ -105,6 +109,22 @@ public class PostDao {
             return null;
         } catch (ClassNotFoundException e) {
             return null;
+        }
+    }
+
+    public boolean delete(int id){
+        String sql = "DELETE FROM post WHERE id =?";
+
+        try(Connection connection = factory.getConnection()){
+            PreparedStatement st = connection.prepareStatement(sql);
+
+            st.setInt(1, id);
+
+            return st.executeUpdate()>0;
+        } catch (SQLException e) {
+            return false;
+        } catch (ClassNotFoundException e) {
+            return false;
         }
     }
 
