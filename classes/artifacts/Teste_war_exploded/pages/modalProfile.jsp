@@ -21,7 +21,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="/controller?action=UpdateUser" method="post">
+                <form method="post" action="/controller?action=UpdateUser">
                     <div class="form-group">
                         <label for="recipient-name" class="col-form-label">Name:</label>
                         <input type="text" name="name" class="form-control" id="recipient-name" value="${sessionScope.user.name}">

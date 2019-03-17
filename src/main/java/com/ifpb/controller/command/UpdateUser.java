@@ -24,7 +24,7 @@ public class UpdateUser extends HttpServlet implements Command {
         user.setStreet(request.getParameter("street"));
         user.setNumber(request.getParameter("number"));
         user.setCity(request.getParameter("city"));
-        user.setState("state");
+        user.setState(request.getParameter("state"));
         user.setCep(request.getParameter("cep"));
 
         user.setPhone(request.getParameter("phone"));
