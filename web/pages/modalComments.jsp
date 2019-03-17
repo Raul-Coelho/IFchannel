@@ -26,16 +26,20 @@
                     </thead>
                     <tbody>
                     <tr>
-                        <td>Primeira publicação</td>
+                        <td><label>Name:</label></td>
+                        <td><label>VIDEO BOM</label></td>
                     </tr>
                     <tr>
-                        <td>Segunda publicação</td>
+                        <td><label>Name:</label></td>
+                        <td><label>VIDEO BOM D+</label></td>
                     </tr>
                     <tr>
-                        <td>Terceira publicação</td>
+                        <td><label>Name:</label></td>
+                        <td><label>THE GREAT</label></td>
                     </tr>
                     <tr>
-                        <td>Quarta publicação</td>
+                        <td><label>Name:</label></td>
+                        <td><label>THE GREAT</label></td>
                     </tr>
                     </tbody>
                 </table>

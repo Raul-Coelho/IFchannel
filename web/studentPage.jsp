@@ -49,7 +49,7 @@
             </ul>
             <div class="card-body">
                 <a href="https://mail.google.com/mail/u/0/#inbox" class="card-link">Email</a>
-                <a href="#" class="card-link">Other Link</a>
+                <a href="https://suap.ifpb.edu.br" class="card-link">Suap</a>
             </div>
 
         </div>
