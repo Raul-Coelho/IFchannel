@@ -78,7 +78,8 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <p><h5><a  href="" style="text-decoration: none">Professor Name</a></h5></p>
+                                    <p><h5><a href="" style="text-decoration: none" data-toggle="modal" data-target="#modalInfoProfessor">Professor Name</a></h5></p>
+                                    <jsp:include page="pages/modalInfoProfessor.jsp"/>
                                 </td>
                             </tr>
                             <tr>
