@@ -21,10 +21,14 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="/controller?action=UpdateUser">
+                <form action="/controller?action=UpdateUser" method="post">
                     <div class="form-group">
                         <label for="recipient-name" class="col-form-label">Name:</label>
                         <input type="text" name="name" class="form-control" id="recipient-name" value="${sessionScope.user.name}">
+                    </div>
+                    <div class="form-group">
+                        <label for="recipient-password" class="col-form-label">Password:</label>
+                        <input type="text" name="password" class="form-control" id="recipient-password" value="${sessionScope.user.password}">
                     </div>
                     <div class="form-group">
                         <label for="recipient-street" class="col-form-label">Street:</label>
@@ -54,14 +58,13 @@
                         <label for="recipient-photo" class="col-form-label">Photo:</label>
                         <input type="file" name="photo" class="form-control" id="recipient-photo">
                     </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Exit</button>
+                        <input type="submit" class="btn btn-primary" name="action" value="Save">
+                    </div>
                 </form>
             </div>
-            <div class="modal-footer">
-                <form action="/controller?action=UpdateUser">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Exit</button>
-                    <input type="submit" class="btn btn-primary" name="action" >Save</input>
-                </form>
-            </div>
+
         </div>
     </div>
 </div>

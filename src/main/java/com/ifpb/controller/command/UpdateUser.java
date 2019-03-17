@@ -17,12 +17,16 @@ public class UpdateUser extends HttpServlet implements Command {
 
         UserService service = new UserService();
 
-        User user = (User) session.getAttribute("usuer");
+        User user = (User) session.getAttribute("user");
 
-        user.setPassword(request.getParameter("password"));
-        user.setCep(request.getParameter("cep"));
-        user.setCity(request.getParameter("city"));
         user.setName(request.getParameter("name"));
+        user.setPassword(request.getParameter("password"));
+        user.setStreet(request.getParameter("street"));
+        user.setNumber(request.getParameter("number"));
+        user.setCity(request.getParameter("city"));
+        user.setState("state");
+        user.setCep(request.getParameter("cep"));
+
         user.setPhone(request.getParameter("phone"));
 
         Part part = request.getPart("photo");
@@ -33,9 +37,6 @@ public class UpdateUser extends HttpServlet implements Command {
         String photo = "data:image/jpeg;base64," + Base64.getEncoder().encodeToString(foto);
         user.setPhoto(photo);
 
-        user.setSex(request.getParameter("gender"));
-        user.setState("state");
-        user.setStreet(request.getParameter("street"));
 
         if(service.update(user)){
             response.setStatus(200);

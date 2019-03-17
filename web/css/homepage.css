@@ -15,11 +15,11 @@
 }
 
 body{
-    background: #1e7e34;
-    background: -webkit-linear-gradient(-135deg, #28a745, #3c7cb7);
-    background: -o-linear-gradient(-135deg, #28a745, #3c7cb7);
-    background: -moz-linear-gradient(-135deg, #28a745, #3c7cb7);
-    background: linear-gradient(-135deg, #28a745, #3c7cb7);
+    background: #228B22;
+    background: -webkit-linear-gradient(-135deg, #32CD32, #0000FF);
+    background: -o-linear-gradient(-135deg, #32CD32, #0000FF);
+    background: -moz-linear-gradient(-135deg, #32CD32, #0000FF);
+    background: linear-gradient(-135deg, #32CD32, #0000FF);
     font-family: Poppins-Regular;
 }
 
