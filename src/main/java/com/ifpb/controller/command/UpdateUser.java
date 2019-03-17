@@ -38,6 +38,7 @@ public class UpdateUser extends HttpServlet implements Command {
         user.setPhoto(photo);
 
 
+
         if(service.update(user)){
             response.setStatus(200);
         }else {

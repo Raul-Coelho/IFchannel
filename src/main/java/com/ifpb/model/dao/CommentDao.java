@@ -24,4 +24,5 @@ public class CommentDao {
         return rs.wasApplied();
     }
 
+
 }

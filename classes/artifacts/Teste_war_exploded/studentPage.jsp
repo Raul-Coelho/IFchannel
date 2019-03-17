@@ -1,5 +1,9 @@
 <%@ page import="com.ifpb.model.entidades.User" %>
-<%@ page import="com.ifpb.controller.servico.UserService" %><%--
+<%@ page import="com.ifpb.controller.servico.UserService" %>
+<%@ page import="com.ifpb.model.dao.PostDao" %>
+<%@ page import="com.ifpb.model.entidades.Post" %>
+<%@ page import="com.ifpb.model.dao.CommentDao" %>
+<%@ page import="com.ifpb.model.entidades.Comment" %><%--
   Created by IntelliJ IDEA.
   User: raul
   Date: 07/03/19
@@ -35,6 +39,7 @@
     }else if(u.getPrivilege().equals("professor")){
         response.sendRedirect("professorPage.jsp");
     }
+
 %>
 <!--NAVBAR-->
 <jsp:include page="pages/navbar.jsp"/>
@@ -98,9 +103,9 @@
                                     <form action="" method="post">
                                         <font face="Poppins-Regular" size="3" color="#0057AE"><b>Comment:</b></font>
                                         <br>
-                                        <textarea name="comentarios" id="comentarios" style="width: 300px"></textarea>
+                                        <textarea name="comentario" id="comentarios" style="width: 300px"></textarea>
                                         <br>
-                                        <input class="form-control mr-sm-2 btn btn-outline-success" action="oi.html" type="submit" value="Send Comment">
+                                        <input class="form-control mr-sm-2 btn btn-outline-success" name="action" type="submit" value="Send Comment">
                                     </form>
                                 </td>
                                 <td>
