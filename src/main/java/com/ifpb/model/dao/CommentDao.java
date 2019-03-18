@@ -16,7 +16,7 @@ public class CommentDao {
 
     }
 
-    public boolean salvarComentario(Comment comment){
+    public boolean saveComment(Comment comment){
         session = CassandraConnection.getConnection();
         PreparedStatement statement = session.prepare("INSERT INTO comment (id, coment, username) VALUES (?,?,?)");
         BoundStatement bound = statement.bind(comment.getId(),comment.getcoment(),comment.getUsername());
@@ -25,7 +25,7 @@ public class CommentDao {
         session.close();
         return rs.wasApplied();
     }
-    public boolean excluirComentario(int id){
+    public boolean deleteComment(int id){
         session = CassandraConnection.getConnection();
         Statement statement = QueryBuilder.delete().from("comment").where(eq("id",id));
         ResultSet rs = session.execute(statement);
@@ -33,7 +33,7 @@ public class CommentDao {
         session.close();
         return rs.wasApplied();
     }
-    public List<Row> listarComentarios(){
+    public List<Row> listComments(){
         session = CassandraConnection.getConnection();
         Statement statement = QueryBuilder.select("coment","username").from("comment");
         ResultSet resultSet = session.execute(statement);
@@ -45,7 +45,7 @@ public class CommentDao {
         session.close();
         return null;
     }
-    public List<Row> buscarComentario(int id){
+    public List<Row> searchComment(int id){
         session=CassandraConnection.getConnection();
         Statement statement = QueryBuilder.select("coment").from("comment").where(eq("id",id));
         ResultSet resultSet = session.execute(statement);

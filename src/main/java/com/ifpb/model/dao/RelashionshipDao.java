@@ -23,7 +23,7 @@ public class RelashionshipDao {
         try (Transaction transaction = session.beginTransaction()){
             StatementResult result = transaction.run( "CREATE (:User{id:$id, name:$name})",
                     parameters("id",user.getId(),
-                            "name",user.getName()));
+                            "name",user.getEmail()));
             transaction.success();
         }catch (ClientException ex){
             return false;
@@ -32,13 +32,13 @@ public class RelashionshipDao {
         return true;
     }
 
-    public boolean createRelashionship(User user, User user1){
+    public boolean createRelashionship(String email, String email1){
         try (Transaction transaction = session.beginTransaction()){
-            StatementResult result = transaction.run("MATCH (x:User), (y:User)WHERE x.id=$id1 AND y.id=$id2\n" +
+            StatementResult result = transaction.run("MATCH (x:User), (y:User)WHERE x.name=$name1 AND y.name=$name2\n" +
                             "CREATE (x)-[:Follow]->(y) \n" +
                             "RETURN x,y",
-                    parameters("id1",user.getId(),
-                            "id2",user1.getId()));
+                    parameters("name1",email,
+                            "name2",email1));
             transaction.success();
         }catch (ClientException ex){
             return false;
@@ -46,12 +46,12 @@ public class RelashionshipDao {
         return true;
     }
 
-    public boolean unfollow (User user, User user1){
+    public boolean unfollow (String email, String email1){
         try (Transaction transaction = session.beginTransaction()){
-            StatementResult result = transaction.run("MATCH(:User{id:$id1})-[r:Follow]->(:User{id:$id2})\n" +
+            StatementResult result = transaction.run("MATCH(:User{name:$name1})-[r:Follow]->(:User{name:$name2})\n" +
                             "DELETE r",
-                    parameters("id1",user.getId(),
-                            "id2",user1.getId()));
+                    parameters("name1",email,
+                            "name2",email1));
             transaction.success();
         }catch (ClientException ex){
             return false;
@@ -59,11 +59,12 @@ public class RelashionshipDao {
 
         return true;
     }
-    public List<User> searchFollow(int id) {
+
+    public List<User> searchFollow(String email) {
         List list = new ArrayList();
         try (Transaction transaction = session.beginTransaction()) {
-            StatementResult result = transaction.run("MATCH(a:User)-[:Follow]->(b:User{id:$id})RETURN a.name",
-                    parameters("id", id));
+            StatementResult result = transaction.run("MATCH(a:User)-[:Follow]->(b:User{name:$name})RETURN a.name",
+                    parameters("name", email));
             transaction.success();
 
             while (result.hasNext()){
@@ -76,7 +77,6 @@ public class RelashionshipDao {
             return null;
         }
     }
-
     public void close() throws Exception {
         session.close();
         driver.close();

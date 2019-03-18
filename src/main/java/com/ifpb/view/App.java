@@ -22,7 +22,7 @@ public class App {
        //dao.saveUser(user1);
 //        dao.saveUser(user1);
         //dao.createRelashionship(user,user1);
-        dao.unfollow(user,user1);
+        
 
     }
 
