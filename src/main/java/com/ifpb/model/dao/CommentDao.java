@@ -45,6 +45,22 @@ public class CommentDao {
         session.close();
         return null;
     }
+    public List<Row> buscarComentario(int id){
+        session=CassandraConnection.getConnection();
+        Statement statement = QueryBuilder.select("coment").from("comment").where(eq("id",id));
+        ResultSet resultSet = session.execute(statement);
+        if (resultSet.wasApplied()){
+            List<Row> rows = resultSet.all();
+            for (Row row:rows){
+                return rows;
+            }
+        }else return null;
+
+        CassandraConnection.closeConnection();
+        session.close();
+        return null;
+    }
+
 
 
 }
