@@ -5,6 +5,7 @@ import com.ifpb.model.entidades.Post;
 import com.ifpb.model.entidades.User;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -30,15 +31,17 @@ public class SavePost implements Command {
         post.setTitle(request.getParameter("title"));
         post.setDescription(request.getParameter("description"));
         post.setExclusivity(request.getParameter("exclusivity"));
+        post.setEvaluation(0f);
         
         Part part = request.getPart("video");
+
 
         byte[] bVideo = new byte[(int) part.getSize()];
         InputStream stream = part.getInputStream();
         stream.read(bVideo);
         stream.close();
 
-        String video = "data:video/Mp4;base64," + Base64.getEncoder().encodeToString(bVideo);
+        String video = "data:image/jpeg;base64" + Base64.getEncoder().encodeToString(bVideo);
 
         post.setVideo(video);
 

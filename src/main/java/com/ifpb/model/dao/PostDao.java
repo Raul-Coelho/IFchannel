@@ -19,7 +19,7 @@ public class PostDao {
 
     public boolean save(Post post){
         if(post.getId() == 0){
-            String sql = "INSERT INTO post(title, video, description, exclusivity, idUser) VALUES(?,?,?,?,?)";
+            String sql = "INSERT INTO post(title, video, description, exclusivity, userid) VALUES(?,?,?,?,?)";
 
             try(Connection connection = factory.getConnection()){
                 PreparedStatement st = connection.prepareStatement(sql);

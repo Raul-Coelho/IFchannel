@@ -21,7 +21,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form method="post" class="my-5 ml-5" action="/controller?action=SavePost">
+                <form method="post" class="my-5 ml-5" enctype="multipart/form-data" action="/controller?action=SavePost">
                     <div class="form-group">
                         <label for="recipient-title" class="col-form-label">Title:</label>
                         <input type="text" name="title" class="form-control" id="recipient-title">

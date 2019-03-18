@@ -65,7 +65,7 @@
                </tr>
                <tr>
                    <td>
-                       <form method="post" action="#">
+                       <form method="post" enctype="multipart/form-data" action="/controller?action=SavePost">
                            <button class="btn btn-primary btn-outline-success btn-size" type="button" data-toggle="modal" data-target="#modalRegister">REGISTER</button>
                            <!-- MODAL REGISTER -->
                             <jsp:include page="pages/modalregister.jsp"/>
