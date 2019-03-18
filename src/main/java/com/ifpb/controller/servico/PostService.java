@@ -24,5 +24,9 @@ public class PostService {
         return dao.delete(id);
     }
 
+    public boolean update(Post post){
+        return dao.save(post);
+    }
+
 
 }

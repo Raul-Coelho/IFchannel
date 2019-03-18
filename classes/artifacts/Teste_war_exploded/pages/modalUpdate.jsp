@@ -24,28 +24,12 @@
                 <form method="post"  action="/controller?action=UpdatePost">
                     <div class="form-group">
                         <label for="recipient-title" class="col-form-label">Title:</label>
-                        <input type="text" name="title" class="form-control" id="recipient-title">
-                    </div>
-                    <div class="form-group">
-                        <label for="recipient-name" class="col-form-label">Your Name:</label>
-                        <input type="text" name="name" class="form-control" id="recipient-name">
+                        <input type="text" name="title" class="form-control" id="recipient-title" value="${post.title}">
                     </div>
                     <div class="form-group">
                         <label for="recipient-description" class="col-form-label">Description:</label>
                         <input type="text" name="description" class="form-control" id="recipient-description">
                     </div>
-                    <table class="form-group">
-                        <tr>
-                            <td>
-                                <label for="recipient-private" class="col-form-label">Exclusivity:</label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input type="radio" name="exclusivity" id="recipient-private"><label> Private</label>
-                            </td>
-                        </tr>
-                    </table>
                     <div class="form-group">
                         <label for="recipient-file" class="col-form-label">Video:</label>
                         <input type="file" name="video" class="form-control" id="recipient-file">
