@@ -72,6 +72,8 @@ public class RelashionshipDao {
             }
             transaction.success();
             return list;
+        }catch (ClientException ex){
+            return null;
         }
     }
 
