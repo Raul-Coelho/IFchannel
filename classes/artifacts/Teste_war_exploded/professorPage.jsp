@@ -86,10 +86,8 @@
                        </form>
                    </td>
                    <td>
-                       <form method="post" action="#">
-                           <button class="btn btn-primary btn-outline-success btn-size" type="button" data-toggle="modal" data-target="#modalUpdate">UPDATE</button>
-                           <jsp:include page="pages/modalUpdate.jsp"/>
-                       </form>
+                       <input name="action" class="btn btn-primary btn-outline-success btn-size" type="submit" data-toggle="modal" data-target="#modalUpdate" value="UPDATE">
+                       <jsp:include page="pages/modalUpdate.jsp"/>
                    </td>
                </tr>
            </table>

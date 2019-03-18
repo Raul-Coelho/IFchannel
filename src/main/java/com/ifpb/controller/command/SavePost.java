@@ -45,6 +45,9 @@ public class SavePost implements Command {
 
         post.setVideo(video);
 
+        request.setAttribute("post",post);
+        session.setAttribute("post",post);
+
         if(service.save(post)){
             response.setStatus(200);
         }else{

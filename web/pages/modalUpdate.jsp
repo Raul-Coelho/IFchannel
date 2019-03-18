@@ -24,7 +24,7 @@
                 <form method="post"  action="/controller?action=UpdatePost">
                     <div class="form-group">
                         <label for="recipient-title" class="col-form-label">Title:</label>
-                        <input type="text" name="title" class="form-control" id="recipient-title" value="${post.title}">
+                        <input type="text" name="title" class="form-control" id="recipient-title" value="${sessionScope.post.title}">
                     </div>
                     <div class="form-group">
                         <label for="recipient-description" class="col-form-label">Description:</label>
