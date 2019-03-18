@@ -2,11 +2,11 @@ package com.ifpb.model.dao;
 
 import com.ifpb.connection.DriverFactory;
 import com.ifpb.model.entidades.User;
-import org.neo4j.driver.v1.Driver;
-import org.neo4j.driver.v1.Session;
-import org.neo4j.driver.v1.StatementResult;
-import org.neo4j.driver.v1.Transaction;
+import org.neo4j.driver.v1.*;
 import org.neo4j.driver.v1.exceptions.ClientException;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.neo4j.driver.v1.Values.parameters;
 
@@ -58,6 +58,21 @@ public class RelashionshipDao {
         }
 
         return true;
+    }
+    public List<User> searchFollow(int id) {
+        List list = new ArrayList();
+        try (Transaction transaction = session.beginTransaction()) {
+            StatementResult result = transaction.run("MATCH(a:User)-[:Follow]->(b:User{id:$id})RETURN a.name",
+                    parameters("id", id));
+            transaction.success();
+
+            while (result.hasNext()){
+                Record record = result.next();
+                list.add(record.get("a.name").asString());
+            }
+            transaction.success();
+            return list;
+        }
     }
 
     public void close() throws Exception {
