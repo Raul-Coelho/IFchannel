@@ -1,3 +1,8 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="com.ifpb.controller.servico.PostService" %>
+<%@ page import="com.ifpb.model.entidades.Post" %>
+<%@ page import="java.util.List" %>
+<%@ page import="com.ifpb.model.entidades.User" %>
 <%--
   Created by IntelliJ IDEA.
   User: raul
@@ -9,6 +14,19 @@
 <html>
 <head>
     <title>Modal List</title>
+    <%
+        try {
+
+            User user = (User) session.getAttribute("user");
+            PostService service = new PostService();
+            List<Post> posts = (List<Post>) service.list(user.getId());
+
+            request.setAttribute("posts", posts);
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    %>
 </head>
 <body>
 <div class="modal fade" id="modalList" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -25,18 +43,13 @@
                     <thead>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>Primeira publicação</td>
-                    </tr>
-                    <tr>
-                        <td>Segunda publicação</td>
-                    </tr>
-                    <tr>
-                        <td>Terceira publicação</td>
-                    </tr>
-                    <tr>
-                        <td>Quarta publicação</td>
-                    </tr>
+                    <c:forEach var="post" items="${posts}">
+                        <tr>
+                            <td>
+                                <c:out value="${sessionScope.post.title}"/>
+                            </td>
+                        </tr>
+                    </c:forEach>
                     </tbody>
                 </table>
             </div>

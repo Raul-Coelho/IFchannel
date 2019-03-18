@@ -32,7 +32,6 @@
         response.sendRedirect("studentPage.jsp");
     }
 
-
 %>
 <%--NAVBAR--%>
 <jsp:include page="pages/navbar.jsp"/>

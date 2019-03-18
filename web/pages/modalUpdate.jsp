@@ -1,4 +1,4 @@
-<%--
+<%@ page import="com.ifpb.controller.servico.PostService" %><%--
   Created by IntelliJ IDEA.
   User: raul
   Date: 15/03/19
