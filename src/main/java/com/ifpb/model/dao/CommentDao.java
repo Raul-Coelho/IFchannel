@@ -5,6 +5,8 @@ import com.datastax.driver.core.querybuilder.QueryBuilder;
 import com.ifpb.connection.CassandraConnection;
 import com.ifpb.model.entidades.Comment;
 
+import java.util.List;
+
 import static com.datastax.driver.core.querybuilder.QueryBuilder.eq;
 
 public class CommentDao {
@@ -30,6 +32,18 @@ public class CommentDao {
         CassandraConnection.closeConnection();
         session.close();
         return rs.wasApplied();
+    }
+    public List<Row> listarComentarios(){
+        session = CassandraConnection.getConnection();
+        Statement statement = QueryBuilder.select("coment","username").from("comment");
+        ResultSet resultSet = session.execute(statement);
+        List<Row>rowList= resultSet.all();
+        for (Row row:rowList){
+            return rowList;
+        }
+        CassandraConnection.closeConnection();
+        session.close();
+        return null;
     }
 
 
