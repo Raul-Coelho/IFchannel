@@ -19,9 +19,10 @@ public class ListController implements Command {
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException, ClassNotFoundException {
         PostService service = new PostService();
-        List<Post> post = null;
+        List<Post> post = new ArrayList<>();
 
         HttpSession session = request.getSession();
+
         User user = (User) session.getAttribute("user");
         post = service.list(user.getId());
 
@@ -33,9 +34,5 @@ public class ListController implements Command {
             System.out.println(e);
             e.printStackTrace();
         }
-
-
-
-
     }
 }

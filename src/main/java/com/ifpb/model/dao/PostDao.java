@@ -8,6 +8,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class PostDao {
@@ -59,25 +60,24 @@ public class PostDao {
     public Post searchById(int id){
         String sql = "SELECT * FROM post WHERE id = ?";
 
-        Post post = new Post();
+        try (Connection connection = factory.getConnection()){
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setInt(1,id);
+            ResultSet resultSet = statement.executeQuery();
 
-        try(Connection connection = factory.getConnection()){
-            PreparedStatement st = connection.prepareStatement(sql);
-            st.setInt(1, id);
-            ResultSet result = st.executeQuery();
-
-            if(result.next()){
-                post = new Post(
-                        result.getInt("id"),
-                        result.getInt("idUser"),
-                        result.getString("title"),
-                        result.getString("video"),
-                        result.getFloat("evaluation"),
-                        result.getString("description"),
-                        result.getString("exclusivity")
+            if (resultSet.next()){
+                Post p = new Post(
+                        resultSet.getInt("id"),
+                        resultSet.getString("title"),
+                        resultSet.getString("video"),
+                        resultSet.getFloat("evaluation"),
+                        resultSet.getString("description"),
+                        resultSet.getString("exclusivity")
                 );
+                return p;
             }
-            return post;
+            return null;
+
         } catch (SQLException e) {
             return null;
         } catch (ClassNotFoundException e) {
@@ -85,19 +85,18 @@ public class PostDao {
         }
     }
 
-    public List<Post> list(int idUser){
-        String sql = "SELECT * FROM post WHERE id = ?";
-        List<Post> post = null;
+    public List<Post> list(int userid){
+        String sql = "SELECT * FROM post WHERE userid = ?";
+        List<Post> list = new ArrayList();
 
         try(Connection connection = factory.getConnection()){
             PreparedStatement st = connection.prepareStatement(sql);
-            st.setInt(1, idUser);
+            st.setInt(1, userid);
             ResultSet result = st.executeQuery();
 
             while (result.next()){
                 Post p = new Post(
                         result.getInt("id"),
-                        result.getInt("idUser"),
                         result.getString("title"),
                         result.getString("video"),
                         result.getFloat("evaluation"),
@@ -105,9 +104,9 @@ public class PostDao {
                         result.getString("exclusivity")
 
                 );
-                post.add(p);
+                list.add(p);
             }
-            return post;
+            return list;
 
         } catch (SQLException e) {
             return null;
