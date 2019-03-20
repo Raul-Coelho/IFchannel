@@ -1,15 +1,12 @@
 package com.ifpb.view;
 
 import com.ifpb.controller.servico.PostService;
-import com.ifpb.model.dao.RelashionshipDao;
-import com.ifpb.model.dao.UsuarioDao;
-import com.ifpb.model.entidades.User;
 
 import java.sql.SQLException;
 
 public class App {
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
-       // UsuarioDao dao = new UsuarioDao();
+       // UserDao dao = new UserDao();
 
 //        System.out.println(dao.save(new User(0,"lucas1", "321","Lucas","M","","Fon","1","PB","5890000","889999000","102")));
 

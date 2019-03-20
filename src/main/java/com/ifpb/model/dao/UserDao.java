@@ -7,13 +7,14 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
-public class UsuarioDao {
+public class UserDao {
 
     private PostgreConFactory factory;
 
-    public UsuarioDao() {
+    public UserDao() {
         factory = new PostgreConFactory();
     }
 
@@ -116,14 +117,14 @@ public class UsuarioDao {
         }
     }
 
-    public List<User> searchByName(String nome) throws SQLException {
-        String sql = "SELECT * FROM usuario WHERE nome = ?";
-        List<User> users = null;
+    public List<User> searchByName(String name) throws SQLException {
+        String sql = "SELECT * FROM usuario WHERE name = ?";
+        List <User>list = new ArrayList();
 
         try (Connection connection = factory.getConnection()) {
             PreparedStatement st = connection.prepareStatement(sql);
 
-            st.setString(1, nome);
+            st.setString(1, name);
             ResultSet result = st.executeQuery();
 
             while (result.next()) {
@@ -143,9 +144,9 @@ public class UsuarioDao {
                         result.getString("phone"),
                         result.getString("number")
                 );
-                users.add(u);
+                list.add(u);
             }
-            return users;
+            return list;
         } catch (SQLException e) {
             return null;
         } catch (ClassNotFoundException e) {
@@ -155,7 +156,7 @@ public class UsuarioDao {
 
     public List<User> listar() throws SQLException {
         String sql = "SELECT * FROM usuario";
-        List<User> users = null;
+        List <User> list = new ArrayList();
 
         try (Connection connection = factory.getConnection()) {
             PreparedStatement st = connection.prepareStatement(sql);
@@ -179,9 +180,9 @@ public class UsuarioDao {
                         result.getString("phone"),
                         result.getString("number")
                 );
-                users.add(u);
+                list.add(u);
             }
-            return users;
+            return list;
         } catch (SQLException e) {
             return null;
         } catch (ClassNotFoundException e) {
@@ -189,7 +190,7 @@ public class UsuarioDao {
         }
     }
 
-    public User searchByLogin(String login) throws SQLException {
+    public User searchByLogin(String login){
         String sql = "SELECT * FROM usuario WHERE email = ?";
 
         try (Connection connection = factory.getConnection()) {
@@ -251,21 +252,21 @@ public class UsuarioDao {
             User u = new User();
 
             if (result.next()) {
-                 u = new User(
-                         result.getInt("id"),
-                         result.getString("privilege"),
-                         result.getString("email"),
-                         result.getString("matriculation"),
-                         result.getString("password"),
-                         result.getString("name"),
-                         result.getString("gender"),
-                         result.getString("photo"),
-                         result.getString("street"),
-                         result.getString("city"),
-                         result.getString("state"),
-                         result.getString("cep"),
-                         result.getString("phone"),
-                         result.getString("number")
+                u = new User(
+                        result.getInt("id"),
+                        result.getString("privilege"),
+                        result.getString("email"),
+                        result.getString("matriculation"),
+                        result.getString("password"),
+                        result.getString("name"),
+                        result.getString("gender"),
+                        result.getString("photo"),
+                        result.getString("street"),
+                        result.getString("city"),
+                        result.getString("state"),
+                        result.getString("cep"),
+                        result.getString("phone"),
+                        result.getString("number")
                 );
             }
             return (u != null && u.getPassword().equals(password));
