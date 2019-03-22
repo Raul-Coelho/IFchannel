@@ -36,6 +36,9 @@
                     </div>
                     <table class="form-group">
                         <tr>
+                            <div id="map" class="w-100 h-50"></div>
+                        </tr>
+                        <tr>
                             <td>
                                 <label for="recipient-private" class="col-form-label">Exclusivity:</label>
                             </td>
@@ -60,5 +63,57 @@
         </div>
     </div>
 </div>
+
+
+
+<%--SCRIPT MAPS--%>
+<script>
+    var map;
+    var marker;
+    var infoWindow;
+
+    function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+            center: {lat: -6.889591, lng: -38.545195},
+            zoom: 17,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        });
+
+        map.addListener('click', function(event){
+            criarMarcador(event.latLng);
+        });
+
+        infoWindow = new google.maps.InfoWindow();
+
+        map.addListener('dblclick', function(event){
+            exibirInfo(event.latLng);
+        });
+
+    }
+
+    function exibirInfo(localizacao){
+        infoWindow.setPosition(localizacao);
+        infoWindow.setContent("(Latitude: "+localizacao.lat()+", Longitude: "+localizacao.lng()+")");
+        infoWindow.open(map);
+    }
+
+    function criarMarcador(localizacao){
+
+        if(marker == null){
+            marker = new google.maps.Marker({
+                position: localizacao,
+                map: map,
+                title: 'Exemplo de marcador',
+                animation: google.maps.Animation.DROP,
+                draggable: true
+            });
+        }else{
+            marker.setPosition(localizacao);
+        }
+
+    }
+
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASRNnWGbejHWk5fVbP2Vrm7vll6eMDbSM&callback=initMap" async defer></script>
 </body>
 </html>
