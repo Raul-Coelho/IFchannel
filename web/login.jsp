@@ -1,4 +1,7 @@
-<%@ page import="com.ifpb.model.entidades.User" %><%--
+<%@ taglib prefix="f" uri="http://java.sun.com/jsf/core" %>
+<%@ taglib prefix="h" uri="http://java.sun.com/jsf/html" %>
+<%@ page import="com.ifpb.model.entidades.User" %>
+<%--
   Created by IntelliJ IDEA.
   User: Raul Coelho
   Date: 20/11/2018
@@ -42,6 +45,7 @@
         }
     }
 %>
+<f:view>
 <div class="limiter">
     <div class="container-login100">
         <div class="wrap-login100">
@@ -75,16 +79,22 @@
                         Login
                     </button>
                 </div>
-                <div class="text-center p-t-136">
-                    <a class="txt2" href="register.jsp">
-                        Create your Account
-                        <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
-                    </a>
-                </div>
+                <%--<div class="text-center p-t-136">--%>
+                    <%--<a class="txt2" href="register.jsp">--%>
+                        <%--Create your Account--%>
+                        <%--<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>--%>
+                    <%--</a>--%>
+                <%--</div>--%>
             </form>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:commandButton action="register" value="Create your Account"></h:commandButton>
+                </h:panelGrid>
+            </h:form>
         </div>
     </div>
 </div>
+</f:view>
 
 
 
