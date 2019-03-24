@@ -1,3 +1,5 @@
+<%@ taglib prefix="f" uri="http://java.sun.com/jsf/core" %>
+<%@ taglib prefix="h" uri="http://java.sun.com/jsf/html" %>
 <%--
   Created by IntelliJ IDEA.
   User: raul
@@ -22,15 +24,16 @@
 
 </head>
 <body >
+<f:view>
 <nav class="navbar navbar-light bg-light justify-content-between">
     <a class="navbar-brand">IFPB Channel</a>
     <form class="form-inline">
         <input class="form-control mr-sm-2 w-full" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
-    <form action="login.jsp">
-        <button class="btn btn-outline-success mr-sm-3 my-2 my-sm-0" type="submit">Sign Up</button>
-    </form>
+    <h:form>
+        <h:commandButton action="#{userBean.openLogin}" value="SIN-UP"></h:commandButton>
+    </h:form>
 </nav>
 <table style="margin-left: 28%;">
     <tr class="card my-5 div-video">
@@ -78,6 +81,7 @@
     </tr>
 
 </table>
+</f:view>
 <%--NAV-BOTTOM--%>
 <jsp:include page="pages/navBottom.jsp"/>
 </body>

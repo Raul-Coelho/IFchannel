@@ -88,7 +88,7 @@
             </form>
             <h:form>
                 <h:panelGrid columns="2">
-                    <h:commandButton action="register" value="Create your Account"></h:commandButton>
+                    <h:commandButton action="#{userBean.openRegister}" value="Create your Account"></h:commandButton>
                 </h:panelGrid>
             </h:form>
         </div>

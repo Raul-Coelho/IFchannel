@@ -1,13 +1,10 @@
 package com.ifpb.controller.bean;
 
 import com.ifpb.controller.servico.UserService;
-import com.ifpb.model.dao.UserDao;
 import com.ifpb.model.entidades.User;
-
 import javax.annotation.ManagedBean;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ViewScoped;
-import javax.jws.soap.SOAPBinding;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -38,6 +35,10 @@ public class UserBean {
     public void list() throws SQLException {
         this.status = "list";
         this.users = service.list();
+    }
+
+    public void openLogin(){
+        this.status = "login";
     }
 
     public void openRegister(){
