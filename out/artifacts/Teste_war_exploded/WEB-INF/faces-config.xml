@@ -19,10 +19,10 @@
     </navigation-rule>
 
     <navigation-rule>
-        <from-view-id>../login.jsp</from-view-id>
+        <from-view-id>/login.jsp</from-view-id>
         <navigation-case>
             <from-outcome>register</from-outcome>
-            <to-view-id>../register.jsp</to-view-id>
+            <to-view-id>/register.jsp</to-view-id>
         </navigation-case>
     </navigation-rule>
 
