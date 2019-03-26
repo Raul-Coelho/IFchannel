@@ -2,14 +2,15 @@ package com.ifpb.controller.bean;
 
 import com.ifpb.controller.servico.UserService;
 import com.ifpb.model.entidades.User;
-import javax.annotation.ManagedBean;
+
 import javax.annotation.PostConstruct;
+import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-@ManagedBean
+@ManagedBean(name = "userBean")
 @ViewScoped
 public class UserBean {
 

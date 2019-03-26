@@ -11,10 +11,10 @@
         </managed-bean> -->
 
     <navigation-rule>
-        <from-view-id>../index.jsp</from-view-id>
+        <from-view-id>/index.jsp</from-view-id>
         <navigation-case>
             <from-outcome>login</from-outcome>
-            <to-view-id>../login.jsp</to-view-id>
+            <to-view-id>/login.jsp</to-view-id>
         </navigation-case>
     </navigation-rule>
 
