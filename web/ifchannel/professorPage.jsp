@@ -13,11 +13,11 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-    <link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+    <link rel="icon" type="image/png" href="../images/icons/favicon.ico"/>
     <link rel="stylesheet" href="/css/userPage.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/homepage.css">
-    <link rel="stylesheet" href="css/btn-size.css">
+    <link rel="stylesheet" href="../css/homepage.css">
+    <link rel="stylesheet" href="../css/btn-size.css">
 </head>
 <body>
 
@@ -34,7 +34,7 @@
 
 %>
 <%--NAVBAR--%>
-<jsp:include page="pages/navbar.jsp"/>
+<jsp:include page="../pages/navbar.jsp"/>
 
 
 <!--PROFILE PROFESSOR-->
@@ -53,7 +53,7 @@
             <div class="card-body">
                 <a href="https://mail.google.com/mail/u/0/#inbox" class="card-link">Email</a>
                 <a href="#" class="card-link" data-toggle="modal" data-target="#modalProfile" >Edit Profile</a>
-                <jsp:include page="pages/modalProfile.jsp"/>
+                <jsp:include page="../pages/modalProfile.jsp"/>
             </div>
         </div>
         <div class="card my-3 mr-2 my-2" style="width: 40rem; height: auto; left: 50px">
@@ -67,14 +67,14 @@
                        <form method="post" enctype="multipart/form-data" action="/controller?action=SavePost">
                            <button class="btn btn-primary btn-outline-success btn-size" type="button" data-toggle="modal" data-target="#modalRegister">REGISTER</button>
                            <!-- MODAL REGISTER -->
-                            <jsp:include page="pages/modalregister.jsp"/>
+                            <jsp:include page="../pages/modalregister.jsp"/>
 
                        </form>
                    </td>
                    <td>
                        <form method="post" action="#">
                            <button class="btn btn-primary btn-outline-success btn-size" type="button" data-toggle="modal" data-target="#modalRemove">REMOVE</button>
-                           <jsp:include page="pages/modalRemove.jsp"/>
+                           <jsp:include page="../pages/modalRemove.jsp"/>
                        </form>
                    </td>
                </tr>
@@ -82,12 +82,12 @@
                    <td>
                        <form method="post" action="#">
                            <button class="btn btn-primary btn-outline-success btn-size" type="button" data-toggle="modal" data-target="#modalList">LIST</button>
-                           <jsp:include page="pages/modalList.jsp"/>
+                           <jsp:include page="../pages/modalList.jsp"/>
                        </form>
                    </td>
                    <td>
                        <input name="action" class="btn btn-primary btn-outline-success btn-size" type="submit" data-toggle="modal" data-target="#modalUpdate" value="UPDATE">
-                       <jsp:include page="pages/modalUpdate.jsp"/>
+                       <jsp:include page="../pages/modalUpdate.jsp"/>
                    </td>
                </tr>
            </table>
@@ -95,7 +95,7 @@
     </div>
 </div>
 <%--NAV-BOTTOM--%>
-<jsp:include page="pages/navBottom.jsp"/>
+<jsp:include page="../pages/navBottom.jsp"/>
 
 </body>
 </html>

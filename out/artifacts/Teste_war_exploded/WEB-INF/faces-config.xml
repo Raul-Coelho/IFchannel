@@ -1,29 +1,23 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<faces-config xmlns="http://java.sun.com/xml/ns/javaee"
-              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-              xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd"
-              version="2.0">
-    <!--
-        <managed-bean>
-            <managed-bean-name>helloBean</managed-bean-name>
-            <managed-bean-class>br.edu.ifpb.pweb1.HelloBean</managed-bean-class>
-            <managed-bean-scope>application</managed-bean-scope>
-        </managed-bean> -->
+<?xml version='1.0' encoding='UTF-8'?>
+<faces-config version="2.2" xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee 
+    http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
 
     <navigation-rule>
-        <from-view-id>/index.jsp</from-view-id>
+        <from-view-id>/ifchannel/index.jsp</from-view-id>
         <navigation-case>
             <from-outcome>login</from-outcome>
-            <to-view-id>/login.jsp</to-view-id>
+            <to-view-id>/ifchannel/login.jsp</to-view-id>
         </navigation-case>
     </navigation-rule>
 
     <navigation-rule>
-        <from-view-id>/login.jsp</from-view-id>
+        <from-view-id>/ifchannel/login.jsp</from-view-id>
         <navigation-case>
             <from-outcome>register</from-outcome>
-            <to-view-id>/register.jsp</to-view-id>
+            <to-view-id>/ifchannel/register.jsp</to-view-id>
         </navigation-case>
     </navigation-rule>
-
+  
 </faces-config>

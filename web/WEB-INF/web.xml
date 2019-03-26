@@ -20,5 +20,9 @@
         <param-name>nomeapp</param-name>
         <param-value>PWEB1 - IFchannel JSF</param-value>
     </context-param>
+    <context-param>
+        <param-name>javax.faces.CONFIG_FILES</param-name>
+        <param-value>/WEB-INF/lib/faces-config.xml</param-value>
+    </context-param>
 
 </web-app>

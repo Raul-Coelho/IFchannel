@@ -16,10 +16,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Student</title>
-    <link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+    <link rel="icon" type="image/png" href="../images/icons/favicon.ico"/>
     <link rel="stylesheet" href="/css/userPage.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/homepage.css">
+    <link rel="stylesheet" href="../css/homepage.css">
     <link rel="stylesheet" href="css/font.css">
 
     <%--SCRIPT--%>
@@ -42,7 +42,7 @@
 
 %>
 <!--NAVBAR-->
-<jsp:include page="pages/navbar.jsp"/>
+<jsp:include page="../pages/navbar.jsp"/>
 <!--PROFILE STUDENT-->
 <div class="container">
     <div class="row profile">
@@ -68,7 +68,7 @@
             <tr class="card div-video">
                 <td>
                     <div style="height: 100%">
-                        <video controls  src="video/developer.mp4"></video>
+                        <video controls  src="../video/developer.mp4"></video>
                         <table class="ml-3">
                             <tr>
                                 <hr>
@@ -79,7 +79,7 @@
                             <tr>
                                 <td>
                                     <p><h5><a href="" style="text-decoration: none" data-toggle="modal" data-target="#modalInfoProfessor">Professor Name</a></h5></p>
-                                    <jsp:include page="pages/modalInfoProfessor.jsp"/>
+                                    <jsp:include page="../pages/modalInfoProfessor.jsp"/>
                                 </td>
                             </tr>
                             <tr>
@@ -111,7 +111,7 @@
                                 </td>
                                 <td>
                                     <button class="btn btn-primary btn-outline-success btn-size" style="margin-top: 5.3rem;" type="button" data-toggle="modal" data-target="#modalComment">Show Comments</button>
-                                    <jsp:include page="pages/modalComments.jsp"/>
+                                    <jsp:include page="../pages/modalComments.jsp"/>
                                 </td>
                             </tr>
                         </table>
@@ -122,6 +122,6 @@
     </div>
 </div>
 <%--NAVBAR-BOTTOM--%>
-<jsp:include page="pages/navBottom.jsp"/>
+<jsp:include page="../pages/navBottom.jsp"/>
 </body>
 </html>

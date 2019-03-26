@@ -11,9 +11,9 @@
 <head>
     <meta charset="utf-8">
     <%--<link rel="stylesheet" href="css/cadastro.css"/>--%>
-    <link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+    <link rel="icon" type="image/png" href="../images/icons/favicon.ico"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/homepage.css">
+    <link rel="stylesheet" href="../css/homepage.css">
 <%--script--%>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
@@ -24,7 +24,7 @@
 <body>
     <div id="divPrincipal">
     <center>
-        <jsp:include page="pages/nav-register.jsp"/>
+        <jsp:include page="../pages/nav-register.jsp"/>
         <div class="card w-50" style="margin-top: 20px; margin-bottom: 30px">
             <form method="post" class="my-5 ml-5" enctype="multipart/form-data" action="/controller?action=SalvarUsuario">
                 <table>
@@ -87,6 +87,6 @@
     </div>
 
 <%--Nav-Bottom--%>
-<jsp:include page="pages/navBottom.jsp"/>
+<jsp:include page="../pages/navBottom.jsp"/>
 </body>
 </html>
