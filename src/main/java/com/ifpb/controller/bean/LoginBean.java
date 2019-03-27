@@ -21,8 +21,12 @@ public class LoginBean {
     private String password;
 
     @PostConstruct
-    public void init() throws SQLException, ClassNotFoundException {
-        service = new UserService();
+    public void init(){
+        try {
+            service = new UserService();
+        } catch (Exception e) {
+
+        }
     }
 
 
