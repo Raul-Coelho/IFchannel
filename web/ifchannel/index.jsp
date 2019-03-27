@@ -32,7 +32,7 @@
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
     <h:form>
-        <h:commandButton action="#{userBean.openLogin}" value="SIN-UP"></h:commandButton>
+        <
     </h:form>
 </nav>
 <table style="margin-left: 28%;">

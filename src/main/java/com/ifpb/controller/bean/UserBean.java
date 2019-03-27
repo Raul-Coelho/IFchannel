@@ -37,12 +37,12 @@ public class UserBean {
         this.users = service.list();
     }
 
-    public void openLogin(){
-        this.status = "login";
+    public String openLogin(){
+        return "login";
     }
 
-    public void openRegister(){
-        this.status = "register";
+    public String openRegister(){
+        return "register";
     }
 
     public String registerUser() throws SQLException {

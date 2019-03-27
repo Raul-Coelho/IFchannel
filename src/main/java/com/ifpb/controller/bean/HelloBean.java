@@ -1,4 +1,4 @@
-package com.ifpb;
+package com.ifpb.controller.bean;
 
 import java.io.Serializable;
 

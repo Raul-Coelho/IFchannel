@@ -5,18 +5,18 @@
     http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
 
     <navigation-rule>
-        <from-view-id>/ifchannel/index.jsp</from-view-id>
+        <from-view-id>/ifchannel/login.xhtml</from-view-id>
         <navigation-case>
             <from-outcome>login</from-outcome>
-            <to-view-id>/ifchannel/login.jsp</to-view-id>
+            <to-view-id>/ifchannel/index.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
 
     <navigation-rule>
-        <from-view-id>/ifchannel/login.jsp</from-view-id>
+        <from-view-id>/ifchannel/register.xhtml</from-view-id>
         <navigation-case>
             <from-outcome>register</from-outcome>
-            <to-view-id>/ifchannel/register.jsp</to-view-id>
+            <to-view-id>/ifchannel/login.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
   
