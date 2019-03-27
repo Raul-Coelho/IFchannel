@@ -19,5 +19,27 @@
             <to-view-id>/ifchannel/login.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
-  
+    
+    <navigation-rule>
+        <from-view-id>/ifchannel/professorPage.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>professor</from-outcome>
+            <to-view-id>/ifchannel/login.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+
+    <navigation-rule>
+        <from-view-id>/ifchannel/login.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>student</from-outcome>
+            <to-view-id>/ifchannel/studentPage.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+
+    <lifecycle>
+        <phase-listener>com.ifpb.controller.listener.AuthListener</phase-listener>
+    </lifecycle>
+
 </faces-config>

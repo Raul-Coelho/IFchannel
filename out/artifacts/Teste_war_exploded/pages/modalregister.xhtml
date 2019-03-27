@@ -1,0 +1,120 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+<head>
+    <title>Modal Register</title>
+</head>
+<body>
+<f:view>
+<div class="modal fade" id="modalRegister" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h6 class="modal-title" id="exampleModalLabel">Sign up for a new lesson</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h:form styleClass="my-5 ml-5" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <h:outputLabel for="recipient-title" styleClass="col-form-label" value="Title"/>
+                        <h:inputText type="text" name="title" styleClass="form-control" id="recipient-title"/>
+                    </div>
+                    <div class="form-group">
+                        <h:outputLabel for="recipient-name" styleClass="col-form-label" value="#{userBean.user.name}"/>
+                        <h:inputText type="text" name="name" styleClass="form-control" id="recipient-name"/>
+                    </div>
+                    <div class="form-group">
+                        <h:outputLabel for="recipient-description" styleClass="col-form-label" value="Description"/>
+                        <h:inputText type="text" name="description" styleClass="form-control" id="recipient-description"/>
+                    </div>
+                    <table class="form-group">
+                        <tr>
+                            <ui:define name="divMap">
+                                <div id="map" class="w-100 h-50"></div>
+                            </ui:define>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h:outputLabel for="recipient-private" styleClass="col-form-label" value="Exclusivity"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h:selectOneRadio >
+                                    <f:selectItem value="private" id="recipient-private" itemLabel="Private"/>
+                                </h:selectOneRadio>
+                            </td>
+                        </tr>
+                    </table>
+                    <div class="form-group">
+                        <p:fileUpload value="#{uploadBasicoBean.uploadedFile}" mode="simple"/>
+                        <p:commandButton value="Send" ajax="false" actionListener="#{uploadBasicoBean.upload}" />
+                    </div>
+                    <div class="modal-footer">
+                        <h:commandButton styleClass="btn btn-secondary" data-dismiss="modal" value="Exit"/>
+                        <h:commandButton action="#{postBean.savePost}" styleClass="btn btn-primary" value="Save"/>
+                    </div>
+                </h:form>
+            </div>
+
+        </div>
+    </div>
+</div>
+</f:view>
+
+
+<!--SCRIPT MAPS-->
+<script>
+    var map;
+    var marker;
+    var infoWindow;
+
+    function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+            center: {lat: -6.889591, lng: -38.545195},
+            zoom: 17,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        });
+
+        map.addListener('click', function(event){
+            criarMarcador(event.latLng);
+        });
+
+        infoWindow = new google.maps.InfoWindow();
+
+        map.addListener('dblclick', function(event){
+            exibirInfo(event.latLng);
+        });
+
+    }
+
+    function exibirInfo(localizacao){
+        infoWindow.setPosition(localizacao);
+        infoWindow.setContent("(Latitude: "+localizacao.lat()+", Longitude: "+localizacao.lng()+")");
+        infoWindow.open(map);
+    }
+
+    function criarMarcador(localizacao){
+
+        if(marker == null){
+            marker = new google.maps.Marker({
+                position: localizacao,
+                map: map,
+                title: 'Exemplo de marcador',
+                animation: google.maps.Animation.DROP,
+                draggable: true
+            });
+        }else{
+            marker.setPosition(localizacao);
+        }
+
+    }
+
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASRNnWGbejHWk5fVbP2Vrm7vll6eMDbSM&callback=initMap" async="async" defer="defer"></script>
+</body>
+</html>

@@ -33,13 +33,13 @@
                 <img src="../images/img-01.png" alt="IMG"/>
             </div>
 
-            <h:form method="post" action="/controller?action=Authenticate" class="login100-form validate-form">
+            <h:form styleClass="login100-form validate-form">
 					<h:outputLabel class="login100-form-title">
 						IFPB Channel
                     </h:outputLabel>
                 <!--email-->
                 <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.com">
-                    <h:inputText class="input100" type="text" name="email" placeholder="Email"/>
+                    <h:inputText class="input100" type="text" name="email" value="#{loginBean.login}"/>
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
 							<i class="fa fa-envelope" aria-hidden="true"></i>
@@ -47,7 +47,7 @@
                 </div>
                 <!--passoword-->
                 <div class="wrap-input100 validate-input" data-validate = "Password is required">
-                    <h:inputSecret class="input100" type="text" name="password"/>
+                    <h:inputSecret class="input100" type="text" name="password" value="#{loginBean.password}"/>
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
 							<i class="fa fa-lock" aria-hidden="true"></i>
@@ -55,7 +55,7 @@
                 </div>
 
                 <div class="container-login100-form-btn">
-                    <h:commandButton class="login100-form-btn" value="Login"></h:commandButton>
+                    <h:commandButton class="login100-form-btn" value="Login" action="#{loginBean.autenticate}"></h:commandButton>
                 </div>
             </h:form>
             <h:form>
