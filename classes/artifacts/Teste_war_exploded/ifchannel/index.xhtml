@@ -1,0 +1,78 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+<head>
+    <meta charset="UTF-8"/>
+    <title>HOME</title>
+    <link rel="icon" type="image/png" href="../images/icons/favicon.ico"/>
+    <!--NAVBAR-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="../css/homepage.css"/>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"/>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"/>
+</head>
+<body>
+<nav class="navbar navbar-light bg-light justify-content-between">
+    <a class="navbar-brand">IFPB Channel</a>
+    <form class="form-inline">
+        <input class="form-control mr-sm-2 w-full" type="search" placeholder="Search" aria-label="Search"/>
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+    <h:form>
+        <h:commandButton action="#{userBean.openLogin}" styleClass="btn btn-outline-success" value="SIGN-UP"/>
+    </h:form>
+</nav>
+<f:view>
+<table style="margin-left: 28%;">
+    <tr class="card my-5 div-video">
+        <td>
+            <div style="height: 250%">
+                <video controls="controls"  src="../video/developer.mp4"></video>
+                <table class="ml-3">
+                    <tr>
+                        <td>
+                            <br/>
+                            <h2>
+                                <h:outputText value="TITLE"></h:outputText>
+                            </h2>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>
+                                <h:outputLabel value="Professor Name" />
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>
+                                <h:outputLabel value="Description"/>
+                            </p>
+                            <textarea name="descricao" style="width: 300px; height: 100px" readonly="readonly"></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h:outputLabel value="Evaluate"/>
+                            <p:slider minValue="0" maxValue="5"/>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </td>
+    </tr>
+
+</table>
+
+</f:view>
+
+<ui:insert name="bottom">
+    <ui:include src="../pages/navBottom.xhtml"/>
+</ui:insert>
+</body>
+</html>

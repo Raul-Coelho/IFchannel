@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
   <artifact type="exploded-war" name="Teste:war exploded">
-    <output-path>$PROJECT_DIR$/out/artifacts/Teste_war_exploded</output-path>
+    <output-path>$PROJECT_DIR$/classes/artifacts/Teste_war_exploded</output-path>
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
@@ -9,32 +9,6 @@
         <element id="directory" name="lib">
           <element id="library" level="project" name="Maven: org.postgresql:postgresql:9.4.1212" />
           <element id="library" level="project" name="Maven: jstl:jstl:1.2" />
-          <element id="library" level="project" name="Maven: org.neo4j.driver:neo4j-java-driver:1.7.2" />
-          <element id="library" level="project" name="Maven: com.datastax.cassandra:cassandra-driver-core:3.6.0" />
-          <element id="library" level="project" name="Maven: io.netty:netty-handler:4.0.56.Final" />
-          <element id="library" level="project" name="Maven: io.netty:netty-buffer:4.0.56.Final" />
-          <element id="library" level="project" name="Maven: io.netty:netty-common:4.0.56.Final" />
-          <element id="library" level="project" name="Maven: io.netty:netty-transport:4.0.56.Final" />
-          <element id="library" level="project" name="Maven: io.netty:netty-codec:4.0.56.Final" />
-          <element id="library" level="project" name="Maven: com.google.guava:guava:19.0" />
-          <element id="library" level="project" name="Maven: io.dropwizard.metrics:metrics-core:3.2.2" />
-          <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.25" />
-          <element id="library" level="project" name="Maven: com.github.jnr:jnr-ffi:2.1.7" />
-          <element id="library" level="project" name="Maven: com.github.jnr:jffi:1.2.16" />
-          <element id="library" level="project" name="Maven: com.github.jnr:jffi:native:1.2.16" />
-          <element id="library" level="project" name="Maven: org.ow2.asm:asm:5.0.3" />
-          <element id="library" level="project" name="Maven: org.ow2.asm:asm-commons:5.0.3" />
-          <element id="library" level="project" name="Maven: org.ow2.asm:asm-analysis:5.0.3" />
-          <element id="library" level="project" name="Maven: org.ow2.asm:asm-tree:5.0.3" />
-          <element id="library" level="project" name="Maven: org.ow2.asm:asm-util:5.0.3" />
-          <element id="library" level="project" name="Maven: com.github.jnr:jnr-x86asm:1.0.2" />
-          <element id="library" level="project" name="Maven: com.github.jnr:jnr-posix:3.0.44" />
-          <element id="library" level="project" name="Maven: com.github.jnr:jnr-constants:0.9.9" />
-          <element id="library" level="project" name="Maven: com.datastax.cassandra:cassandra-driver-mapping:3.6.0" />
-          <element id="library" level="project" name="Maven: com.datastax.cassandra:cassandra-driver-extras:3.6.0" />
-          <element id="library" level="project" name="Maven: com.sun.faces:jsf-api:2.2.18" />
-          <element id="library" level="project" name="Maven: javax.el:javax.el-api:3.0.0" />
-          <element id="library" level="project" name="Maven: com.sun.faces:jsf-impl:2.2.18" />
         </element>
       </element>
       <element id="javaee-facet-resources" facet="Teste/web/Web" />

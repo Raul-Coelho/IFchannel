@@ -1,4 +1,7 @@
-<%@ page import="com.ifpb.model.entidades.User" %><%--
+<%@ taglib prefix="f" uri="http://java.sun.com/jsf/core" %>
+<%@ taglib prefix="h" uri="http://java.sun.com/jsf/html" %>
+<%@ page import="com.ifpb.model.entidades.User" %>
+<%--
   Created by IntelliJ IDEA.
   User: Raul Coelho
   Date: 20/11/2018
@@ -13,20 +16,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--===============================================================================================-->
-    <link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+    <link rel="icon" type="image/png" href="../images/icons/favicon.ico"/>
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../vendor/bootstrap/css/bootstrap.min.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../fonts/font-awesome-4.7.0/css/font-awesome.min.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+    <link rel="stylesheet" type="text/css" href="../vendor/animate/animate.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+    <link rel="stylesheet" type="text/css" href="../vendor/css-hamburgers/hamburgers.min.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+    <link rel="stylesheet" type="text/css" href="../vendor/select2/select2.min.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="css/util.css">
-    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="../css/util.css">
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
     <!--===============================================================================================-->
 </head>
 <body>
@@ -42,11 +45,12 @@
         }
     }
 %>
+<f:view>
 <div class="limiter">
     <div class="container-login100">
         <div class="wrap-login100">
             <div class="login100-pic js-tilt" data-tilt>
-                <img src="images/img-01.png" alt="IMG">
+                <img src="../images/img-01.png" alt="IMG">
             </div>
 
             <form method="post" action="/controller?action=Authenticate" class="login100-form validate-form">
@@ -75,36 +79,42 @@
                         Login
                     </button>
                 </div>
-                <div class="text-center p-t-136">
-                    <a class="txt2" href="register.jsp">
-                        Create your Account
-                        <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
-                    </a>
-                </div>
+                <%--<div class="text-center p-t-136">--%>
+                    <%--<a class="txt2" href="register.jsp">--%>
+                        <%--Create your Account--%>
+                        <%--<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>--%>
+                    <%--</a>--%>
+                <%--</div>--%>
             </form>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:commandButton action="#{userBean.openRegister}" value="Create your Account"></h:commandButton>
+                </h:panelGrid>
+            </h:form>
         </div>
     </div>
 </div>
+</f:view>
 
 
 
 
 <!--===============================================================================================-->
-<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<script src="../vendor/jquery/jquery-3.2.1.min.js"></script>
 <!--===============================================================================================-->
-<script src="vendor/bootstrap/js/popper.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="../vendor/bootstrap/js/popper.js"></script>
+<script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
 <!--===============================================================================================-->
-<script src="vendor/select2/select2.min.js"></script>
+<script src="../vendor/select2/select2.min.js"></script>
 <!--===============================================================================================-->
-<script src="vendor/tilt/tilt.jquery.min.js"></script>
+<script src="../vendor/tilt/tilt.jquery.min.js"></script>
 <script >
     $('.js-tilt').tilt({
         scale: 1.1
     })
 </script>
 <!--===============================================================================================-->
-<script src="js/main.js"></script>
+<script src="../js/main.js"></script>
 
 </body>
 </html>
