@@ -23,13 +23,6 @@ public class LoginBean {
     private String password;
 
     @PostConstruct
-<<<<<<< HEAD
-    public void init() {
-        try{
-            service = new UserService();
-        }catch (Exception e){
-
-=======
     public void init(){
         try {
             service = new UserService();
@@ -37,7 +30,6 @@ public class LoginBean {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
->>>>>>> 7a71874ce925b120fb1a48b8a0d26f9e5cd76f02
         }
     }
 

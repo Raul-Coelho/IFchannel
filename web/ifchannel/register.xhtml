@@ -1,8 +1,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui" xmlns:t="http://java.sun.com/jsf/core">
 
 <head>
     <meta charset="utf-8"/>
@@ -17,71 +17,61 @@
     <title>Register User</title>
 </head>
 <body>
-    <div id="divPrincipal">
-        <f:view>
-    <center>
-        <ui:include src="/pages/nav-register.xhtml"/>
-        <div class="card w-50" style="margin-top: 20px; margin-bottom: 30px">
-            <form method="post" class="my-5 ml-5" enctype="multipart/form-data" action="/controller?action=SalvarUsuario">
-                <table>
-                    <tr>
-                        <td><label class="col-form-label">Name:</label></td>
-                        <td><input type="text" name="name" class="form-control w-75" placeholder="Name"/></td>
-                    </tr>
-                    <tr>
-                        <td><label class="col-form-label">Matriculation:</label></td>
-                        <td><input type="text" name="matriculation" class="form-control w-75" placeholder="Matriculation"/></td>
-                    </tr>
-                    <tr>
-                        <td><label class="col-form-label">Email:</label></td>
-                        <td><input type="text" name="email" class="form-control w-75" placeholder="Email"/></td>
-                    </tr>
-                    <tr>
-                        <td><label class="col-form-label">Password:</label></td>
-                        <td><input type="password" name="password" class="form-control w-75" placeholder="Password"/></td>
-                    </tr>
-                    <tr>
-                        <td><label class="labelform">Sexo </label></td>
-                        <td>
-                            <input type="radio" value="M" name="sex" class="inputRadio" checked="checked"/><label>M</label>
-                            <input type="radio" value="F" name="sex" class="inputRadio"/><label>F</label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><label class="col-form-label">Street:</label></td>
-                        <td><input type="text" name="street" class="form-control w-75" placeholder="Street"/></td>
-                    </tr>
-                    <tr>
-                        <td><label class="col-form-label">Number:</label></td>
-                        <td><input type="text" name="number" class="form-control w-75" placeholder="Number"/></td>
-                    </tr>
-                    <tr>
-                        <td><label class="col-form-label">City:</label></td>
-                        <td><input type="text" name="city" class="form-control w-75" placeholder="City"/></td>
-                    </tr>
-                    <tr>
-                        <td><label class="col-form-label">State:</label></td>
-                        <td><input type="text" name="state" class="form-control w-75" placeholder="State"/></td>
-                    </tr>
-                    <tr>
-                        <td><label class="col-form-label">Cep:</label></td>
-                        <td><input type="text" name="cep" class="form-control w-75" placeholder="Cep"/></td>
-                    </tr>
-                    <tr>
-                        <td><label class="col-form-label">Phone:</label></td>
-                        <td><input type="text" name="phone" class="form-control w-75" placeholder="Phone"/></td>
-                    </tr>
-                    <tr>
-                        <td><label class="col-form-label">Photo:</label></td>
-                        <td><input type="file" name="photo" class="form-control w-75" placeholder="Photo"/></td>
-                    </tr>
-                </table>
-                <input type="submit" class="btn btn-primary btn-outline-success my-5" style="width: 20rem;height: 3rem; margin-right: 100px" name="action" value="Register"/>
-            </form>
-        </div>
-    </center>
-        </f:view>
-    </div>
+<div id="divPrincipal">
+    <f:view>
+        <center>
+            <ui:include src="/pages/nav-register.xhtml"/>
+            <div class="card w-50" style="margin-top: 20px; margin-bottom: 30px">
+                <h:form enctype="multipart/form-data" styleClass="my-5 ml-5">
+                    <h:column>
+                        <h:panelGrid columns="2" >
+                            <h:outputLabel  styleClass="col-form-label" value="Name: " />
+                            <h:inputText value="#{userBean.user.name}" styleClass="form-control w-75"/>
+
+                            <h:outputLabel  styleClass="col-form-label" value="Matriculation: " />
+                            <h:inputText value="#{userBean.user.matriculation}" styleClass="form-control w-75"/>
+
+                            <h:outputLabel  styleClass="col-form-label" value="Email: " />
+                            <h:inputText value="#{userBean.user.email}" styleClass="form-control w-75"/>
+
+                            <h:outputLabel  styleClass="col-form-label" value="Password: " />
+                            <h:inputSecret value="#{userBean.user.password}" styleClass="form-control w-75"/>
+
+                            <h:outputLabel  styleClass="col-form-label" value="Number: " />
+                            <h:inputText value="#{userBean.user.number}" styleClass="form-control w-75"/>
+
+                            <h:outputLabel  styleClass="col-form-label" value="Gender: " />
+                            <h:selectOneMenu required="true">
+                                <f:selectItem itemValue="#{userBean.user.sex}" itemLabel="M"/>
+                                <f:selectItem itemValue="#{userBean.user.sex}" itemLabel="F"/>
+                            </h:selectOneMenu>
+
+                            <h:outputLabel  styleClass="col-form-label" value="Street: " />
+                            <h:inputText value="#{userBean.user.street}" styleClass="form-control w-75"/>
+
+                            <h:outputLabel  styleClass="col-form-label" value="City: " />
+                            <h:inputText value="#{userBean.user.city}" styleClass="form-control w-75"/>
+
+                            <h:outputLabel  styleClass="col-form-label" value="State: " />
+                            <h:inputText value="#{userBean.user.state}" styleClass="form-control w-75"/>
+
+                            <h:outputLabel  styleClass="col-form-label" value="Postal: " />
+                            <h:inputText value="#{userBean.user.cep}" styleClass="form-control w-75"/>
+
+                            <h:outputLabel  styleClass="col-form-label" value="Phone: " />
+                            <h:inputText value="#{userBean.user.phone}" styleClass="form-control w-75"/>
+
+                            <h:outputLabel  styleClass="col-form-label" value="Photo: " />
+                            <h:inputFile value="#{userBean.user.photo}" styleClass="form-control w-75"/>
+
+                        </h:panelGrid>
+                    </h:column>
+                    <h:commandButton styleClass="btn btn-primary btn-outline-success my-5" action="#{userBean.registerUser}" style="width: 20rem;height: 3rem; margin-right: 50px" name="action" value="Register"/>
+                </h:form>
+            </div>
+        </center>
+    </f:view>
+</div>
 <ui:include src="/pages/navBottom.xhtml"/>
 </body>
 </html>
