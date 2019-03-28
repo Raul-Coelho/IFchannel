@@ -35,4 +35,8 @@ public class UserService {
     public boolean delete(User user) throws SQLException {
         return dao.delete(user.getEmail());
     }
+
+    public User searchById(int id) throws SQLException {
+        return dao.searchById(id);
+    }
 }
