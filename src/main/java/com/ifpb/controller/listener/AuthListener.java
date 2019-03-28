@@ -16,7 +16,7 @@ public class AuthListener implements PhaseListener {
         HttpServletRequest request = (HttpServletRequest)context.getExternalContext().getRequest();
 
         if (request.getSession() == null) {
-            event.getFacesContext().getApplication().getNavigationHandler().handleNavigation(context, null, "goLogin");
+            event.getFacesContext().getApplication().getNavigationHandler().handleNavigation(context, null, "goIndex");
         }
 
         LoginBean loginBean = (LoginBean)request.getSession(false).getAttribute("loginBean");
@@ -25,8 +25,10 @@ public class AuthListener implements PhaseListener {
                 event.getFacesContext().getApplication().getNavigationHandler().handleNavigation(context, null, "login");
             }
         } else {
-            if (loginBean != null && loginBean.getUserLogged() != null) {
-                event.getFacesContext().getApplication().getNavigationHandler().handleNavigation(context, null, "produtos");
+            if (loginBean != null && loginBean.getUserLogged() != null && loginBean.getUserLogged().getPrivilege().equals("professor")) {
+                event.getFacesContext().getApplication().getNavigationHandler().handleNavigation(context, null, "professor");
+            }else {
+                event.getFacesContext().getApplication().getNavigationHandler().handleNavigation(context, null, "student");
             }
         }
     }
