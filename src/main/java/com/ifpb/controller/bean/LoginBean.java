@@ -63,7 +63,7 @@ public class LoginBean {
     public String logout() {
         HttpServletRequest request = (HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest();
         request.getSession(false).invalidate();
-        return "login";
+        return "logout";
     }
 
 
