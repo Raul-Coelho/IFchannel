@@ -1,6 +1,7 @@
 package com.ifpb.controller.listener;
 
 import com.ifpb.controller.bean.LoginBean;
+import com.ifpb.controller.bean.UserBean;
 
 import javax.faces.context.FacesContext;
 import javax.faces.event.PhaseEvent;
@@ -16,17 +17,18 @@ public class AuthListener implements PhaseListener {
         HttpServletRequest request = (HttpServletRequest)context.getExternalContext().getRequest();
 
         if (request.getSession() == null) {
-            event.getFacesContext().getApplication().getNavigationHandler().handleNavigation(context, null, "goLogin");
+            event.getFacesContext().getApplication().getNavigationHandler().handleNavigation(context, null, "goIndex");
         }
 
         LoginBean loginBean = (LoginBean)request.getSession(false).getAttribute("loginBean");
-        if (!viewId.equals("/ifchannel/login.xhtml")) {
+        UserBean userBean = (UserBean) request.getSession(false).getAttribute("userBean");
+        if (!viewId.equals("/ifchannel/login.xhtml") && (!viewId.equals("/ifchannel/index.xhtml"))) {
             if (loginBean == null || loginBean.getUserLogged() == null) {
-                event.getFacesContext().getApplication().getNavigationHandler().handleNavigation(context, null, "login");
+                event.getFacesContext().getApplication().getNavigationHandler().handleNavigation(context, null, "goIndex");
             }
         } else {
             if (loginBean != null && loginBean.getUserLogged() != null) {
-                event.getFacesContext().getApplication().getNavigationHandler().handleNavigation(context, null, "produtos");
+                event.getFacesContext().getApplication().getNavigationHandler().handleNavigation(context, null, "goIndex");
             }
         }
     }

@@ -3,18 +3,18 @@ package com.ifpb.controller.bean;
 import com.ifpb.controller.servico.UserService;
 import com.ifpb.model.entidades.User;
 
-import javax.faces.bean.ManagedBean;
+
 import javax.annotation.PostConstruct;
-import javax.faces.application.FacesMessage;
+import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletRequest;
 import java.sql.SQLException;
-import java.util.Optional;
 
-@ManagedBean
+@ManagedBean(name = "loginBean")
 @SessionScoped
 public class LoginBean {
+
     private UserService service;
 
     private User userLogged;
@@ -23,14 +23,23 @@ public class LoginBean {
     private String password;
 
     @PostConstruct
+<<<<<<< HEAD
     public void init() {
         try{
             service = new UserService();
         }catch (Exception e){
 
+=======
+    public void init(){
+        try {
+            service = new UserService();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+>>>>>>> 7a71874ce925b120fb1a48b8a0d26f9e5cd76f02
         }
     }
-
 
     public String autenticate() throws SQLException {
 
@@ -39,6 +48,7 @@ public class LoginBean {
         if(!service.authenticate(login, password)){
             return "";
         }else if(user.getPrivilege().equals("professor")){
+
             userLogged = user;
             userLogged.setPassword("");
             login = null;
@@ -47,6 +57,7 @@ public class LoginBean {
 
             return "professor";
         }else{
+
             userLogged = user;
             userLogged.setPassword("");
             login = null;
@@ -60,7 +71,7 @@ public class LoginBean {
     public String logout() {
         HttpServletRequest request = (HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest();
         request.getSession(false).invalidate();
-        return "login";
+        return "logout";
     }
 
 

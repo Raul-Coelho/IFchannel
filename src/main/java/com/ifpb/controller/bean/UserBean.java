@@ -50,7 +50,7 @@ public class UserBean {
     }
 
     public String openLogin(){
-        return "login";
+        return "goLogin";
     }
 
     public String openRegister(){

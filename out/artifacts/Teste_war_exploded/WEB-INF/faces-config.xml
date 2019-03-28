@@ -4,20 +4,69 @@
     xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee 
     http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
 
+    <!--LOGIN-->
     <navigation-rule>
         <from-view-id>/ifchannel/login.xhtml</from-view-id>
         <navigation-case>
             <from-outcome>login</from-outcome>
             <to-view-id>/ifchannel/index.xhtml</to-view-id>
+            <redirect/>
         </navigation-case>
     </navigation-rule>
 
+    <!--REGISTER-->
     <navigation-rule>
         <from-view-id>/ifchannel/register.xhtml</from-view-id>
         <navigation-case>
             <from-outcome>register</from-outcome>
             <to-view-id>/ifchannel/login.xhtml</to-view-id>
+            <redirect/>
         </navigation-case>
     </navigation-rule>
-  
+
+    <!--PROFESSOR PAGE-->
+    <navigation-rule>
+        <from-view-id>/ifchannel/login.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>professor</from-outcome>
+            <to-view-id>/ifchannel/professorPage.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+    </navigation-rule>
+
+
+    <!--LOGOUT-->
+    <navigation-rule>
+        <from-view-id>*</from-view-id>
+        <navigation-case>
+            <from-outcome>logout</from-outcome>
+            <to-view-id>/ifchannel/index.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+
+    <!--GO INDEX-->
+    <navigation-rule>
+        <from-view-id>*</from-view-id>
+        <navigation-case>
+            <from-outcome>goIndex</from-outcome>
+            <to-view-id>/ifchannel/index.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+    </navigation-rule>
+
+    <!--GO LOGIN-->
+    <navigation-rule>
+        <from-view-id>*</from-view-id>
+        <navigation-case>
+            <from-outcome>goLogin</from-outcome>
+            <to-view-id>/ifchannel/login.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+    </navigation-rule>
+
+    <lifecycle>
+        <phase-listener>com.ifpb.controller.listener.AuthListener</phase-listener>
+    </lifecycle>
+
 </faces-config>
