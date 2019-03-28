@@ -25,7 +25,6 @@
         <navigation-case>
             <from-outcome>professor</from-outcome>
             <to-view-id>/ifchannel/login.xhtml</to-view-id>
-            <redirect/>
         </navigation-case>
     </navigation-rule>
 

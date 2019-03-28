@@ -3,9 +3,10 @@ package com.ifpb.controller.bean;
 import com.ifpb.controller.servico.UserService;
 import com.ifpb.model.entidades.User;
 
+
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import javax.annotation.PostConstruct;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletRequest;
 import java.sql.SQLException;
@@ -13,6 +14,7 @@ import java.sql.SQLException;
 @ManagedBean(name = "loginBean")
 @SessionScoped
 public class LoginBean {
+
     private UserService service;
 
     private User userLogged;
@@ -24,11 +26,12 @@ public class LoginBean {
     public void init(){
         try {
             service = new UserService();
-        } catch (Exception e) {
-
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
         }
     }
-
 
     public String autenticate() throws SQLException {
 
