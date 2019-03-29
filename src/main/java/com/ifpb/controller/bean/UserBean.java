@@ -59,23 +59,20 @@ public class UserBean {
     }
 
     public String registerUser() throws SQLException {
-        String archive = Timestamp.from(Instant.now()).toString() + "-" + image.getSubmittedFileName();
-
-        try(InputStream file = image.getInputStream()){
-            Files.copy(file, new File(imgSource + "/" + archive).toPath(), StandardCopyOption.REPLACE_EXISTING);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        user.setPhoto(archive);
+//        String archive = Timestamp.from(Instant.now()).toString() + "-" + image.getSubmittedFileName();
+//
+//        try(InputStream file = image.getInputStream()){
+//            Files.copy(file, new File(imgSource + "/" + archive).toPath(), StandardCopyOption.REPLACE_EXISTING);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//
+//        user.setPhoto(archive);
         service.save(user);
         list();
         return "goLogin";
     }
 
-    public void prepareEdition(){
-        this.status = "edition";
-    }
 
     public void removeUser() throws SQLException {
         service.delete(user);

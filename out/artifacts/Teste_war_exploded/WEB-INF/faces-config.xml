@@ -44,12 +44,33 @@
         </navigation-case>
     </navigation-rule>
 
+    <navigation-rule>
+        <from-view-id>*</from-view-id>
+        <navigation-case>
+            <from-outcome>professor</from-outcome>
+            <to-view-id>/ifchannel/professorPage.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+    </navigation-rule>
+
+
     <!--SAVE POST PAGE-->
     <navigation-rule>
         <from-view-id>/ifchannel/professorPage.xhtml</from-view-id>
         <navigation-case>
             <from-outcome>savePost</from-outcome>
             <to-view-id>/ifchannel/savePost.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+    </navigation-rule>
+
+
+    <!--Edit User-->
+    <navigation-rule>
+        <from-view-id>/ifchannel/professorPage.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>edit</from-outcome>
+            <to-view-id>/ifchannel/editUser.xhtml</to-view-id>
             <redirect />
         </navigation-case>
     </navigation-rule>

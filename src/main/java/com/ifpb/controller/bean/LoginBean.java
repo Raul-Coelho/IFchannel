@@ -60,6 +60,20 @@ public class LoginBean {
         return "logout";
     }
 
+    public String openEditUser(){
+        return "edit";
+    }
+
+    public String editUser() throws SQLException {
+        if (userLogged.getPrivilege().equals("professor")){
+            service.update(userLogged);
+            return "professor";
+        }else {
+            service.update(userLogged);
+            return "student";
+        }
+    }
+
 
     public User getUserLogged() {
         return userLogged;
