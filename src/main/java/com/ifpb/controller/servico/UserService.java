@@ -9,7 +9,7 @@ import java.util.List;
 public class UserService {
     private UserDao dao = new UserDao();
 
-    public UserService() throws SQLException, ClassNotFoundException {
+    public UserService(){
     }
 
     public boolean save(User user) throws SQLException {

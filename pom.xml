@@ -36,8 +36,7 @@
         <dependency>
             <groupId>com.sun.faces</groupId>
             <artifactId>jsf-api</artifactId>
-            <version>2.2.17</version>
-            <scope>provided</scope>
+            <version>2.2.18</version>
         </dependency>
         <dependency>
             <groupId>javax.el</groupId>
@@ -47,8 +46,7 @@
         <dependency>
             <groupId>com.sun.faces</groupId>
             <artifactId>jsf-impl</artifactId>
-            <version>2.2.17</version>
-            <scope>provided</scope>
+            <version>2.2.18</version>
         </dependency>
 
         <dependency>
@@ -77,11 +75,6 @@
             <version>3.6.0</version>
         </dependency>
 
-        <dependency>
-            <groupId>com.datastax.cassandra</groupId>
-            <artifactId>cassandra-driver-extras</artifactId>
-            <version>3.6.0</version>
-        </dependency>
 
     </dependencies>
     <build>
@@ -100,6 +93,7 @@
                 <artifactId>maven-war-plugin</artifactId>
                 <version>3.2.2</version>
                 <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
                     <webappDirectory>web</webappDirectory>
                 </configuration>
             </plugin>

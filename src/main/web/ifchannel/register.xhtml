@@ -41,9 +41,9 @@
                             <h:inputText value="#{userBean.user.number}" styleClass="form-control w-75"/>
 
                             <h:outputLabel  styleClass="col-form-label" value="Gender: " />
-                            <h:selectOneMenu required="true">
-                                <f:selectItem itemValue="#{userBean.user.sex}" itemLabel="M"/>
-                                <f:selectItem itemValue="#{userBean.user.sex}" itemLabel="F"/>
+                            <h:selectOneMenu required="true" value="#{userBean.user.sex}">
+                                <f:selectItem itemValue="M" itemLabel="M"/>
+                                <f:selectItem itemValue="F" itemLabel="F"/>
                             </h:selectOneMenu>
 
                             <h:outputLabel  styleClass="col-form-label" value="Street: " />
@@ -66,7 +66,7 @@
 
                         </h:panelGrid>
                     </h:column>
-                    <h:commandButton styleClass="btn btn-primary btn-outline-success my-5" action="#{userBean.registerUser}" style="width: 20rem;height: 3rem; margin-right: 50px" name="action" value="Register"/>
+                    <h:commandButton styleClass="btn btn-primary btn-outline-success my-5" action="#{userBean.registerUser}" style="width: 20rem;height: 3rem; margin-right: 50px" value="Register"/>
                 </h:form>
             </div>
         </center>

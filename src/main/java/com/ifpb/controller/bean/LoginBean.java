@@ -24,13 +24,7 @@ public class LoginBean {
 
     @PostConstruct
     public void init(){
-        try {
-            service = new UserService();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
+        service = new UserService();
     }
 
     public String autenticate() throws SQLException {

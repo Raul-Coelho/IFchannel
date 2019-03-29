@@ -14,12 +14,22 @@
         </navigation-case>
     </navigation-rule>
 
-    <!--REGISTER-->
+    <!--LOGIN -> REGISTER-->
     <navigation-rule>
         <from-view-id>/ifchannel/register.xhtml</from-view-id>
         <navigation-case>
             <from-outcome>register</from-outcome>
             <to-view-id>/ifchannel/login.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+
+    <!--LOGIN <- REGISTER-->
+    <navigation-rule>
+        <from-view-id>/ifchannel/login.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>registerUser</from-outcome>
+            <to-view-id>/ifchannel/register.xhtml</to-view-id>
             <redirect/>
         </navigation-case>
     </navigation-rule>

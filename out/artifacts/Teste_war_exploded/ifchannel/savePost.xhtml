@@ -53,7 +53,7 @@
 
     <title>Save Post</title>
 </h:head>
-<body>
+<h:body>
 <div id="divPrincipal">
     <f:view>
         <center>
@@ -79,7 +79,10 @@
 
                             <h:outputLabel  styleClass="col-form-label" value="Localization: " />
                             <div id="map" class="w-100 h-50"></div>
-                            <!--<p:gmap type="ROADMAP" center="-6.889591,-38.545195" zoom="17" style="width:100%;height:400px"/>-->
+                            <p:gmap type="ROADMAP" center="-6.889591,-38.545195" zoom="17" style="width:100%;height:400px"/>
+                            <p:spinner>
+
+                            </p:spinner>
 
                             
 
@@ -94,64 +97,64 @@
 </div>
 
 <!--MAP-->
-<script>
-    var map;
-    var marker;
-    var infoWindow;
+<!--<script>-->
+    <!--var map;-->
+    <!--var marker;-->
+    <!--var infoWindow;-->
 
-    function initMap() {
-        map = new google.maps.Map(document.getElementById('map'), {
-            center: {lat: -6.889591, lng: -38.545195},
-            zoom: 17,
-            mapTypeId: google.maps.MapTypeId.ROADMAP
-        });
+    <!--function initMap() {-->
+        <!--map = new google.maps.Map(document.getElementById('map'), {-->
+            <!--center: {lat: -6.889591, lng: -38.545195},-->
+            <!--zoom: 17,-->
+            <!--mapTypeId: google.maps.MapTypeId.ROADMAP-->
+        <!--});-->
 
-        map.addListener('click', function(event){
-            criarMarcador(event.latLng);
-        });
+        <!--map.addListener('click', function(event){-->
+            <!--criarMarcador(event.latLng);-->
+        <!--});-->
 
-        infoWindow = new google.maps.InfoWindow();
+        <!--infoWindow = new google.maps.InfoWindow();-->
 
-        map.addListener('dblclick', function(event){
-            exibirInfo(event.latLng);
-        });
+        <!--map.addListener('dblclick', function(event){-->
+            <!--exibirInfo(event.latLng);-->
+        <!--});-->
 
-    }
+    <!--}-->
 
-    function exibirInfo(localizacao){
-        infoWindow.setPosition(localizacao);
-        infoWindow.setContent("(Latitude: "+localizacao.lat()+", Longitude: "+localizacao.lng()+")");
-        infoWindow.open(map);
-    }
+    <!--function exibirInfo(localizacao){-->
+        <!--infoWindow.setPosition(localizacao);-->
+        <!--infoWindow.setContent("(Latitude: "+localizacao.lat()+", Longitude: "+localizacao.lng()+")");-->
+        <!--infoWindow.open(map);-->
+    <!--}-->
 
-    function criarMarcador(localizacao){
+    <!--function criarMarcador(localizacao){-->
 
-        if(marker == null){
-            marker = new google.maps.Marker({
-                position: localizacao,
-                map: map,
-                title: 'Exemplo de marcador',
-                animation: google.maps.Animation.DROP,
-                draggable: true
-            });
-        }else{
-            marker.setPosition(localizacao);
-        }
+        <!--if(marker == null){-->
+            <!--marker = new google.maps.Marker({-->
+                <!--position: localizacao,-->
+                <!--map: map,-->
+                <!--title: 'Exemplo de marcador',-->
+                <!--animation: google.maps.Animation.DROP,-->
+                <!--draggable: true-->
+            <!--});-->
+        <!--}else{-->
+            <!--marker.setPosition(localizacao);-->
+        <!--}-->
 
-    }
+    <!--}-->
 
-    function saveCoords() {
-        var latlang = maker.getPosition();
+    <!--function saveCoords() {-->
+        <!--var latlang = maker.getPosition();-->
 
-        return latlang;
+        <!--return latlang;-->
 
-    }
+    <!--}-->
 
-</script>
+<!--</script>-->
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASRNnWGbejHWk5fVbP2Vrm7vll6eMDbSM" async="async" defer="defer"></script>
-<!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASRNnWGbejHWk5fVbP2Vrm7vll6eMDbSM&callback=initMap" async="async" defer="defer"></script>-->
+<!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASRNnWGbejHWk5fVbP2Vrm7vll6eMDbSM" async="async" defer="defer"></script>-->
+<!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASRNnWGbejHWk5fVbP2Vrm7vll6eMDbSM&amp;callback=initMap" async="async" defer="defer"></script>-->
 
 <ui:include src="/pages/navBottom.xhtml"/>
-</body>
+</h:body>
 </html>

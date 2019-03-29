@@ -11,14 +11,6 @@
         <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
-    <context-param>
-        <param-name>javax.faces.DEFAULT_SUFFIX</param-name>
-        <param-value>.xhtml</param-value>
-    </context-param>
-    <context-param>
-        <param-name>primefaces.UPLOADER</param-name>
-        <param-value>auto|native|commons</param-value>
-    </context-param>
     <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>*.jsf</url-pattern>
@@ -28,14 +20,15 @@
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>*.xhtml</url-pattern>
     </servlet-mapping>
+    <context-param>
+        <param-name>javax.faces.DEFAULT_SUFFIX</param-name>
+        <param-value>.xhtml</param-value>
+    </context-param>
+
 
     <context-param>
         <param-name>nomeapp</param-name>
         <param-value>PWEB1 - IFchannel JSF</param-value>
     </context-param>
-    <context-param>
-        <param-name>javax.faces.CONFIG_FILES</param-name>
-        <param-value>/WEB-INF/faces-config.xml</param-value>
-    </context-param>
-
+ 
 </web-app>

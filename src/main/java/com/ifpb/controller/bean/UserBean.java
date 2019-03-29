@@ -21,7 +21,7 @@ import java.util.List;
 @ViewScoped
 public class UserBean {
 
-    private String imgSource = "C:\\Users\\Lucas\\Documents\\Projetos\\IFchannel\\images";
+//    private String imgSource = "C:\\Users\\Lucas\\Documents\\Projetos\\IFchannel\\images";
 
     private List<User> users;
 
@@ -38,7 +38,7 @@ public class UserBean {
     }
 
     @PostConstruct
-    public void init() throws SQLException, ClassNotFoundException {
+    public void init(){
         this.service = new UserService();
         this.users = new ArrayList();
         this.user = new User();
@@ -54,22 +54,22 @@ public class UserBean {
     }
 
     public String openRegister(){
-        return "register";
+        return "register?faces-redirect=true";
     }
 
     public String registerUser() throws SQLException {
-        String archive = Timestamp.from(Instant.now()).toString() + "-" + image.getSubmittedFileName();
+//        String archive = Timestamp.from(Instant.now()).toString() + "-" + image.getSubmittedFileName();
+//
+//        try(InputStream file = image.getInputStream()){
+//            Files.copy(file, new File(imgSource + "/" + archive).toPath(), StandardCopyOption.REPLACE_EXISTING);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
 
-        try(InputStream file = image.getInputStream()){
-            Files.copy(file, new File(imgSource + "/" + archive).toPath(), StandardCopyOption.REPLACE_EXISTING);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        user.setPhoto(archive);
+//        user.setPhoto(archive);
         service.save(user);
         list();
-        return "begin";
+        return "goLogin";
     }
 
     public void prepareEdition(){
