@@ -28,7 +28,7 @@
                             <h:outputLabel  styleClass="col-form-label" value="Name: " />
                             <h:inputText value="#{userBean.user.name}" styleClass="form-control w-75"/>
 
-                            <h:outputLabel  styleClass="col-form-label" value="Matriculation: " />
+                            <h:outputLabel  styleClass="col-form-label" value="Registration: " />
                             <h:inputText value="#{userBean.user.matriculation}" styleClass="form-control w-75"/>
 
                             <h:outputLabel  styleClass="col-form-label" value="Email: " />
@@ -36,9 +36,6 @@
 
                             <h:outputLabel  styleClass="col-form-label" value="Password: " />
                             <h:inputSecret value="#{userBean.user.password}" styleClass="form-control w-75"/>
-
-                            <h:outputLabel  styleClass="col-form-label" value="Number: " />
-                            <h:inputText value="#{userBean.user.number}" styleClass="form-control w-75"/>
 
                             <h:outputLabel  styleClass="col-form-label" value="Gender: " />
                             <h:selectOneMenu required="true" value="#{userBean.user.sex}">
@@ -48,6 +45,9 @@
 
                             <h:outputLabel  styleClass="col-form-label" value="Street: " />
                             <h:inputText value="#{userBean.user.street}" styleClass="form-control w-75"/>
+
+                            <h:outputLabel  styleClass="col-form-label" value="Number: " />
+                            <h:inputText value="#{userBean.user.number}" styleClass="form-control w-75"/>
 
                             <h:outputLabel  styleClass="col-form-label" value="City: " />
                             <h:inputText value="#{userBean.user.city}" styleClass="form-control w-75"/>

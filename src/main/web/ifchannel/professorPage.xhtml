@@ -19,30 +19,31 @@
 
 
 <!--PROFILE PROFESSOR-->
+<f:view>
 <div class="container">
     <div class="row profile">
         <div class="card my-3 mr-2 my-2" style="width: 16rem; left: -40px;">
-            <img class="card-img-top" src="${sessionScope.user.photo}" alt="Card image cap"/>
+            <img class="card-img-top" src="#{loginBean.userLogged.photo}" alt="Card image cap"/>
             <div class="card-body">
-                <h5 class="card-title">${sessionScope.user.name}</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <h5 class="card-title">#{loginBean.userLogged.name}</h5>
+                <p class="card-text">Professor of Analysis and Development Systems of IFPB-Cajazeiras .</p>
             </div>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item">${sessionScope.user.matriculation}</li>
-                <li class="list-group-item"><a href="https://mail.google.com/mail/u/0/#inbox?compose=new">${sessionScope.user.email}</a></li>
+                <li class="list-group-item container-login100-form-btn">#{loginBean.userLogged.matriculation}</li>
+                <li class="list-group-item container-login100-form-btn"><h:link href="https://suap.ifpb.edu.br" value="SUAP"/></li>
+                <li class="list-group-item container-login100-form-btn"><h:link outcome="" value="#{loginBean.userLogged.email}"></h:link> </li>
+                <li class="list-group-item container-login100-form-btn"><h:link outcome="" value="#{loginBean.userLogged.phone}"></h:link> </li>
+                <h:form>
+                    <h:commandButton value="Edit Profile" styleClass="my-3 ml-3 btn btn-primary btn-outline-success" action="#"/>
+                </h:form>
             </ul>
-            <div class="card-body">
-                <a href="https://mail.google.com/mail/u/0/#inbox" class="card-link">Email</a>
-                <a href="#" class="card-link" data-toggle="modal" data-target="#modalProfile" >Edit Profile</a>
-                <!--<ui:include src="../pages/modalProfile.xhtml"/>-->
-            </div>
         </div>
         <div class="card my-3 mr-2 my-2" style="width: 40rem; height: auto; left: 50px">
            <table style="margin-left: 100px; margin-top: 100px">
                <tr>
                    <h:form>
                     <h3>
-                        <h:outputText style="color: #1e7e34; margin-left: 250px;" styleClass="my-5" value="Materials"/>
+                        <h:outputLabel style="color: #1e7e34; margin-left: 250px;" styleClass="my-5" value="Materials"/>
                     </h3>
                    </h:form>
                </tr>
@@ -59,6 +60,7 @@
         </div>
     </div>
 </div>
+</f:view>
 <!--NAV-BOTTOM-->
 <ui:include src="../pages/navBottom.xhtml"></ui:include>
 </body>
