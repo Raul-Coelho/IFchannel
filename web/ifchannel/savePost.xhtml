@@ -1,0 +1,116 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui" xmlns:t="http://java.sun.com/jsf/core">
+
+<head>
+    <meta charset="utf-8"/>
+    <link rel="icon" type="image/png" href="../images/icons/favicon.ico"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="../css/homepage.css"/>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+    <title>Register User</title>
+</head>
+<body>
+<div id="divPrincipal">
+    <f:view>
+        <center>
+            <ui:include src="/pages/nav-register.xhtml"/>
+            <div class="card w-50" style="margin-top: 20px; margin-bottom: 30px">
+                <h:form enctype="multipart/form-data" styleClass="my-5 ml-5">
+                    <h:column>
+                        <h:panelGrid columns="2" >
+                            <h:outputLabel  styleClass="col-form-label" value="Title: " />
+                            <h:inputText value="#{userBean.user.name}" styleClass="form-control w-75"/>
+
+                            <h:outputLabel  styleClass="col-form-label" value="Your Name: " />
+                            <h:inputText value="#{userBean.user.name}" styleClass="form-control w-75"/>
+
+                            <h:outputLabel  styleClass="col-form-label" value="Description: " />
+                            <h:inputText value="#{userBean.user.name}" styleClass="form-control w-75"/>
+
+                            <h:outputLabel  styleClass="col-form-label" value="Private Exclusivity: " />
+                            <h:selectBooleanCheckbox value="#{userBean.user.name}" styleClass="form-control w-75"/>
+
+                            <h:outputLabel  styleClass="col-form-label" value="Localization: " />
+                            <div id="map" class="w-100 h-50"></div>
+                            
+                            <h:outputLabel  styleClass="col-form-label" value="Video: " />
+                            <h:inputFile value="#{userBean.user.photo}" styleClass="form-control w-75"/>
+
+                        </h:panelGrid>
+                    </h:column>
+                    <h:commandButton styleClass="btn btn-primary btn-outline-success my-5" action="#{userBean.registerUser}" style="width: 20rem;height: 3rem; margin-right: 50px" value="Save"/>
+                </h:form>
+            </div>
+        </center>
+    </f:view>
+</div>
+
+<!--MAP-->
+<script>
+    var map;
+    var marker;
+    var infoWindow;
+
+    function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+            center: {lat: -6.889591, lng: -38.545195},
+            zoom: 17,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        });
+
+        map.addListener('click', function(event){
+            criarMarcador(event.latLng);
+        });
+
+        infoWindow = new google.maps.InfoWindow();
+
+        map.addListener('dblclick', function(event){
+            exibirInfo(event.latLng);
+        });
+
+    }
+
+    function exibirInfo(localizacao){
+        infoWindow.setPosition(localizacao);
+        infoWindow.setContent("(Latitude: "+localizacao.lat()+", Longitude: "+localizacao.lng()+")");
+        infoWindow.open(map);
+    }
+
+    function criarMarcador(localizacao){
+
+        if(marker == null){
+            marker = new google.maps.Marker({
+                position: localizacao,
+                map: map,
+                title: 'Exemplo de marcador',
+                animation: google.maps.Animation.DROP,
+                draggable: true
+            });
+        }else{
+            marker.setPosition(localizacao);
+        }
+
+    }
+
+    function saveCoords() {
+        var latlang = maker.getPosition();
+
+        return latlang;
+
+    }
+
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASRNnWGbejHWk5fVbP2Vrm7vll6eMDbSM" async="async" defer="defer"></script>
+<!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASRNnWGbejHWk5fVbP2Vrm7vll6eMDbSM&callback=initMap" async="async" defer="defer"></script>-->
+
+<ui:include src="/pages/navBottom.xhtml"/>
+</body>
+</html>

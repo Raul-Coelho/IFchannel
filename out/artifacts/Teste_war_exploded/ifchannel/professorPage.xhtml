@@ -40,12 +40,16 @@
         <div class="card my-3 mr-2 my-2" style="width: 40rem; height: auto; left: 50px">
            <table style="margin-left: 100px; margin-top: 100px">
                <tr>
-                   <p:outputLabel style="color: #1e7e34; margin-left: 240px" class="my-5">Materials</p:outputLabel>
+                   <h:form>
+                    <h3>
+                        <h:outputText style="color: #1e7e34; margin-left: 250px;" styleClass="my-5" value="Materials"/>
+                    </h3>
+                   </h:form>
                </tr>
                <tr>
                    <td>
                        <h:form >
-                           <h:commandButton styleClass="btn btn-primary btn-outline-success btn-size" type="button" data-toggle="modal" data-target="#modalRegister" value="REGISTER"/>
+                           <h:commandButton styleClass="btn btn-primary btn-outline-success btn-size" action="#{postBean.openSavePost}" value="REGISTER"/>
                            <!-- MODAL REGISTER -->
                            <!--<ui:include src="../pages/modalregister.xhtml"/>-->
                        </h:form>
