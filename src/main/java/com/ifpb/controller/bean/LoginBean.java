@@ -25,14 +25,14 @@ import java.time.Instant;
 @SessionScoped
 public class LoginBean {
 
-//    private String imgSource = "C:\\Imagens\\";
-//    private String videoSource = "C:\\Videos\\";
+    private String imgSource = "C:\\Imagens\\";
+    private String videoSource = "C:\\Videos\\";
 
 //    private String imgSource = "/home/raul/Imagens";
 //    private String videoSource = "/home/raul/Video";
 
-    private String imgSource = "/home/romulo/Imagens";
-    private String videoSource = "/home/romulo/Video";
+//    private String imgSource = "/home/romulo/Imagens";
+//    private String videoSource = "/home/romulo/Video";
 
 
     private UserService service;

@@ -283,7 +283,7 @@ public class UserDao {
     public List<User> listProfessor() throws SQLException {
 
         List <User> list = new ArrayList();
-        String sql = "SELECT u.name,u.email FROM usuario u WHERE privilege = 'professor'";
+        String sql = "SELECT * FROM usuario u WHERE privilege = 'professor'";
         try (Connection connection = factory.getConnection()) {
             PreparedStatement st = connection.prepareStatement(sql);
 
@@ -291,8 +291,18 @@ public class UserDao {
 
             while (result.next()) {
                 User u = new User(
+                        result.getInt("id"),
                         result.getString("name"),
-                        result.getString("email"));
+                        result.getString("email"),
+                        result.getString("gender"),
+                        result.getString("photo"),
+                        result.getString("street"),
+                        result.getString("city"),
+                        result.getString("state"),
+                        result.getString("cep"),
+                        result.getString("phone"),
+                        result.getString("number")
+                        );
                 list.add(u);
             }
             st.close();

@@ -39,4 +39,8 @@ public class UserService {
     public User searchById(int id) throws SQLException {
         return dao.searchById(id);
     }
+
+    public List<User> listProfessor() throws SQLException {
+        return dao.listProfessor();
+    }
 }

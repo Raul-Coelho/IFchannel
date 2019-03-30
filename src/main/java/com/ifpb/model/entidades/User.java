@@ -39,7 +39,8 @@ public class User {
         this.number = number;
     }
 
-    public User(int id, String privilege, String email, String matriculation, String password, String name, String sex, String photo, String street, String city, String state, String cep, String phone, String number) {
+    public User(int id, String privilege, String email, String matriculation, String password, String name, String sex,
+                String photo, String street, String city, String state, String cep, String phone, String number) {
         this.id = id;
         this.privilege = privilege;
         this.email = email;
@@ -56,9 +57,19 @@ public class User {
         this.number = number;
     }
 
-    public User(String name, String email) {
+    public User(int id, String name, String email, String sex, String photo, String street, String city, String state,
+                String cep, String phone, String number) {
+        this.id = id;
         this.name = name;
         this.email = email;
+        this.sex = sex;
+        this.photo = photo;
+        this.street = street;
+        this.city = city;
+        this.state = state;
+        this.cep = cep;
+        this.phone = phone;
+        this.number = number;
     }
 
 
