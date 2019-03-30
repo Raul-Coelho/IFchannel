@@ -23,8 +23,8 @@
 <div class="container">
     <div class="row profile">
         <div class="card my-3 mr-2 my-2" style="width: 16rem; left: -40px;">
-            <!--<h:graphicImage height="50" url="C:\#{loginBean.userLogged.photo}" />-->
-            <img class="card-img-top" src="#{loginBean.userLogged.photo}" alt="Card image cap"/>
+            <h:graphicImage height="50" url="/imagem?idUser=#{loginBean.userLogged.id}" />
+            <!--<img class="card-img-top" src="#{loginBean.userLogged.photo}" alt="Card image cap"/>-->
             <div class="card-body">
                 <h5 class="card-title">#{loginBean.userLogged.name}</h5>
                 <p class="card-text">Professor of Analysis and Development Systems of IFPB-Cajazeiras .</p>
@@ -51,7 +51,7 @@
                <tr>
                    <td>
                        <h:form >
-                           <h:commandButton styleClass="btn btn-primary btn-outline-success btn-size" action="#{postBean.openSavePost}" value="REGISTER"/>
+                           <h:commandButton styleClass="btn btn-primary btn-outline-success btn-size" action="#{loginBean.openSavePost}" value="REGISTER"/>
                            <!-- MODAL REGISTER -->
                            <!--<ui:include src="../pages/modalregister.xhtml"/>-->
                        </h:form>

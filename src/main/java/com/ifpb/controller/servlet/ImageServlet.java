@@ -24,7 +24,7 @@ public class ImageServlet extends HttpServlet {
 
             User user = service.searchById(idUser);
 
-            String imgPath = "C:\\Users\\Lucas\\Documents\\Projetos\\IFchannel\\images";
+            String imgPath = "C:\\Imagem\\";
 
             File image = new File(imgPath + user.getPhoto());
 

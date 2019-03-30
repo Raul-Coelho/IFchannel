@@ -1,6 +1,8 @@
 package com.ifpb.controller.bean;
 
+import com.ifpb.controller.servico.PostService;
 import com.ifpb.controller.servico.UserService;
+import com.ifpb.model.entidades.Post;
 import com.ifpb.model.entidades.User;
 
 
@@ -25,13 +27,21 @@ public class LoginBean {
 
     private String imgSource = "C:\\Imagens\\";
 
+    private String videoSource = "C:\\Videos\\";
+
     private UserService service;
+
+    private PostService servicePost;
 
     private User userLogged;
 
     private String login;
 
     private String password;
+
+    private Post post;
+
+    private Part video;
 
     private Part image;
 
@@ -106,6 +116,52 @@ public class LoginBean {
         }
     }
 
+    public String openSavePost(){
+        this.post = new Post();
+        return "savePost";
+    }
+
+    public String savePost(){
+        servicePost = new PostService();
+
+        String archive = Timestamp.from(Instant.now()).toString() + "-" + video.getSubmittedFileName();
+
+        archive = archive.replaceAll(":", "-");
+
+        try(InputStream file = video.getInputStream()){
+            Files.copy(file, new File(videoSource + "/" + archive).toPath(), StandardCopyOption.REPLACE_EXISTING);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        post.setVideo(archive);
+
+        post.setEvaluation(0f);
+
+        post.setIdUser(userLogged.getId());
+
+        servicePost.save(post);
+
+        servicePost = null;
+
+        return "professor";
+    }
+
+    public Post getPost() {
+        return post;
+    }
+
+    public void setPost(Post post) {
+        this.post = post;
+    }
+
+    public Part getVideo() {
+        return video;
+    }
+
+    public void setVideo(Part video) {
+        this.video = video;
+    }
 
     public User getUserLogged() {
         return userLogged;
@@ -145,5 +201,13 @@ public class LoginBean {
 
     public void setImage(Part image) {
         this.image = image;
+    }
+
+    public String getVideoSource() {
+        return videoSource;
+    }
+
+    public void setVideoSource(String videoSource) {
+        this.videoSource = videoSource;
     }
 }

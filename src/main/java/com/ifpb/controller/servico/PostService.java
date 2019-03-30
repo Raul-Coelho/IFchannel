@@ -9,7 +9,7 @@ import java.util.List;
 public class PostService {
     private PostDao dao = new PostDao();
 
-    public PostService()throws SQLException, ClassNotFoundException{
+    public PostService(){
     }
 
     public boolean save(Post post){

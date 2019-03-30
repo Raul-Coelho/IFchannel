@@ -63,19 +63,19 @@
                     <h:column>
                         <h:panelGrid columns="2" >
                             <h:outputLabel  styleClass="col-form-label" value="Title: " />
-                            <h:inputText value="#{userBean.user.name}" styleClass="form-control w-75"/>
+                            <h:inputText value="#{loginBean.post.title}" styleClass="form-control w-75"/>
 
                             <h:outputLabel  styleClass="col-form-label" value="Your Name: " />
-                            <h:inputText value="#{userBean.user.name}" styleClass="form-control w-75"/>
+                            <h:outputLabel value="#{loginBean.userLogged.name}" styleClass="form-control w-75"/>
 
                             <h:outputLabel  styleClass="col-form-label" value="Description: " />
-                            <h:inputText value="#{userBean.user.name}" styleClass="form-control w-75"/>
+                            <h:inputText value="#{loginBean.post.description}" styleClass="form-control w-75"/>
 
                             <h:outputLabel  styleClass="col-form-label" value="Private Exclusivity: " />
-                            <h:selectBooleanCheckbox value="#{userBean.user.name}" styleClass="form-control w-75"/>
+                            <h:selectBooleanCheckbox value="#{loginBean.post.exclusivity}" styleClass="form-control w-75"/>
 
                             <h:outputLabel  styleClass="col-form-label" value="Video: " />
-                            <h:inputFile value="#{userBean.user.photo}" styleClass="form-control w-75"/>
+                            <h:inputFile value="#{loginBean.video}" styleClass="form-control w-75"/>
 
                             <h:outputLabel  styleClass="col-form-label" value="Localization: " />
                             <div id="map" class="w-100 h-50"></div>
@@ -89,7 +89,7 @@
 
                         </h:panelGrid>
                     </h:column>
-                    <h:commandButton styleClass="btn btn-primary btn-outline-success my-5" action="#{userBean.registerUser}" style="width: 20rem;height: 3rem; margin-right: 50px" value="Save"/>
+                    <h:commandButton styleClass="btn btn-primary btn-outline-success my-5" action="#{loginBean.savePost}" style="width: 20rem;height: 3rem; margin-right: 50px" value="Save"/>
                 </h:form>
             </div>
         </center>
