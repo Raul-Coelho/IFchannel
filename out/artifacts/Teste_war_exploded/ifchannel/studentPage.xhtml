@@ -47,18 +47,25 @@
                         <table class="ml-3">
                             <tr>
                                 <td>
-                                    <p><h3>TITLE</h3></p>
+                                    <p>
+                                        <h3>
+                                        <h:outputLabel value="Video Title"/>
+                                        </h3>
+                                    </p>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <p><h5><a href="" style="text-decoration: none" data-toggle="modal" data-target="#modalInfoProfessor">Professor Name</a></h5></p>
+                                    <p>
+                                        <h:panelGrid columns="2">
+                                            <h5>
+                                                <h:outputLabel value="Professor Name"/>
+                                            </h5>
+                                            <h:commandButton styleClass="form-control mr-sm-2 btn btn-outline-success" value="Follow" action="#FollowBeanHERE"/>
+                                        </h:panelGrid>
+
+                                    </p>
                                     <!--<jsp:include page="../pages/modalInfoProfessor.jsp"/>-->
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <p><label>Disciplina</label></p>
                                 </td>
                             </tr>
                             <tr>
@@ -74,13 +81,13 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <form action="" method="post">
+                                    <h:form>
                                         <font face="Poppins-Regular" size="3" color="#0057AE"><b>Comment:</b></font>
                                         <br/>
                                         <textarea name="comentario" id="comentarios" style="width: 300px"></textarea>
                                         <br/>
-                                        <input class="form-control mr-sm-2 btn btn-outline-success" name="action" type="submit" value="Send Comment"/>
-                                    </form>
+                                        <h:commandButton class="form-control mr-sm-2 btn btn-outline-success" action="#CommentBeanHere" value="Send Comment"/>
+                                    </h:form>
                                 </td>
                             </tr>
                         </table>
