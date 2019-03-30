@@ -9,7 +9,7 @@ import javax.faces.bean.ViewScoped;
 @ViewScoped
 public class PostBean {
 
-
+    private int evaluation;
 
 
     public  PostBean(){
