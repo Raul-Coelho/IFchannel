@@ -14,7 +14,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
-    <script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=false"></script>
+    <script type="text/javascript" src="https://maps.google.com/maps/api/js?key=AIzaSyASRNnWGbejHWk5fVbP2Vrm7vll6eMDbSM" async="async" defer="defer"></script>
     <script type="text/javascript">
         var currentMarker = null;
 
@@ -59,7 +59,7 @@
         <center>
             <ui:include src="/pages/nav-register.xhtml"/>
             <div class="card w-50" style="margin-top: 20px; margin-bottom: 30px">
-                <h:form enctype="multipart/form-data" styleClass="my-5 ml-5">
+                <h:form enctype="multipart/form-data" styleClass="my-5 ml-5" prependId="false">
                     <h:column>
                         <h:panelGrid columns="2" >
                             <h:outputLabel  styleClass="col-form-label" value="Title: " />
@@ -79,8 +79,26 @@
 
                             <h:outputLabel  styleClass="col-form-label" value="Localization: " />
                             <div id="map" class="w-100 h-50"></div>
-                            <p:gmap type="ROADMAP" center="-6.889591,-38.545195" zoom="17" style="width:400%;height:400px"/>
 
+                            <p:growl id="messages" showDetail="true" />
+
+                            <p:gmap id="gmap" type="ROADMAP" center="-6.889591,-38.545195" zoom="17" style="width:100%;height:400px"
+                                    model="#{addMarkersBean.emptyModel}" onPointClick="handlePointClick(event);" widgetVar="map" />
+
+                            <p:dialog widgetVar="dlg" showEffect="fade">
+                                    <h:panelGrid columns="2">
+                                        <h:outputLabel for="title" value="Title:" />
+                                        <p:inputText id="title" value="#{addMarkersBean.title}" />
+
+                                        <f:facet name="footer">
+                                            <p:commandButton value="Add" action="#{addMarkersBean.addMarker}" update=":messages" oncomplete="markerAddComplete()" />
+                                            <p:commandButton value="Cancel" onclick="return cancel()" />
+                                        </f:facet>
+                                    </h:panelGrid>
+
+                                    <h:inputHidden id="lat" value="#{addMarkersBean.lat}" />
+                                    <h:inputHidden id="lng" value="#{addMarkersBean.lng}" />
+                            </p:dialog>
 
                         </h:panelGrid>
                     </h:column>
@@ -90,66 +108,6 @@
         </center>
     </f:view>
 </div>
-
-<!--MAP-->
-<!--<script>-->
-    <!--var map;-->
-    <!--var marker;-->
-    <!--var infoWindow;-->
-
-    <!--function initMap() {-->
-        <!--map = new google.maps.Map(document.getElementById('map'), {-->
-            <!--center: {lat: -6.889591, lng: -38.545195},-->
-            <!--zoom: 17,-->
-            <!--mapTypeId: google.maps.MapTypeId.ROADMAP-->
-        <!--});-->
-
-        <!--map.addListener('click', function(event){-->
-            <!--criarMarcador(event.latLng);-->
-        <!--});-->
-
-        <!--infoWindow = new google.maps.InfoWindow();-->
-
-        <!--map.addListener('dblclick', function(event){-->
-            <!--exibirInfo(event.latLng);-->
-        <!--});-->
-
-    <!--}-->
-
-    <!--function exibirInfo(localizacao){-->
-        <!--infoWindow.setPosition(localizacao);-->
-        <!--infoWindow.setContent("(Latitude: "+localizacao.lat()+", Longitude: "+localizacao.lng()+")");-->
-        <!--infoWindow.open(map);-->
-    <!--}-->
-
-    <!--function criarMarcador(localizacao){-->
-
-        <!--if(marker == null){-->
-            <!--marker = new google.maps.Marker({-->
-                <!--position: localizacao,-->
-                <!--map: map,-->
-                <!--title: 'Exemplo de marcador',-->
-                <!--animation: google.maps.Animation.DROP,-->
-                <!--draggable: true-->
-            <!--});-->
-        <!--}else{-->
-            <!--marker.setPosition(localizacao);-->
-        <!--}-->
-
-    <!--}-->
-
-    <!--function saveCoords() {-->
-        <!--var latlang = maker.getPosition();-->
-
-        <!--return latlang;-->
-
-    <!--}-->
-
-<!--</script>-->
-
-<!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASRNnWGbejHWk5fVbP2Vrm7vll6eMDbSM" async="async" defer="defer"></script>-->
-<!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASRNnWGbejHWk5fVbP2Vrm7vll6eMDbSM&amp;callback=initMap" async="async" defer="defer"></script>-->
-
 <ui:include src="/pages/navBottom.xhtml"/>
 </h:body>
 </html>
