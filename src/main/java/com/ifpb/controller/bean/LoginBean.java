@@ -26,9 +26,11 @@ import java.time.Instant;
 public class LoginBean {
 
 //    private String imgSource = "C:\\Imagens\\";
-    private String imgSource = "/home/raul/Imagens";
+//    private String videoSource = "C:\\Videos\\";
 
-    private String videoSource = "C:\\Videos\\";
+    private String imgSource = "/home/raul/Imagens";
+    private String videoSource = "/home/raul/Video";
+
 
     private UserService service;
 
