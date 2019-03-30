@@ -1,5 +1,6 @@
 package com.ifpb.controller.servico;
 
+import com.ifpb.model.dao.RelashionshipDao;
 import com.ifpb.model.dao.UserDao;
 import com.ifpb.model.entidades.User;
 
@@ -8,12 +9,17 @@ import java.util.List;
 
 public class UserService {
     private UserDao dao = new UserDao();
+    //private RelashionshipDao relashionshipDao = new RelashionshipDao();
 
     public UserService(){
     }
 
     public boolean save(User user) throws SQLException {
+
+        /* ------Removam esse comentario e comentem o outro return------- */
+      //  return (relashionshipDao.saveUser(user) && dao.save(user));
         return dao.save(user);
+
     }
 
     public boolean authenticate(String login, String password){

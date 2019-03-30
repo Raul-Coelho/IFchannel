@@ -19,6 +19,8 @@ public class FollowBean {
 
     private User user;
 
+    private String emailProfessor;
+
     @PostConstruct
     public void init(){
         user = new User();
@@ -30,5 +32,31 @@ public class FollowBean {
         return "student?faces-redirect=true";
     }
 
+    public void follow(){
+        service.createRelashionship(user.getEmail(), emailProfessor);
+    }
 
+    public String getSituation() {
+        return situation;
+    }
+
+    public void setSituation(String situation) {
+        this.situation = situation;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public String getEmailProfessor() {
+        return emailProfessor;
+    }
+
+    public void setEmailProfessor(String emailProfessor) {
+        this.emailProfessor = emailProfessor;
+    }
 }
