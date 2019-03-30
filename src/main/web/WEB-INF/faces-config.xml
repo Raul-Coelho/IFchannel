@@ -34,6 +34,16 @@
         </navigation-case>
     </navigation-rule>
 
+    <!--STUDENT PAGE-->
+    <navigation-rule>
+        <from-view-id>/ifchannel/login.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>student</from-outcome>
+            <to-view-id>/ifchannel/studentPage.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+    </navigation-rule>
+
     <!--PROFESSOR PAGE-->
     <navigation-rule>
         <from-view-id>/ifchannel/login.xhtml</from-view-id>
