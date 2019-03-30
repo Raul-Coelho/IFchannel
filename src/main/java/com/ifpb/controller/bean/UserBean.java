@@ -21,7 +21,7 @@ import java.util.List;
 @ViewScoped
 public class UserBean {
 
-    private String imgSource = "/home/raul/imagens/";
+    private String imgSource = "C:\\Imagens\\";
 
     private List<User> users;
 
@@ -59,15 +59,23 @@ public class UserBean {
     }
 
     public String registerUser() throws SQLException {
-//        String archive = Timestamp.from(Instant.now()).toString() + "-" + image.getSubmittedFileName();
-//
-//        try(InputStream file = image.getInputStream()){
-//            Files.copy(file, new File(imgSource + "/" + archive).toPath(), StandardCopyOption.REPLACE_EXISTING);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//
-//        user.setPhoto(archive);
+        String archive = Timestamp.from(Instant.now()).toString() + "-" + image.getSubmittedFileName();
+
+        archive = archive.replaceAll(":", "-");
+
+        try(InputStream file = image.getInputStream()){
+            Files.copy(file, new File(imgSource + "/" + archive).toPath(), StandardCopyOption.REPLACE_EXISTING);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        user.setPhoto(archive);
+
+        if (user.getMatriculation().length() == 12){
+           user.setPrivilege("student");
+        }else{
+            user.setPrivilege("professor");
+        }
         service.save(user);
         list();
         return "goLogin";

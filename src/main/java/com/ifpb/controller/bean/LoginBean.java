@@ -9,18 +9,31 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.Part;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
 import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.time.Instant;
 
 @ManagedBean(name = "loginBean")
 @SessionScoped
 public class LoginBean {
+
+    private String imgSource = "C:\\Imagens\\";
 
     private UserService service;
 
     private User userLogged;
 
     private String login;
+
     private String password;
+
+    private Part image;
 
     @PostConstruct
     public void init(){
@@ -65,11 +78,30 @@ public class LoginBean {
     }
 
     public String editUser() throws SQLException {
-        if (userLogged.getPrivilege().equals("professor")){
-            service.update(userLogged);
+        service = new UserService();
+        User user = service.searchById(userLogged.getId());
+        String archive = Timestamp.from(Instant.now()).toString() + "-" + image.getSubmittedFileName();
+
+        archive = archive.replaceAll(":", "-");
+
+        try(InputStream file = image.getInputStream()){
+            Files.copy(file, new File(imgSource + "/" + archive).toPath(), StandardCopyOption.REPLACE_EXISTING);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        userLogged.setPhoto(archive);
+        userLogged.setPassword(user.getPassword());
+
+        service.save(userLogged);
+
+        userLogged.setPassword("");
+
+        service = null;
+
+        if(userLogged.getPrivilege().equals("professor")){
             return "professor";
         }else {
-            service.update(userLogged);
             return "student";
         }
     }
@@ -97,5 +129,21 @@ public class LoginBean {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getImgSource() {
+        return imgSource;
+    }
+
+    public void setImgSource(String imgSource) {
+        this.imgSource = imgSource;
+    }
+
+    public Part getImage() {
+        return image;
+    }
+
+    public void setImage(Part image) {
+        this.image = image;
     }
 }
