@@ -23,7 +23,8 @@ import java.time.Instant;
 @SessionScoped
 public class LoginBean {
 
-    private String imgSource = "C:\\Imagens\\";
+//    private String imgSource = "C:\\Imagens\\";
+    private String imgSource = "/home/raul/Imagens";
 
     private UserService service;
 
