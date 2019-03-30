@@ -280,4 +280,28 @@ public class UserDao {
             return false;
         }
     }
+    public List<User> listProfessor() throws SQLException {
+
+        List <User> list = new ArrayList();
+        String sql = "SELECT u.name,u.email FROM usuario u WHERE privilege = 'professor'";
+        try (Connection connection = factory.getConnection()) {
+            PreparedStatement st = connection.prepareStatement(sql);
+
+            ResultSet result = st.executeQuery();
+
+            while (result.next()) {
+                User u = new User(
+                        result.getString("name"),
+                        result.getString("email"));
+                list.add(u);
+            }
+            st.close();
+
+        } catch (SQLException e) {
+            return null;
+        } catch (ClassNotFoundException e) {
+            return null;
+        }
+        return list;
+    }
 }

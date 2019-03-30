@@ -56,6 +56,12 @@ public class User {
         this.number = number;
     }
 
+    public User(String name, String email) {
+        this.name = name;
+        this.email = email;
+    }
+
+
     public String getPrivilege() {
         return privilege;
     }
