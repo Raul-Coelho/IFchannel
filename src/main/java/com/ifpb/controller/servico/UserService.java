@@ -9,7 +9,7 @@ import java.util.List;
 
 public class UserService {
     private UserDao dao = new UserDao();
-    //private RelashionshipDao relashionshipDao = new RelashionshipDao();
+    private RelashionshipDao relashionshipDao = new RelashionshipDao();
 
     public UserService(){
     }
@@ -17,8 +17,8 @@ public class UserService {
     public boolean save(User user) throws SQLException {
 
         /* ------Removam esse comentario e comentem o outro return------- */
-      //  return (relashionshipDao.saveUser(user) && dao.save(user));
-        return dao.save(user);
+        return (relashionshipDao.saveUser(user) && dao.save(user));
+//        return dao.save(user);
 
     }
 

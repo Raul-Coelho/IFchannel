@@ -9,9 +9,11 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
-@ManagedBean
+@ManagedBean(name = "followBean")
 @SessionScoped
 public class FollowBean {
+
+    private LoginBean loginBean;
 
     private String situation;
 
@@ -25,6 +27,7 @@ public class FollowBean {
     public void init(){
         user = new User();
         service = new RelashionshipService();
+        loginBean = new LoginBean();
     }
 
     public String saveUser(){
@@ -33,7 +36,7 @@ public class FollowBean {
     }
 
     public void follow(){
-        service.createRelashionship(user.getEmail(), emailProfessor);
+        service.createRelashionship(loginBean.getUserLogged().getEmail(), emailProfessor);
     }
 
     public String getSituation() {
