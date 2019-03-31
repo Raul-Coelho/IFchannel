@@ -30,4 +30,6 @@ public class CommentService {
         return dao.searchComment(id);
     }
 
+    public boolean editComent (int id, String comment){return dao.editComent(id, comment);}
+
 }

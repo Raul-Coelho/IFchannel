@@ -61,6 +61,16 @@ public class CommentDao {
         return null;
     }
 
+    public boolean editComent(int id, String comment){
+        String script = "UPDATE comment SET coment = '"+ comment +"' WHERE id = "+ id+ ";";
+        session = CassandraConnection.getConnection();
+        PreparedStatement statement= session.prepare(script);
+        ResultSet resultSet = session.execute(script);
+        CassandraConnection.closeConnection();
+        session.close();
+        return resultSet.wasApplied();
+    }
+
 
 
 }
