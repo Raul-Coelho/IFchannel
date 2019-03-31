@@ -29,7 +29,7 @@ public class ImageServlet extends HttpServlet {
             File image = new File(imgPath + user.getPhoto());
 
             if(image.exists()){
-                res.setContentType("image/jpeg");
+                res.setContentType("image/jpg");
                 res.getOutputStream().write(Files.readAllBytes(image.toPath()));
             }
 

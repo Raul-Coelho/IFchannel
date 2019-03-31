@@ -25,6 +25,8 @@ public class UserBean {
 
     private List<User> users;
 
+    private List<User> professores;
+
     private User user;
 
     private UserService service;
@@ -40,7 +42,12 @@ public class UserBean {
     @PostConstruct
     public void init(){
         this.service = new UserService();
-        this.users = new ArrayList();
+        this.users = new ArrayList<>();
+        try{
+            this.professores = new ArrayList(service.listProfessor());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         this.user = new User();
     }
 
@@ -54,7 +61,7 @@ public class UserBean {
         return "goLogin";
     }
 
-    public String openList(){
+    public String openList() throws SQLException {
         return "goList";
     }
 
@@ -129,5 +136,13 @@ public class UserBean {
 
     public void setImage(Part image) {
         this.image = image;
+    }
+
+    public List<User> getProfessores() {
+        return professores;
+    }
+
+    public void setProfessores(List<User> professores) {
+        this.professores = professores;
     }
 }
