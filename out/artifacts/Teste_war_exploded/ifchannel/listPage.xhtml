@@ -18,12 +18,9 @@
 <body>
 <nav class="navbar navbar-light bg-light justify-content-between">
     <a class="navbar-brand">IFPB Channel</a>
-    <form class="form-inline">
-        <input class="form-control mr-sm-2 w-full" type="search" placeholder="Search" aria-label="Search"/>
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
-    <h:form>
-        <h:commandButton action="#{userBean.openLogin}" styleClass="btn btn-outline-success" value="SIGN-UP"/>
+    <h:form styleClass="form-inline">
+        <h:inputText styleClass="form-control mr-sm-2 w-full" aria-label="Search"/>
+        <h:commandButton styleClass="btn btn-outline-success my-2 my-sm-0" action="#{userBean.openList}" value="Search"/>
     </h:form>
 </nav>
 <f:view>
@@ -63,7 +60,7 @@
                         </f:facet>
                         <h:form>
                             <div class="btn-group">
-                                <h:commandButton action="#{userBean.openLogin}" style="width:6rem; height: 2rem; margin-left: 10px;" styleClass="btn btn-outline-success my-3" value="SIGN-UP"/>
+                                <h:commandButton action="#{userBean.openLogin}" style="width:6rem; height: 2rem; margin-left: 10px;" styleClass="btn btn-outline-success my-3" value="Follow"/>
                             </div>
                         </h:form>
                     </h:column>

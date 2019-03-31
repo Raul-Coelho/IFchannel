@@ -22,7 +22,7 @@ public class AuthListener implements PhaseListener {
 
         LoginBean loginBean = (LoginBean)request.getSession(false).getAttribute("loginBean");
         UserBean userBean = (UserBean) request.getSession(false).getAttribute("userBean");
-        if (!viewId.equals("/ifchannel/login.xhtml") && (!viewId.equals("/ifchannel/index.xhtml") && (!viewId.equals("/ifchannel/register.xhtml") && (!viewId.equals("/ifchannel/listPage.xhtml"))))) {
+        if (!viewId.equals("/ifchannel/login.xhtml") && (!viewId.equals("/ifchannel/index.xhtml") && (!viewId.equals("/ifchannel/register.xhtml") ))) {
             if (loginBean == null || loginBean.getUserLogged() == null) {
                 event.getFacesContext().getApplication().getNavigationHandler().handleNavigation(context, null, "goIndex");
             }
