@@ -54,6 +54,10 @@ public class UserBean {
         return "goLogin";
     }
 
+    public String openList(){
+        return "goList";
+    }
+
     public String openRegister(){
         return "register?faces-redirect=true";
     }
