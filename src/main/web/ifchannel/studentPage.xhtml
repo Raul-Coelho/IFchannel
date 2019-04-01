@@ -25,7 +25,7 @@
 <div class="container">
     <div class="row profile">
         <div class="card my-3 mr-2 my-2" style="width: 16rem;height: 40rem;left: -40px;">
-            <!--<h:graphicImage class="card-img-top" url="/imagem?idUser=#{loginBean.userLogged.id}" alt="Card image cap"/>-->
+            <h:graphicImage styleClass="card-img-top h-75" url="/imagem?idUser=#{loginBean.userLogged.id}" alt="Card image cap"/>
             <div class="card-body">
                 <h5 class="card-title">#{loginBean.userLogged.name}</h5>
                 <p>Student of Analysis and Development Systems of IFPB-Cajazeiras .</p>
@@ -58,7 +58,12 @@
                                 <td>
                                     <p>
                                         <h5>
-                                            <h:outputLabel value="Professor Name"/>
+                                            <h:form>
+                                                <h:panelGrid columns="1">
+                                                    <h:outputLabel value="Professor Name"/>
+                                                    <h:commandButton class="btn btn-primary btn-outline-success" action="#{userBean.openList}" value="Follow"/>
+                                                </h:panelGrid>
+                                            </h:form>
                                         </h5>
                                     </p>
                                     <!--<jsp:include page="../pages/modalInfoProfessor.jsp"/>-->

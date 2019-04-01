@@ -61,7 +61,7 @@ public class UserBean {
         return "goLogin";
     }
 
-    public String openList() throws SQLException {
+    public String openList(){
         return "goList";
     }
 
