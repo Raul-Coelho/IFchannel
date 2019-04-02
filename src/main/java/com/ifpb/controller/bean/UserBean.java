@@ -14,6 +14,9 @@ import java.nio.file.StandardCopyOption;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.time.Instant;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,7 +24,7 @@ import java.util.List;
 @ViewScoped
 public class UserBean {
 
-    private String imgSource = "C:\\Imagens\\";
+    private String imgSource = "C:\\Users\\Lucas\\Documents\\Projetos\\IFchannel\\src\\main\\web\\images";
 
     private List<User> users;
 
@@ -70,7 +73,7 @@ public class UserBean {
     }
 
     public String registerUser() throws SQLException {
-        String archive = Timestamp.from(Instant.now()).toString() + "-" + image.getSubmittedFileName();
+        String archive = LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyy-HH-mm-ss")) + "-" + image.getSubmittedFileName();
 
         archive = archive.replaceAll(":", "-");
 
