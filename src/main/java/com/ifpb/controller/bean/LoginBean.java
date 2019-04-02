@@ -1,6 +1,7 @@
 package com.ifpb.controller.bean;
 
 import com.ifpb.controller.servico.PostService;
+import com.ifpb.controller.servico.RelashionshipService;
 import com.ifpb.controller.servico.UserService;
 import com.ifpb.model.entidades.Post;
 import com.ifpb.model.entidades.User;
@@ -27,6 +28,8 @@ import java.sql.Timestamp;
 import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
 
 @ManagedBean(name = "loginBean")
 @SessionScoped
@@ -43,6 +46,8 @@ public class LoginBean {
 
 
     private UserService service;
+
+    private RelashionshipService rService;
 
     private PostService servicePost;
 
@@ -61,6 +66,9 @@ public class LoginBean {
     private Part video;
 
     private Part image;
+
+    private List<User> professores;
+
 
     @PostConstruct
     public void init(){
@@ -172,6 +180,21 @@ public class LoginBean {
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Marker Added", "Lat:" + post.getLat() + ", Lng:" + post.getLng()));
     }
 
+    public String searchProfessor() throws SQLException {
+        this.professores = new ArrayList<>();
+        this.service = new UserService();
+        this.professores = service.listProfessor();
+        service = null;
+        return "goList";
+    }
+
+    public void follow(User professor){
+        rService = new RelashionshipService();
+        rService.createRelashionship(userLogged.getEmail(), professor.getEmail());
+        rService = null;
+
+    }
+
     public MapModel getEmptyModel() {
         return emptyModel;
     }
@@ -250,5 +273,13 @@ public class LoginBean {
 
     public void setVideoSource(String videoSource) {
         this.videoSource = videoSource;
+    }
+
+    public List<User> getProfessores() {
+        return professores;
+    }
+
+    public void setProfessores(List<User> professores) {
+        this.professores = professores;
     }
 }
