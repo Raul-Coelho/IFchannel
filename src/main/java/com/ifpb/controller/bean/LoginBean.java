@@ -25,16 +25,18 @@ import java.nio.file.StandardCopyOption;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 @ManagedBean(name = "loginBean")
 @SessionScoped
 public class LoginBean {
 
-//    private String imgSource = "C:\\Imagens\\";
-//    private String videoSource = "C:\\Videos\\";
+    private String imgSource = "C:\\Users\\Lucas\\Documents\\Projetos\\IFchannel\\src\\main\\web\\images";
+    private String videoSource = "C:\\Users\\Lucas\\Documents\\Projetos\\IFchannel\\src\\main\\web\\videos";
 
-    private String imgSource = "/home/raul/Imagens";
-    private String videoSource = "/home/raul/Video";
+//    private String imgSource = "/home/raul/Imagens";
+//    private String videoSource = "/home/raul/Video";
 
 //    private String imgSource = "/home/romulo/Imagens";
 //    private String videoSource = "/home/romulo/Video";
@@ -107,7 +109,7 @@ public class LoginBean {
     public String editUser() throws SQLException {
         service = new UserService();
         User user = service.searchById(userLogged.getId());
-        String archive = Timestamp.from(Instant.now()).toString() + "-" + image.getSubmittedFileName();
+        String archive = LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyy-HH-mm-ss")) + "-" + image.getSubmittedFileName();
 
         archive = archive.replaceAll(":", "-");
 
@@ -141,7 +143,7 @@ public class LoginBean {
     public String savePost(){
         servicePost = new PostService();
 
-        String archive = Timestamp.from(Instant.now()).toString() + "-" + video.getSubmittedFileName();
+        String archive = LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyy-HH-mm-ss")) + "-" + video.getSubmittedFileName();
 
         archive = archive.replaceAll(":", "-");
 
