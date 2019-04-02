@@ -35,11 +35,11 @@ import java.util.List;
 @SessionScoped
 public class LoginBean {
 
-    private String imgSource = "C:\\Users\\Lucas\\Documents\\Projetos\\IFchannel\\src\\main\\web\\images";
-    private String videoSource = "C:\\Users\\Lucas\\Documents\\Projetos\\IFchannel\\src\\main\\web\\videos";
+//    private String imgSource = "C:\\Users\\Lucas\\Documents\\Projetos\\IFchannel\\src\\main\\web\\images";
+//    private String videoSource = "C:\\Users\\Lucas\\Documents\\Projetos\\IFchannel\\src\\main\\web\\videos";
 
-//    private String imgSource = "/home/raul/Imagens";
-//    private String videoSource = "/home/raul/Video";
+    private String imgSource = "/home/raul/Documentos/Repositorios/IFchannel/src/main/web/images";
+    private String videoSource = "/home/raul/Documentos/Repositorios/IFchannel/src/main/web/videos";
 
 //    private String imgSource = "/home/romulo/Imagens";
 //    private String videoSource = "/home/romulo/Video";
@@ -110,6 +110,8 @@ public class LoginBean {
         return "logout";
     }
 
+    ///////////////////////////////////
+
     public String openEditUser(){
         return "edit";
     }
@@ -142,6 +144,8 @@ public class LoginBean {
             return "student";
         }
     }
+
+    ////////////////////////////////////
 
     public String openSavePost(){
         this.post = new Post();
@@ -180,6 +184,8 @@ public class LoginBean {
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Marker Added", "Lat:" + post.getLat() + ", Lng:" + post.getLng()));
     }
 
+    //////////////////////////////////////
+
     public String searchProfessor() throws SQLException {
         this.professores = new ArrayList<>();
         this.service = new UserService();
@@ -194,6 +200,10 @@ public class LoginBean {
         rService = null;
 
     }
+
+
+
+    //////////////////////////////////////
 
     public MapModel getEmptyModel() {
         return emptyModel;

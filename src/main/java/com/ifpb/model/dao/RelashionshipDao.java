@@ -34,11 +34,7 @@ public class RelashionshipDao {
 
     public boolean createRelashionship(String email, String email1){
         try (Transaction transaction = session.beginTransaction()){
-            StatementResult result = transaction.run("MATCH (x:User), (y:User)WHERE x.name=$name1 AND y.name=$name2\n" +
-                            "CREATE (x)-[:Follow]->(y) \n" +
-                            "RETURN x,y",
-                    parameters("name1",email,
-                            "name2",email1));
+            StatementResult result = transaction.run("MATCH (x:User), (y:User)WHERE x.name=$name1 AND y.name=$name2 CREATE (x)-[:Follow]->(y) RETURN x,y", parameters("name1",email, "name2",email1));
             transaction.success();
         }catch (ClientException ex){
             return false;
