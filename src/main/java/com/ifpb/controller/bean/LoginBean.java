@@ -4,9 +4,14 @@ import com.ifpb.controller.servico.PostService;
 import com.ifpb.controller.servico.UserService;
 import com.ifpb.model.entidades.Post;
 import com.ifpb.model.entidades.User;
+import org.primefaces.model.map.DefaultMapModel;
+import org.primefaces.model.map.LatLng;
+import org.primefaces.model.map.MapModel;
+import org.primefaces.model.map.Marker;
 
 
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
@@ -25,11 +30,11 @@ import java.time.Instant;
 @SessionScoped
 public class LoginBean {
 
-    private String imgSource = "C:\\Imagens\\";
-    private String videoSource = "C:\\Videos\\";
+//    private String imgSource = "C:\\Imagens\\";
+//    private String videoSource = "C:\\Videos\\";
 
-//    private String imgSource = "/home/raul/Imagens";
-//    private String videoSource = "/home/raul/Video";
+    private String imgSource = "/home/raul/Imagens";
+    private String videoSource = "/home/raul/Video";
 
 //    private String imgSource = "/home/romulo/Imagens";
 //    private String videoSource = "/home/romulo/Video";
@@ -47,6 +52,10 @@ public class LoginBean {
 
     private Post post;
 
+    private MapModel emptyModel;
+
+    private String title;
+
     private Part video;
 
     private Part image;
@@ -54,6 +63,8 @@ public class LoginBean {
     @PostConstruct
     public void init(){
         service = new UserService();
+        emptyModel = new DefaultMapModel();
+
     }
 
     public String autenticate() throws SQLException {
@@ -151,6 +162,28 @@ public class LoginBean {
         servicePost = null;
 
         return "professor";
+    }
+
+    public void addMarker() {
+        Marker marker = new Marker(new LatLng(post.getLat(), post.getLng()), title);
+        emptyModel.addOverlay(marker);
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Marker Added", "Lat:" + post.getLat() + ", Lng:" + post.getLng()));
+    }
+
+    public MapModel getEmptyModel() {
+        return emptyModel;
+    }
+
+    public void setEmptyModel(MapModel emptyModel) {
+        this.emptyModel = emptyModel;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public Post getPost() {

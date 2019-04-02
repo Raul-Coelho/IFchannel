@@ -12,13 +12,13 @@ public class Post {
     private Float evaluation;
     private String description;
     private String exclusivity;
-    private Float lat;
-    private Float lng;
+    private double lat;
+    private double lng;
 
     public Post() {
     }
 
-    public Post(int id, int idUser, String title, String video, List<Comment> comments, Float evaluation, String description, String exclusivity, Float lat, Float lng) {
+    public Post(int id, int idUser, String title, String video, List<Comment> comments, Float evaluation, String description, String exclusivity, double lat, double lng) {
         this.id = id;
         this.idUser = idUser;
         this.title = title;
@@ -60,19 +60,19 @@ public class Post {
         this.exclusivity = exclusivity;
     }
 
-    public Float getLat() {
+    public double getLat() {
         return lat;
     }
 
-    public void setLat(Float lat) {
+    public void setLat(double lat) {
         this.lat = lat;
     }
 
-    public Float getLng() {
+    public double getLng() {
         return lng;
     }
 
-    public void setLng(Float lng) {
+    public void setLng(double lng) {
         this.lng = lng;
     }
 

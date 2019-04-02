@@ -83,21 +83,21 @@
                             <p:growl id="messages" showDetail="true" />
 
                             <p:gmap id="gmap" type="ROADMAP" center="-6.889591,-38.545195" zoom="17" style="width:100%;height:400px; margin-left: -80px"
-                                    model="#{addMarkersBean.emptyModel}" onPointClick="handlePointClick(event);" widgetVar="map" />
+                                    model="#{loginBean.emptyModel}" onPointClick="handlePointClick(event);" widgetVar="map" />
 
                             <p:dialog widgetVar="dlg" showEffect="fade">
                                     <h:panelGrid columns="2">
                                         <h:outputLabel for="title" value="Title:" />
-                                        <p:inputText id="title" value="#{addMarkersBean.title}" />
+                                        <p:inputText id="title" value="#{loginBean.title}" />
 
                                         <f:facet name="footer">
-                                            <p:commandButton value="Add" action="#{addMarkersBean.addMarker}" update=":messages" oncomplete="markerAddComplete()" />
+                                            <p:commandButton value="Add" action="#{loginBean.addMarker}" update=":messages" oncomplete="markerAddComplete()" />
                                             <p:commandButton value="Cancel" onclick="return cancel()" />
                                         </f:facet>
                                     </h:panelGrid>
 
-                                    <h:inputHidden id="lat" value="#{loginBean.post.lat == addMarkersBean.lat}" />
-                                    <h:inputHidden id="lng" value="#{loginBean.post.lng == addMarkersBean.lng}" />
+                                    <h:inputHidden id="lat" value="#{loginBean.post.lat}" />
+                                    <h:inputHidden id="lng" value="#{loginBean.post.lng}" />
                             </p:dialog>
                         </h:panelGrid>
                     </h:column>
