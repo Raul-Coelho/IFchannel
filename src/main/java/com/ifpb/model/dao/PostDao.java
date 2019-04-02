@@ -20,7 +20,7 @@ public class PostDao {
 
     public boolean save(Post post){
         if(post.getId() == 0){
-            String sql = "INSERT INTO post(title, video, description, exclusivity, userid) VALUES(?,?,?,?,?)";
+            String sql = "INSERT INTO post(title, video, description, exclusivity, userid, lat, lng) VALUES(?,?,?,?,?,?,?)";
 
             try(Connection connection = factory.getConnection()){
                 PreparedStatement st = connection.prepareStatement(sql);
@@ -30,6 +30,8 @@ public class PostDao {
                 st.setFloat(3, post.getEvaluation());
                 st.setString(4,post.getExclusivity());
                 st.setInt(5, post.getIdUser());
+                st.setDouble(6,post.getLat());
+                st.setDouble(7,post.getLng());
 
                 return st.executeUpdate()>0;
 

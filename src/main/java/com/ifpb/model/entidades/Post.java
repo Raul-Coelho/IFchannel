@@ -12,11 +12,26 @@ public class Post {
     private Float evaluation;
     private String description;
     private String exclusivity;
+    private Float lat;
+    private Float lng;
 
     public Post() {
     }
 
-    public Post(int idUser,String title, String video, Float evaluation, String description,String exclusivity) {
+    public Post(int id, int idUser, String title, String video, List<Comment> comments, Float evaluation, String description, String exclusivity, Float lat, Float lng) {
+        this.id = id;
+        this.idUser = idUser;
+        this.title = title;
+        this.video = video;
+        this.comments = comments;
+        this.evaluation = evaluation;
+        this.description = description;
+        this.exclusivity = exclusivity;
+        this.lat = lat;
+        this.lng = lng;
+    }
+
+    public Post(int idUser, String title, String video, Float evaluation, String description, String exclusivity) {
         this.idUser = idUser;
         this.title = title;
         this.video = video;
@@ -43,6 +58,22 @@ public class Post {
         this.evaluation = evaluation;
         this.description = description;
         this.exclusivity = exclusivity;
+    }
+
+    public Float getLat() {
+        return lat;
+    }
+
+    public void setLat(Float lat) {
+        this.lat = lat;
+    }
+
+    public Float getLng() {
+        return lng;
+    }
+
+    public void setLng(Float lng) {
+        this.lng = lng;
     }
 
     public int getIdUser() {
@@ -120,6 +151,8 @@ public class Post {
                 ", evaluation=" + evaluation +
                 ", description='" + description + '\'' +
                 ", exclusivity='" + exclusivity + '\'' +
+                ", lat=" + lat +
+                ", lng=" + lng +
                 '}';
     }
 }
