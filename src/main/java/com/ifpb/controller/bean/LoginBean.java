@@ -83,6 +83,7 @@ public class LoginBean {
     @PostConstruct
     public void init(){
         service = new UserService();
+        comment = new Comment();
         emptyModel = new DefaultMapModel();
     }
 
@@ -223,7 +224,10 @@ public class LoginBean {
     //////////////////////////////////////
 
     public void saveComment(){
-        comment = new Comment(userLogged.getId(),textComment,userLogged.getName());
+        cService = new CommentService();
+        comment.setId(userLogged.getId());
+        comment.setcoment(textComment);
+        comment.setUsername(userLogged.getName());
         cService.save(comment);
         cService = null;
     }
