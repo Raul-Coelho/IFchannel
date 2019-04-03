@@ -1,5 +1,6 @@
 package com.ifpb.controller.bean;
 
+import com.datastax.driver.core.Row;
 import com.ifpb.controller.servico.CommentService;
 import com.ifpb.controller.servico.PostService;
 import com.ifpb.controller.servico.RelashionshipService;
@@ -224,15 +225,23 @@ public class LoginBean {
     //////////////////////////////////////
 
     public void saveComment(){
-        cService = new CommentService();
-        comment.setId(userLogged.getId());
-        comment.setcoment(textComment);
-        comment.setUsername(userLogged.getName());
-        cService.save(comment);
-        cService = null;
+            cService = new CommentService();
+            comment.setId(userLogged.getId());
+            comment.setcoment(textComment);
+            comment.setUsername(userLogged.getName());
+            cService.save(comment);
+            cService = null;
     }
 
 
+    public String listComments(){
+        this.comments = new ArrayList<>();
+        cService = new CommentService();
+        this.comments = cService.list();
+        cService = null;
+
+        return "goStudent";
+    }
 
 
     //////////////////////////////////////
@@ -339,5 +348,13 @@ public class LoginBean {
 
     public void setTextComment(String textComment) {
         this.textComment = textComment;
+    }
+
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
     }
 }

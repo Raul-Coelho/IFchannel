@@ -18,7 +18,7 @@ public class CommentDao {
 
     public boolean saveComment(Comment comment){
         session = CassandraConnection.getConnection();
-        PreparedStatement statement = session.prepare("INSERT INTO comment (id, coment, username) VALUES (?,?,?)");
+        PreparedStatement statement = session.prepare("INSERT INTO comment (id, comment, username) VALUES (?,?,?)");
         BoundStatement bound = statement.bind(comment.getId(),comment.getcoment(),comment.getUsername());
         ResultSet rs = session.execute(bound);
         CassandraConnection.closeConnection();
@@ -35,7 +35,7 @@ public class CommentDao {
     }
     public List<Row> listComments(){
         session = CassandraConnection.getConnection();
-        Statement statement = QueryBuilder.select("coment","username").from("comment");
+        Statement statement = QueryBuilder.select("comment","username").from("comment");
         ResultSet resultSet = session.execute(statement);
         List<Row>rowList= resultSet.all();
         for (Row row:rowList){
@@ -47,7 +47,7 @@ public class CommentDao {
     }
     public List<Row> searchComment(int id){
         session=CassandraConnection.getConnection();
-        Statement statement = QueryBuilder.select("coment").from("comment").where(eq("id",id));
+        Statement statement = QueryBuilder.select("comment").from("comment").where(eq("id",id));
         ResultSet resultSet = session.execute(statement);
         if (resultSet.wasApplied()){
             List<Row> rows = resultSet.all();
@@ -62,7 +62,7 @@ public class CommentDao {
     }
 
     public boolean editComent(int id, String comment){
-        String script = "UPDATE comment SET coment = '"+ comment +"' WHERE id = "+ id+ ";";
+        String script = "UPDATE comment SET comment = '"+ comment +"' WHERE id = "+ id+ ";";
         session = CassandraConnection.getConnection();
         PreparedStatement statement= session.prepare(script);
         ResultSet resultSet = session.execute(script);
