@@ -1,8 +1,10 @@
 package com.ifpb.controller.bean;
 
+import com.ifpb.controller.servico.CommentService;
 import com.ifpb.controller.servico.PostService;
 import com.ifpb.controller.servico.RelashionshipService;
 import com.ifpb.controller.servico.UserService;
+import com.ifpb.model.entidades.Comment;
 import com.ifpb.model.entidades.Post;
 import com.ifpb.model.entidades.User;
 import org.primefaces.model.map.DefaultMapModel;
@@ -49,9 +51,15 @@ public class LoginBean {
 
     private RelashionshipService rService;
 
+    private CommentService cService;
+
     private PostService servicePost;
 
     private User userLogged;
+
+    private Comment comment;
+
+    private  String textComment;
 
     private String login;
 
@@ -69,12 +77,13 @@ public class LoginBean {
 
     private List<User> professores;
 
+    private List<Comment> comments;
+
 
     @PostConstruct
     public void init(){
         service = new UserService();
         emptyModel = new DefaultMapModel();
-
     }
 
     public String autenticate() throws SQLException {
@@ -213,6 +222,17 @@ public class LoginBean {
 
     //////////////////////////////////////
 
+    public void saveComment(){
+        comment = new Comment(userLogged.getId(),textComment,userLogged.getName());
+        cService.save(comment);
+        cService = null;
+    }
+
+
+
+
+    //////////////////////////////////////
+
     public MapModel getEmptyModel() {
         return emptyModel;
     }
@@ -299,5 +319,21 @@ public class LoginBean {
 
     public void setProfessores(List<User> professores) {
         this.professores = professores;
+    }
+
+    public Comment getComment() {
+        return comment;
+    }
+
+    public void setComment(Comment comment) {
+        this.comment = comment;
+    }
+
+    public String getTextComment() {
+        return textComment;
+    }
+
+    public void setTextComment(String textComment) {
+        this.textComment = textComment;
     }
 }

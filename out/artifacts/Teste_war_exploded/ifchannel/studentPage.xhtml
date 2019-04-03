@@ -86,9 +86,9 @@
                                     <h:form>
                                         <font face="Poppins-Regular" size="3" color="#0057AE"><b>Comment:</b></font>
                                         <br/>
-                                        <textarea name="comentario" id="comentarios" style="width: 300px"></textarea>
+                                        <h:inputTextarea id="comentarios" style="width: 300px" value="#{loginBean.textComment}"/>
                                         <br/>
-                                        <h:commandButton class="form-control mr-sm-2 btn btn-outline-success" action="#CommentBeanHere" value="Send Comment"/>
+                                        <h:commandButton class="form-control mr-sm-2 btn btn-outline-success" action="#{loginBean.saveComment}" value="Send Comment"/>
                                     </h:form>
                                 </td>
                             </tr>
