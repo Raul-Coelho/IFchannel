@@ -24,7 +24,7 @@
     </h:form>
 </nav>
 <f:view>
-<table style="margin-left: 35%;">
+<table style="margin-left: 28%;">
     <tr class="card my-5 div-video">
         <td>
             <div style="height: 250%">
@@ -61,7 +61,16 @@
                         <h:form>
                             <div class="btn-group">
                                 <h:commandButton  action="#{loginBean.follow(professor)}" style="width:6rem; height: 2rem; margin-left: 10px;" styleClass="btn btn-outline-success my-3" value="Follow"/>
-                                <h:commandButton  action="#{loginBean.follow(professor)}" style="width:6rem; height: 2rem; margin-left: 10px;" styleClass="btn btn-outline-success my-3" value="Follow"/>
+                            </div>
+                        </h:form>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText style="margin-left: 10px" value="Unfollow" />
+                        </f:facet>
+                        <h:form>
+                            <div class="btn-group">
+                                <h:commandButton  action="#{loginBean.unfollow(professor)}" style="width:6rem; height: 2rem; margin-left: 10px;" styleClass="btn btn-danger my-3" value="Unfollow"/>
                             </div>
                         </h:form>
                     </h:column>

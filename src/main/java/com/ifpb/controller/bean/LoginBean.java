@@ -202,6 +202,14 @@ public class LoginBean {
     }
 
 
+    public void unfollow(User professor){
+        rService = new RelashionshipService();
+        rService.unfollow(userLogged.getEmail(), professor.getEmail());
+        rService = null;
+
+    }
+
+
 
     //////////////////////////////////////
 
