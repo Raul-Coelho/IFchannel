@@ -234,13 +234,11 @@ public class LoginBean {
     }
 
 
-    public String listComments(){
+    public void listComments(){
         this.comments = new ArrayList<>();
         cService = new CommentService();
         this.comments = cService.list();
         cService = null;
-
-        return "goStudent";
     }
 
 

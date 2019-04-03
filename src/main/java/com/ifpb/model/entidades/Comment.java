@@ -3,9 +3,12 @@ package com.ifpb.model.entidades;
 import com.datastax.driver.mapping.annotations.PartitionKey;
 import com.datastax.driver.mapping.annotations.Table;
 
-@Table(keyspace = "Comentario", name = "comment")
+import java.util.UUID;
+
+@Table(keyspace = "comments", name = "comment")
 public class Comment {
     @PartitionKey
+    private UUID commentid;
     private int id;
     private String coment;
     private String username;
@@ -13,10 +16,20 @@ public class Comment {
     public Comment() {
     }
 
-    public Comment(int id, String coment, String username) {
+    public Comment(UUID commentid, int id, String coment, String username) {
+        this.commentid = UUID.randomUUID();
         this.id = id;
         this.coment = coment;
         this.username = username;
+    }
+
+
+    public UUID getCommentid() {
+        return commentid;
+    }
+
+    public void setCommentid(UUID commentid) {
+        this.commentid = commentid;
     }
 
     public int getId() {
@@ -46,7 +59,8 @@ public class Comment {
     @Override
     public String toString() {
         return "Comment{" +
-                "id=" + id +
+                "commentid='" + commentid + '\'' +
+                ", id=" + id +
                 ", coment='" + coment + '\'' +
                 ", username='" + username + '\'' +
                 '}';

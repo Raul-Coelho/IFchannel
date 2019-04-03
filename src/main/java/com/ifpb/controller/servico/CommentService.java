@@ -22,7 +22,7 @@ public class CommentService {
         return dao.deleteComment(comment);
     }
 
-    public List<Row> list(){
+    public List<Comment> list(){
         return dao.listComments();
     }
 

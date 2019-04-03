@@ -2,7 +2,7 @@ package com.ifpb.connection;
 
 public class Cassandra {
     private String serverIP = "127.0.0.1";
-    private String keyspace = "Comentario";
+    private String keyspace = "comments";
     private int port = 9042;
 
     public Cassandra() {

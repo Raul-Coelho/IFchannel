@@ -5,21 +5,26 @@ import com.datastax.driver.core.querybuilder.QueryBuilder;
 import com.ifpb.connection.CassandraConnection;
 import com.ifpb.model.entidades.Comment;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 import static com.datastax.driver.core.querybuilder.QueryBuilder.eq;
 
 public class CommentDao {
     private Session session;
 
+    UUID commentid;
+
     public CommentDao(){
 
     }
 
     public boolean saveComment(Comment comment){
+        commentid = UUID.randomUUID();
         session = CassandraConnection.getConnection();
-        PreparedStatement statement = session.prepare("INSERT INTO comment (id, comment, username) VALUES (?,?,?)");
-        BoundStatement bound = statement.bind(comment.getId(),comment.getcoment(),comment.getUsername());
+        PreparedStatement statement = session.prepare("INSERT INTO comment (commentid, userid, comment, username) VALUES (?,?,?,?)");
+        BoundStatement bound = statement.bind(commentid, comment.getId(),comment.getcoment(),comment.getUsername());
         ResultSet rs = session.execute(bound);
         CassandraConnection.closeConnection();
         session.close();
@@ -33,17 +38,22 @@ public class CommentDao {
         session.close();
         return rs.wasApplied();
     }
-    public List<Row> listComments(){
+    public List<Comment> listComments(){
         session = CassandraConnection.getConnection();
-        Statement statement = QueryBuilder.select("comment","username").from("comment");
+        Statement statement = QueryBuilder.select("commentid","userid","comment","username").from("comment");
         ResultSet resultSet = session.execute(statement);
         List<Row>rowList= resultSet.all();
+        List<Comment> comments = new ArrayList<>();
         for (Row row:rowList){
-            return rowList;
+            Comment comment = new Comment();
+            comment.setId(row.getInt("userid"));
+            comment.setUsername(row.getString("username"));
+            comment.setcoment(row.getString("comment"));
+            comments.add(comment);
         }
         CassandraConnection.closeConnection();
         session.close();
-        return null;
+        return comments;
     }
     public List<Row> searchComment(int id){
         session=CassandraConnection.getConnection();

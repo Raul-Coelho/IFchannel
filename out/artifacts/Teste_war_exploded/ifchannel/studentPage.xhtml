@@ -87,7 +87,7 @@
                                         <br/>
                                         <h:inputTextarea id="comentarios" style="width: 300px" value="#{loginBean.textComment}"/>
                                         <br/>
-                                        <h:commandButton class="form-control mr-sm-2 btn btn-outline-success" action="#{loginBean.saveComment}" value="Send Comment"/>
+                                        <h:commandButton class="form-control mr-sm-2 btn btn-outline-success" rendered="true" action="#{loginBean.saveComment}" value="Send Comment"/>
                                     </h:form>
                                 </td>
                             </tr>
@@ -96,16 +96,20 @@
                                     <font face="Poppins-Regular" size="3" color="#0057AE"><b>Comments:</b></font>
                                 </td>
                                 <td>
-                                    <h:dataTable var="professor" value="#{loginBean.professores}"
+                                    <h:dataTable var="comment" value="#{loginBean.comments}"
                                                  styleClass="order-table" headerClass="order-table-header"
                                                  rowClasses="order-table-odd-row,order-table-even-row">
                                         <h:column>
-                                            <h:outputText style="margin-left: 10px" value="#{professor.name}: " />
+                                            <h:outputText style="margin-left: 10px" value="#{comment.username}: " />
                                         </h:column>
 
                                         <h:column>
-                                            <h:outputText style="margin-left: 10px" value="#{professor.email}" />
+                                            <h:outputText style="margin-left: 10px" value="#{comment.getcoment}" />
                                         </h:column>
+
+                                        <!--<h:column>-->
+                                            <!--<h:commandButton class="form-control mr-sm-2 btn btn-danger" action="#{loginBean.listComments}" value="Excluir"/>-->
+                                        <!--</h:column>-->
                                     </h:dataTable>
                                 </td>
                             </tr>

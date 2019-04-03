@@ -7,6 +7,7 @@ import com.ifpb.model.entidades.Comment;
 import com.ifpb.model.entidades.User;
 
 import java.sql.SQLException;
+import java.util.UUID;
 
 public class App {
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
@@ -31,8 +32,9 @@ public class App {
 
 
         CommentService service = new CommentService();
-         service.save(new Comment(02,"Esse e um teste no app","Teste"));
-
+//        UUID uuid = UUID.randomUUID();
+//        service.save(new Comment(uuid,02,"Esse e um teste no app","Teste"));
+        System.out.println(service.list());
 
     }
 
