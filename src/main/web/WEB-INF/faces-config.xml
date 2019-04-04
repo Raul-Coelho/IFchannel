@@ -125,15 +125,6 @@
         </navigation-case>
     </navigation-rule>
 
-    <!--GO STUDENT-->
-    <navigation-rule>
-        <from-view-id>*</from-view-id>
-        <navigation-case>
-            <from-outcome>goStudent</from-outcome>
-            <to-view-id>/ifchannel/studentPage.xhtml</to-view-id>
-            <redirect />
-        </navigation-case>
-    </navigation-rule>
 
     <lifecycle>
         <phase-listener>com.ifpb.controller.listener.AuthListener</phase-listener>

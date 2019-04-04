@@ -10,16 +10,16 @@ public class Comment {
     @PartitionKey
     private UUID commentid;
     private int id;
-    private String coment;
+    private String comment;
     private String username;
 
     public Comment() {
     }
 
-    public Comment(UUID commentid, int id, String coment, String username) {
+    public Comment(UUID commentid, int id, String comment, String username) {
         this.commentid = UUID.randomUUID();
         this.id = id;
-        this.coment = coment;
+        this.comment = comment;
         this.username = username;
     }
 
@@ -40,12 +40,12 @@ public class Comment {
         this.id = id;
     }
 
-    public String getcoment() {
-        return coment;
+    public String getComment() {
+        return comment;
     }
 
-    public void setcoment(String coment) {
-        this.coment = coment;
+    public void setComment(String comment) {
+        this.comment = comment;
     }
 
     public String getUsername() {
@@ -61,7 +61,7 @@ public class Comment {
         return "Comment{" +
                 "commentid='" + commentid + '\'' +
                 ", id=" + id +
-                ", coment='" + coment + '\'' +
+                ", comment='" + comment + '\'' +
                 ", username='" + username + '\'' +
                 '}';
     }

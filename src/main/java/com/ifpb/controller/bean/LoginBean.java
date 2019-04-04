@@ -227,18 +227,15 @@ public class LoginBean {
     public void saveComment(){
             cService = new CommentService();
             comment.setId(userLogged.getId());
-            comment.setcoment(textComment);
+            comment.setComment(textComment);
             comment.setUsername(userLogged.getName());
             cService.save(comment);
             cService = null;
-    }
 
-
-    public void listComments(){
-        this.comments = new ArrayList<>();
-        cService = new CommentService();
-        this.comments = cService.list();
-        cService = null;
+            this.comments = new ArrayList<>();
+            cService = new CommentService();
+            comments = cService.list();
+            cService = null;
     }
 
 

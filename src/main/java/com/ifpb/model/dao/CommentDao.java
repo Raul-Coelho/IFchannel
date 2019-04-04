@@ -24,7 +24,7 @@ public class CommentDao {
         commentid = UUID.randomUUID();
         session = CassandraConnection.getConnection();
         PreparedStatement statement = session.prepare("INSERT INTO comment (commentid, userid, comment, username) VALUES (?,?,?,?)");
-        BoundStatement bound = statement.bind(commentid, comment.getId(),comment.getcoment(),comment.getUsername());
+        BoundStatement bound = statement.bind(commentid, comment.getId(),comment.getComment(),comment.getUsername());
         ResultSet rs = session.execute(bound);
         CassandraConnection.closeConnection();
         session.close();
@@ -48,7 +48,7 @@ public class CommentDao {
             Comment comment = new Comment();
             comment.setId(row.getInt("userid"));
             comment.setUsername(row.getString("username"));
-            comment.setcoment(row.getString("comment"));
+            comment.setComment(row.getString("comment"));
             comments.add(comment);
         }
         CassandraConnection.closeConnection();

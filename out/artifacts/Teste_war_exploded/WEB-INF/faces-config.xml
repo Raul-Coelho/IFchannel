@@ -129,7 +129,7 @@
     <navigation-rule>
         <from-view-id>*</from-view-id>
         <navigation-case>
-            <from-outcome>goStudent</from-outcome>
+            <from-outcome>student</from-outcome>
             <to-view-id>/ifchannel/studentPage.xhtml</to-view-id>
             <redirect />
         </navigation-case>

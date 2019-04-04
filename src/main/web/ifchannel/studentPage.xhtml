@@ -12,10 +12,8 @@
     <link rel="stylesheet" href="../css/homepage.css"/>
     <link rel="stylesheet" href="css/font.css"/>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 </h:head>
 <h:body>
@@ -87,30 +85,33 @@
                                         <br/>
                                         <h:inputTextarea id="comentarios" style="width: 300px" value="#{loginBean.textComment}"/>
                                         <br/>
-                                        <h:commandButton class="form-control mr-sm-2 btn btn-outline-success" rendered="true" action="#{loginBean.saveComment}" value="Send Comment"/>
+                                        <h:commandButton class="form-control mr-sm-2 btn btn-outline-success" action="#{loginBean.saveComment}" value="Send Comment"/>
                                     </h:form>
                                 </td>
                             </tr>
-                            <tr class="card div-video">
+                            <tr>
                                 <td>
                                     <font face="Poppins-Regular" size="3" color="#0057AE"><b>Comments:</b></font>
                                 </td>
+                            </tr>
+                            <tr>
                                 <td>
                                     <h:dataTable var="comment" value="#{loginBean.comments}"
                                                  styleClass="order-table" headerClass="order-table-header"
                                                  rowClasses="order-table-odd-row,order-table-even-row">
-                                        <h:column>
-                                            <h:outputText style="margin-left: 10px" value="#{comment.username}: " />
-                                        </h:column>
+                                            <h:column>
+                                                <h:outputText style="margin-left: 10px" value="#{comment.username}: " />
+                                            </h:column>
+
+                                            <h:column>
+                                                <h:outputText style="margin-left: 10px" value="#{comment.comment}" />
+                                            </h:column>
 
                                         <h:column>
-                                            <h:outputText style="margin-left: 10px" value="#{comment.getcoment}" />
+                                            <h:commandButton class="form-control mr-sm-2 btn btn-danger btn-sm" action="#{loginBean.listComments}" value="Excluir"/>
                                         </h:column>
-
-                                        <!--<h:column>-->
-                                            <!--<h:commandButton class="form-control mr-sm-2 btn btn-danger" action="#{loginBean.listComments}" value="Excluir"/>-->
-                                        <!--</h:column>-->
                                     </h:dataTable>
+
                                 </td>
                             </tr>
                         </table>
