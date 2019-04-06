@@ -2,6 +2,7 @@ package com.ifpb.model.dao;
 
 import com.ifpb.connection.PostgreConFactory;
 import com.ifpb.model.entidades.Post;
+import com.ifpb.model.entidades.User;
 import javafx.geometry.Pos;
 
 import java.sql.Connection;
@@ -131,6 +132,31 @@ public class PostDao {
             return false;
         } catch (ClassNotFoundException e) {
             return false;
+        }
+    }
+    public List<Post> searchPost(String title) {
+        List<Post> posts = new ArrayList();
+        String sql = "SELECT u.email, p.title FROM post p JOIN usuario u ON p.userid= u.id WHERE p.title ILIKE ?";
+
+        try (Connection connection = factory.getConnection()) {
+            PreparedStatement st = connection.prepareStatement(sql);
+
+            st.setString(1, title);
+            ResultSet result = st.executeQuery();
+
+            while (result.next()) {
+                Post post = new Post();
+                User user = new User();
+                user.setEmail(result.getString("email"));
+                post.setTitle(result.getString("title"));
+                post.setUser(user);
+                posts.add(post);
+            }
+            return posts;
+        } catch (SQLException ex) {
+            return null;
+        } catch (ClassNotFoundException ex) {
+            return null;
         }
     }
 

@@ -28,5 +28,7 @@ public class PostService {
         return dao.save(post);
     }
 
+    public List<Post> searchPost(String title) {return dao.searchPost(title);}
+
 
 }

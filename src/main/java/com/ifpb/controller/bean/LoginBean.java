@@ -45,8 +45,8 @@ public class LoginBean {
     private String imgSource = "/home/raul/Documentos/Repositorios/IFchannel/src/main/web/images";
     private String videoSource = "/home/raul/Documentos/Repositorios/IFchannel/src/main/web/videos";
 
-//    private String imgSource = "/home/romulo/Imagens";
-//    private String videoSource = "/home/romulo/Video";
+//    private String imgSource = "/home/romulo/Documentos/Repositorios/IFchannel/src/main/web/images";
+//    private String videoSource = "/home/romulo/Documentos/Repositorios/IFchannel/src/main/web/videos";
 
 
     private UserService service;

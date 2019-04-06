@@ -1,13 +1,8 @@
 package com.ifpb.view;
 
-import com.ifpb.controller.servico.CommentService;
-import com.ifpb.controller.servico.PostService;
-import com.ifpb.model.dao.RelashionshipDao;
-import com.ifpb.model.entidades.Comment;
-import com.ifpb.model.entidades.User;
+import com.ifpb.model.dao.PostDao;
 
 import java.sql.SQLException;
-import java.util.UUID;
 
 public class App {
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
@@ -31,12 +26,13 @@ public class App {
 //        System.out.println(service.list(2));
 
 
-        CommentService service = new CommentService();
+//        CommentService service = new CommentService();
 //        UUID uuid = UUID.randomUUID();
 //        service.save(new Comment(uuid,02,"Esse e um teste no app","Teste"));
 //        System.out.println(service.list());
 
-
+        PostDao dao = new PostDao();
+        System.out.println(dao.searchPost("teste"));
     }
 
 }
