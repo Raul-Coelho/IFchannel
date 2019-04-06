@@ -5,6 +5,7 @@ import com.ifpb.model.dao.CommentDao;
 import com.ifpb.model.entidades.Comment;
 
 import java.util.List;
+import java.util.UUID;
 
 public class CommentService {
 
@@ -18,7 +19,7 @@ public class CommentService {
         return dao.saveComment(comment);
     }
 
-    public boolean delete(int comment){
+    public boolean delete(Comment comment){
         return dao.deleteComment(comment);
     }
 

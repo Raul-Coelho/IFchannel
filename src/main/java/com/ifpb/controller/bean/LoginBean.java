@@ -33,6 +33,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @ManagedBean(name = "loginBean")
 @SessionScoped
@@ -75,6 +76,8 @@ public class LoginBean {
     private Part video;
 
     private Part image;
+
+    private float evaluationPost;
 
     private List<User> professores;
 
@@ -178,7 +181,7 @@ public class LoginBean {
 
         post.setVideo(archive);
 
-        post.setEvaluation(0f);
+        post.setEvaluation(evaluationPost);
 
         post.setIdUser(userLogged.getId());
 
@@ -238,8 +241,36 @@ public class LoginBean {
             cService = null;
     }
 
+    public void listComments(){
+        this.comments = new ArrayList<>();
+        cService = new CommentService();
+        comments = cService.list();
+        cService = null;
+    }
+
+
+    public void removeComment(Comment comment){
+        cService = new CommentService();
+        cService.delete(comment);
+        cService = null;
+
+        this.comments = new ArrayList<>();
+        cService = new CommentService();
+        comments = cService.list();
+        cService = null;
+    }
+
 
     //////////////////////////////////////
+
+
+    public float getEvaluationPost() {
+        return evaluationPost;
+    }
+
+    public void setEvaluationPost(float evaluationPost) {
+        this.evaluationPost = evaluationPost;
+    }
 
     public MapModel getEmptyModel() {
         return emptyModel;

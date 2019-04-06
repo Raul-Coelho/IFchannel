@@ -30,9 +30,9 @@ public class CommentDao {
         session.close();
         return rs.wasApplied();
     }
-    public boolean deleteComment(int id){
+    public boolean deleteComment(Comment comment){
         session = CassandraConnection.getConnection();
-        Statement statement = QueryBuilder.delete().from("comment").where(eq("id",id));
+        Statement statement = QueryBuilder.delete().from("comment").where(eq("commentid",comment.getCommentid())).ifExists();
         ResultSet rs = session.execute(statement);
         CassandraConnection.closeConnection();
         session.close();
@@ -46,6 +46,7 @@ public class CommentDao {
         List<Comment> comments = new ArrayList<>();
         for (Row row:rowList){
             Comment comment = new Comment();
+            comment.setCommentid(row.getUUID("commentid"));
             comment.setId(row.getInt("userid"));
             comment.setUsername(row.getString("username"));
             comment.setComment(row.getString("comment"));

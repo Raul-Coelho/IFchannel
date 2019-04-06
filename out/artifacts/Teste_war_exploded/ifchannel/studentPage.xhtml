@@ -77,7 +77,7 @@
                                 <td>
                                     <h:outputLabel value="Evaluate"/>
                                     <h:panelGrid columns="1" style="margin-bottom: 10px">
-                                        <p:inputText id="txt3" styleClass="w-75" value="#{sliderView.number5}" />
+                                        <p:inputText id="txt3" styleClass="w-75" value="#{loginBean.evaluationPost}" />
                                         <p:slider styleClass="form-control w-75" for="txt3" step="1" maxValue="5" />
                                     </h:panelGrid>
                                 </td>
@@ -96,6 +96,9 @@
                             <tr>
                                 <td>
                                     <font face="Poppins-Regular" size="3" color="#0057AE"><b>Comments:</b></font>
+                                    <h:form>
+                                        <h:commandButton class="form-control mr-sm-2 btn btn-danger btn-sm" action="#{loginBean.listComments}" value="List Comments"/>
+                                    </h:form>
                                 </td>
                             </tr>
                             <tr>
@@ -112,10 +115,11 @@
                                             </h:column>
 
                                         <h:column>
-                                            <h:commandButton class="form-control mr-sm-2 btn btn-danger btn-sm" action="#{loginBean.listComments}" value="Excluir"/>
+                                            <h:form>
+                                            <h:commandButton class="form-control mr-sm-2 btn btn-danger btn-sm" action="#{loginBean.removeComment(comment)}" value="Excluir"/>
+                                            </h:form>
                                         </h:column>
                                     </h:dataTable>
-
                                 </td>
                             </tr>
                         </table>

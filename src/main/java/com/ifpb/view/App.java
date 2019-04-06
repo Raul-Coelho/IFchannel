@@ -34,7 +34,8 @@ public class App {
         CommentService service = new CommentService();
 //        UUID uuid = UUID.randomUUID();
 //        service.save(new Comment(uuid,02,"Esse e um teste no app","Teste"));
-        System.out.println(service.list());
+//        System.out.println(service.list());
+
 
     }
 
