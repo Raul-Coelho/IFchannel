@@ -3,7 +3,7 @@ package com.ifpb.controller.bean;
 import com.datastax.driver.core.Row;
 import com.ifpb.controller.servico.CommentService;
 import com.ifpb.controller.servico.PostService;
-import com.ifpb.controller.servico.RelashionshipService;
+//import com.ifpb.controller.servico.RelashionshipService;
 import com.ifpb.controller.servico.UserService;
 import com.ifpb.model.entidades.Comment;
 import com.ifpb.model.entidades.Post;
@@ -39,11 +39,11 @@ import java.util.UUID;
 @SessionScoped
 public class LoginBean {
 
-//    private String imgSource = "C:\\Users\\Lucas\\Documents\\Projetos\\IFchannel\\src\\main\\web\\images";
-//    private String videoSource = "C:\\Users\\Lucas\\Documents\\Projetos\\IFchannel\\src\\main\\web\\videos";
+    private String imgSource = "C:\\Users\\Lucas\\Documents\\Projetos\\IFchannel\\src\\main\\web\\images";
+    private String videoSource = "C:\\Users\\Lucas\\Documents\\Projetos\\IFchannel\\src\\main\\web\\videos";
 
-    private String imgSource = "/home/raul/Documentos/Repositorios/IFchannel/src/main/web/images";
-    private String videoSource = "/home/raul/Documentos/Repositorios/IFchannel/src/main/web/videos";
+//    private String imgSource = "/home/raul/Documentos/Repositorios/IFchannel/src/main/web/images";
+//    private String videoSource = "/home/raul/Documentos/Repositorios/IFchannel/src/main/web/videos";
 
 //    private String imgSource = "/home/romulo/Documentos/Repositorios/IFchannel/src/main/web/images";
 //    private String videoSource = "/home/romulo/Documentos/Repositorios/IFchannel/src/main/web/videos";
@@ -51,7 +51,7 @@ public class LoginBean {
 
     private UserService service;
 
-    private RelashionshipService rService;
+//    private RelashionshipService rService;
 
     private CommentService cService;
 
@@ -80,6 +80,8 @@ public class LoginBean {
     private float evaluationPost;
 
     private List<User> professores;
+
+    private List<Post> posts;
 
     private List<Comment> comments;
 
@@ -208,21 +210,35 @@ public class LoginBean {
         return "goList";
     }
 
-    public void follow(User professor){
-        rService = new RelashionshipService();
-        rService.createRelashionship(userLogged.getEmail(), professor.getEmail());
-        rService = null;
+    public String searchPost() throws SQLException {
+        this.professores = new ArrayList<>();
+        this.service = new UserService();
+        this.professores = service.listProfessor();
+        service = null;
 
+        this.posts = new ArrayList<>();
+        this.servicePost = new PostService();
+        this.posts = servicePost.searchPost(title);
+        servicePost = null;
+        
+        return "goList";
     }
 
-
-    public void unfollow(User professor){
-        rService = new RelashionshipService();
-        rService.unfollow(userLogged.getEmail(), professor.getEmail());
-        rService = null;
-
-    }
-
+//    public void follow(User professor){
+//        rService = new RelashionshipService();
+//        rService.createRelashionship(userLogged.getEmail(), professor.getEmail());
+//        rService = null;
+//
+//    }
+//
+//
+//    public void unfollow(User professor){
+//        rService = new RelashionshipService();
+//        rService.unfollow(userLogged.getEmail(), professor.getEmail());
+//        rService = null;
+//
+//    }
+//
 
 
     //////////////////////////////////////
@@ -382,5 +398,13 @@ public class LoginBean {
 
     public void setComments(List<Comment> comments) {
         this.comments = comments;
+    }
+
+    public List<Post> getPosts() {
+        return posts;
+    }
+
+    public void setPosts(List<Post> posts) {
+        this.posts = posts;
     }
 }

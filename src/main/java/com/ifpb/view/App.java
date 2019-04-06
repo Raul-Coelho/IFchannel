@@ -31,8 +31,7 @@ public class App {
 //        service.save(new Comment(uuid,02,"Esse e um teste no app","Teste"));
 //        System.out.println(service.list());
 
-        PostDao dao = new PostDao();
-        System.out.println(dao.searchPost("teste"));
+
     }
 
 }

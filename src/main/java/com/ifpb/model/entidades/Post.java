@@ -14,12 +14,12 @@ public class Post {
     private String exclusivity;
     private double lat;
     private double lng;
-    private User user;
+
 
     public Post() {
     }
 
-    public Post(int id, int idUser, String title, String video, List<Comment> comments, Float evaluation, String description, String exclusivity, double lat, double lng, User user) {
+    public Post(int id, int idUser, String title, String video, List<Comment> comments, Float evaluation, String description, String exclusivity, double lat, double lng) {
         this.id = id;
         this.idUser = idUser;
         this.title = title;
@@ -30,7 +30,7 @@ public class Post {
         this.exclusivity = exclusivity;
         this.lat = lat;
         this.lng = lng;
-        this.user = user;
+
     }
 
     public Post(int idUser, String title, String video, Float evaluation, String description, String exclusivity) {
@@ -142,14 +142,6 @@ public class Post {
         this.exclusivity = exclusivity;
     }
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
     @Override
     public String toString() {
         return "Post{" +
@@ -163,7 +155,6 @@ public class Post {
                 ", exclusivity='" + exclusivity + '\'' +
                 ", lat=" + lat +
                 ", lng=" + lng +
-                ", user=" + user +
                 '}';
     }
 }

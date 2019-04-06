@@ -28,6 +28,24 @@
     <tr class="card my-5 div-video">
         <td>
             <div style="height: 250%">
+                <h:dataTable var = "post" value="#{loginBean.posts}"
+                             styleClass="order-table" headerClass="order-table-header"
+                             rowClasses="order-table-odd-row,order-table-even-row">
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText style="margin-left: 10px" value="title" />
+                        </f:facet>
+
+                        <h:outputText style="margin-left: 10px" value="#{post.title}" />
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText style="margin-left: 10px" value="Name" />
+                        </f:facet>
+
+                        <h:outputText style="margin-left: 10px" value="#{post.description}" />
+                    </h:column>
+                </h:dataTable>
                 <h:dataTable var="professor" value="#{loginBean.professores}"
                              styleClass="order-table" headerClass="order-table-header"
                              rowClasses="order-table-odd-row,order-table-even-row">

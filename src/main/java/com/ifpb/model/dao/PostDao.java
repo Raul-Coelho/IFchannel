@@ -134,30 +134,63 @@ public class PostDao {
             return false;
         }
     }
-    public List<Post> searchPost(String title) {
-        List<Post> posts = new ArrayList();
-        String sql = "SELECT u.email, p.title FROM post p JOIN usuario u ON p.userid= u.id WHERE p.title ILIKE ?";
+//    public List<Post> searchPost(String title) {
+//        List<Post> posts = new ArrayList();
+//        String sql = "SELECT u.email, p.title FROM post p JOIN usuario u ON p.userid= u.id WHERE p.title ILIKE ?";
+//
+//        try (Connection connection = factory.getConnection()) {
+//            PreparedStatement st = connection.prepareStatement(sql);
+//
+//            st.setString(1, title);
+//            ResultSet result = st.executeQuery();
+//
+//            while (result.next()) {
+//                Post post = new Post();
+//                User user = new User();
+//                user.setEmail(result.getString("email"));
+//                post.setTitle(result.getString("title"));
+//                post.setUser(user);
+//                posts.add(post);
+//            }
+//            return posts;
+//        } catch (SQLException ex) {
+//            return null;
+//        } catch (ClassNotFoundException ex) {
+//            return null;
+//        }
+//    }
 
-        try (Connection connection = factory.getConnection()) {
-            PreparedStatement st = connection.prepareStatement(sql);
+    public List<Post> searchByTitle(String title, List<User> users){
+        List<Post> list = new ArrayList<>();
+        for (User user: users) {
+            String sql  = "SELECT * FROM post WHERE title ilike '%"+ title +"%' AND userid = ?";
 
-            st.setString(1, title);
-            ResultSet result = st.executeQuery();
+            try(Connection connection = factory.getConnection()){
+                PreparedStatement st = connection.prepareStatement(sql);
 
-            while (result.next()) {
-                Post post = new Post();
-                User user = new User();
-                user.setEmail(result.getString("email"));
-                post.setTitle(result.getString("title"));
-                post.setUser(user);
-                posts.add(post);
+                st.setInt(1, user.getId());
+                ResultSet result = st.executeQuery();
+
+                while (result.next()) {
+                    Post p = new Post(
+                            result.getInt("id"),
+                            user.getId(),
+                            result.getString("title"),
+                            result.getString("video"),
+                            result.getFloat("evaluation"),
+                            result.getString("description"),
+                            result.getString("exclusivity")
+
+                    );
+                    list.add(p);
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
             }
-            return posts;
-        } catch (SQLException ex) {
-            return null;
-        } catch (ClassNotFoundException ex) {
-            return null;
         }
+        return list;
     }
 
 }

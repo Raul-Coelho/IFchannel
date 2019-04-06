@@ -24,9 +24,9 @@ import java.util.List;
 @ViewScoped
 public class UserBean {
 
-//    private String imgSource = "C:\\Users\\Lucas\\Documents\\Projetos\\IFchannel\\src\\main\\web\\images";
+    private String imgSource = "C:\\Users\\Lucas\\Documents\\Projetos\\IFchannel\\src\\main\\web\\images";
 
-    private String imgSource = "/home/raul/Documentos/Repositorios/IFchannel/src/main/web/images";
+//    private String imgSource = "/home/raul/Documentos/Repositorios/IFchannel/src/main/web/images";
 
     private List<User> users;
 
@@ -48,11 +48,6 @@ public class UserBean {
     public void init(){
         this.service = new UserService();
         this.users = new ArrayList<>();
-        try{
-            this.professores = new ArrayList(service.listProfessor());
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
         this.user = new User();
     }
 
