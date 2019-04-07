@@ -120,7 +120,7 @@ public class PostDao {
     }
 
     public boolean delete(int id){
-        String sql = "DELETE FROM post WHERE id =?";
+        String sql = "DELETE FROM post WHERE id = ?";
 
         try(Connection connection = factory.getConnection()){
             PreparedStatement st = connection.prepareStatement(sql);

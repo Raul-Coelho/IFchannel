@@ -250,6 +250,16 @@ public class LoginBean {
 
     }
 
+    public void deletePost(Post post){
+        pService = new PostService();
+        pService.delete(post.getId());
+        pService = null;
+
+        this.posts = new ArrayList<>();
+        pService = new PostService();
+        posts = pService.list(userLogged.getId());
+        pService = null;
+    }
 
 
     //////////////////////////////////////

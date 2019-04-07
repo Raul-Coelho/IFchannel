@@ -46,10 +46,12 @@
                     </h:column>
                     <h:column>
                         <f:facet name="header">
-                            <h:outputText style="margin-left: 30px" value="To Watch" />
+                            <h:outputText style="margin-left: 30px" value="Delete" />
                         </f:facet>
                         <div class="btn-group">
-                            <h:commandButton  action="#{loginBean.follow(professor)}" style="width:6rem; height: 2rem; margin-left: 10px;" styleClass="btn btn-outline-success my-3" value="Watch"/>
+                            <h:form>
+                                <h:commandButton  action="#{loginBean.deletePost(post)}" style="width:6rem; height: 2rem; margin-left: 10px;" styleClass="btn btn-danger my-3" value="Delete"/>
+                            </h:form>
                         </div>
                     </h:column>
                 </h:dataTable>
