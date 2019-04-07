@@ -57,15 +57,16 @@ public class RelashionshipDao {
     }
 
     public List<User> searchFollow(String email) {
-        List list = new ArrayList();
+        List<User> list = new ArrayList();
         try (Transaction transaction = session.beginTransaction()) {
-            StatementResult result = transaction.run("MATCH(a:User)-[:Follow]->(b:User{name:$name})RETURN a.name",
+            StatementResult result = transaction.run("MATCH (:User{name:$name})-[:Follow]->(x:User) RETURN x.name",
                     parameters("name", email));
             transaction.success();
 
             while (result.hasNext()){
                 Record record = result.next();
-                list.add(record.get("a.name").asString());
+                User u = new User(record.get("x.name").asString());
+                list.add(u);
             }
             transaction.success();
             return list;

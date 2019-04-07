@@ -22,6 +22,10 @@ public class User {
     public User() {
     }
 
+    public User(String email) {
+        this.email = email;
+    }
+
     public User(String privilege, String email, String matriculation, String password, String name, String sex, String photo, String street, String city,
                 String state, String cep, String phone, String number) {
         this.privilege = privilege;

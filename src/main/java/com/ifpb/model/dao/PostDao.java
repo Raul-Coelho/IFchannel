@@ -163,18 +163,18 @@ public class PostDao {
     public List<Post> searchByTitle(String title, List<User> users){
         List<Post> list = new ArrayList<>();
         for (User user: users) {
-            String sql  = "SELECT * FROM post WHERE title ilike '%"+ title +"%' AND userid = ?";
+            String sql  = "SELECT * FROM post WHERE title ilike '%"+ title +"%' AND email = ?";
 
             try(Connection connection = factory.getConnection()){
                 PreparedStatement st = connection.prepareStatement(sql);
 
-                st.setInt(1, user.getId());
+                st.setString(1, user.getEmail());
                 ResultSet result = st.executeQuery();
 
                 while (result.next()) {
                     Post p = new Post(
                             result.getInt("id"),
-                            user.getId(),
+                            result.getInt("userid"),
                             result.getString("title"),
                             result.getString("video"),
                             result.getFloat("evaluation"),

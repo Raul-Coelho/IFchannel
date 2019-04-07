@@ -1,5 +1,6 @@
 package com.ifpb.view;
 
+import com.ifpb.controller.servico.RelashionshipService;
 import com.ifpb.model.dao.PostDao;
 
 import java.sql.SQLException;
@@ -31,7 +32,8 @@ public class App {
 //        service.save(new Comment(uuid,02,"Esse e um teste no app","Teste"));
 //        System.out.println(service.list());
 
-
+          RelashionshipService service = new RelashionshipService();
+        System.out.println(service.searchFollow("raulcc50@gmail.com"));
     }
 
 }

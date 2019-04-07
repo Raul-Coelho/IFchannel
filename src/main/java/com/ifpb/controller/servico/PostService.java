@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PostService {
+
     private PostDao dao = new PostDao();
     private RelashionshipDao rDao = new RelashionshipDao();
 
