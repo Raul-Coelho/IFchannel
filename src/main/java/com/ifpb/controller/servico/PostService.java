@@ -37,5 +37,9 @@ public class PostService {
         return dao.searchByTitle(title, rDao.searchFollow(user.getEmail()));
     }
 
+    public List<Post> searchByIdFromProfessor(int userid){
+        return dao.searchByIdFromProfessor(userid);
+    }
+
 
 }

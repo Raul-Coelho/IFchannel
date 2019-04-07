@@ -192,5 +192,34 @@ public class PostDao {
         }
         return list;
     }
+    public List<Post> searchByIdFromProfessor(int userid){
+        String sql = "SELECT * FROM post WHERE userid = ?";
+        List <Post> list = new ArrayList();
+        try(Connection connection = factory.getConnection()){
+            PreparedStatement st = connection.prepareStatement(sql);
+            st.setInt(1, userid);
+            ResultSet result = st.executeQuery();
+
+            while (result.next()){
+                Post p = new Post(
+                        result.getInt("id"),
+                        result.getInt("userid"),
+                        result.getString("title"),
+                        result.getString("video"),
+                        result.getFloat("evaluation"),
+                        result.getString("description"),
+                        result.getString("exclusivity")
+
+                );
+                list.add(p);
+            }
+            return list;
+
+        } catch (SQLException e) {
+            return null;
+        } catch (ClassNotFoundException e) {
+            return null;
+        }
+    }
 
 }
