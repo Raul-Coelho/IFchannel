@@ -24,7 +24,7 @@
     </h:form>
 </nav>
 <f:view>
-<table style="margin-left: 28%;">
+<table style="margin-left: 32%;">
     <tr class="card my-5 div-video">
         <td>
             <div style="height: 250%">
@@ -40,9 +40,17 @@
                     </h:column>
                     <h:column>
                         <f:facet name="header">
-                            <h:outputText style="margin-left: 10px" value="Description" />
+                            <h:outputText style="margin-left: 30px" value="Description" />
                         </f:facet>
-                        <h:outputText style="margin-left: 10px" value="#{post.description}" />
+                        <h:outputText style="margin-left: 30px" value="#{post.description}" />
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText style="margin-left: 30px" value="To Watch" />
+                        </f:facet>
+                        <div class="btn-group">
+                            <h:commandButton  action="#{loginBean.follow(professor)}" style="width:6rem; height: 2rem; margin-left: 10px;" styleClass="btn btn-outline-success my-3" value="Watch"/>
+                        </div>
                     </h:column>
                 </h:dataTable>
             </div>
@@ -51,8 +59,16 @@
 </table>
 </f:view>
 
-<ui:insert name="bottom">
-    <ui:include src="../pages/navBottom.xhtml"/>
-</ui:insert>
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-bottom">
+    <a class="navbar-brand" href="/ifchannel/index.xhtml">IFchannel</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Alterna navegação">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <a class="nav-item nav-link active" href="#">©Thunder-Cup<span class="sr-only"></span></a>
+        </div>
+    </div>
+</nav>
 </body>
 </html>
