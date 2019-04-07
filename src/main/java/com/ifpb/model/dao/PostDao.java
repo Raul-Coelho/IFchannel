@@ -101,6 +101,7 @@ public class PostDao {
             while (result.next()){
                 Post p = new Post(
                         result.getInt("id"),
+                        result.getInt("userid"),
                         result.getString("title"),
                         result.getString("video"),
                         result.getFloat("evaluation"),
