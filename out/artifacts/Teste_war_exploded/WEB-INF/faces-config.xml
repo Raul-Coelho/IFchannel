@@ -125,6 +125,16 @@
         </navigation-case>
     </navigation-rule>
 
+    <!--GO List Post Professor-->
+    <navigation-rule>
+        <from-view-id>*</from-view-id>
+        <navigation-case>
+            <from-outcome>goPosts</from-outcome>
+            <to-view-id>/ifchannel/listPostsProf.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+    </navigation-rule>
+
     <!--GO LOGIN-->
     <navigation-rule>
         <from-view-id>*</from-view-id>

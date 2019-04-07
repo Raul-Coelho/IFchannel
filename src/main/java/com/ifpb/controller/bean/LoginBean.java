@@ -1,6 +1,5 @@
 package com.ifpb.controller.bean;
 
-import com.datastax.driver.core.Row;
 import com.ifpb.controller.servico.CommentService;
 import com.ifpb.controller.servico.PostService;
 import com.ifpb.controller.servico.RelashionshipService;
@@ -27,13 +26,10 @@ import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
 import java.sql.SQLException;
-import java.sql.Timestamp;
-import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 @ManagedBean(name = "loginBean")
 @SessionScoped
@@ -55,7 +51,7 @@ public class LoginBean {
 
     private CommentService cService;
 
-    private PostService servicePost;
+    private PostService pService;
 
     private User userLogged;
 
@@ -171,7 +167,7 @@ public class LoginBean {
     }
 
     public String savePost(){
-        servicePost = new PostService();
+        pService = new PostService();
 
         String archive = LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyy-HH-mm-ss")) + "-" + video.getSubmittedFileName();
 
@@ -189,9 +185,9 @@ public class LoginBean {
 
         post.setIdUser(userLogged.getId());
 
-        servicePost.save(post);
+        pService.save(post);
 
-        servicePost = null;
+        pService = null;
 
         return "professor";
     }
@@ -212,19 +208,6 @@ public class LoginBean {
         return "goList";
     }
 
-    public String searchPost() throws SQLException {
-        this.professores = new ArrayList<>();
-        this.service = new UserService();
-        this.professores = service.listProfessor();
-        service = null;
-
-        this.posts = new ArrayList<>();
-        this.servicePost = new PostService();
-        this.posts = servicePost.searchPost(userLogged,search);
-        servicePost = null;
-        
-        return "goListPost";
-    }
 
     public void follow(User professor){
         rService = new RelashionshipService();
@@ -238,6 +221,32 @@ public class LoginBean {
         rService = new RelashionshipService();
         rService.unfollow(userLogged.getEmail(), professor.getEmail());
         rService = null;
+
+    }
+
+    ///////////////////////////////////////
+
+    public String searchPost() throws SQLException {
+        this.professores = new ArrayList<>();
+        this.service = new UserService();
+        this.professores = service.listProfessor();
+        service = null;
+
+        this.posts = new ArrayList<>();
+        this.pService = new PostService();
+        this.posts = pService.searchPost(userLogged,search);
+        pService = null;
+
+        return "goListPost";
+    }
+
+    public String listPosts(){
+        this.posts = new ArrayList<>();
+        pService = new PostService();
+        posts = pService.list(userLogged.getId());
+        pService = null;
+
+        return "goPosts";
 
     }
 

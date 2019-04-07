@@ -59,16 +59,8 @@
 </table>
 </f:view>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-bottom">
-    <a class="navbar-brand" href="/ifchannel/index.xhtml">IFchannel</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Alterna navegação">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-            <a class="nav-item nav-link active" href="#">©Thunder-Cup<span class="sr-only"></span></a>
-        </div>
-    </div>
-</nav>
+<ui:insert name="bottom">
+    <ui:include src="../pages/navBottom.xhtml"/>
+</ui:insert>
 </body>
 </html>
