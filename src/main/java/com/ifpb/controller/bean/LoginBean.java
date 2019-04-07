@@ -223,7 +223,7 @@ public class LoginBean {
         this.posts = servicePost.searchPost(userLogged,search);
         servicePost = null;
         
-        return "goList";
+        return "goListPost";
     }
 
     public void follow(User professor){

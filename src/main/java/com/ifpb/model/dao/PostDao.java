@@ -163,7 +163,7 @@ public class PostDao {
     public List<Post> searchByTitle(String title, List<User> users){
         List<Post> list = new ArrayList<>();
         for (User user: users) {
-            String sql  = "SELECT * FROM post WHERE title ilike '%"+ title +"%' AND email = ?";
+            String sql  = "SELECT * FROM post as p JOIN usuario as u ON p.userid = u.id WHERE title ilike '%"+ title +"%' AND email = ?";
 
             try(Connection connection = factory.getConnection()){
                 PreparedStatement st = connection.prepareStatement(sql);

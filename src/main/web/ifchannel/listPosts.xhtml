@@ -20,7 +20,7 @@
     <a class="navbar-brand">IFPB Channel</a>
     <h:form styleClass="form-inline">
         <h:inputText styleClass="form-control mr-sm-2 w-full" aria-label="Search"/>
-        <h:commandButton styleClass="btn btn-outline-success my-2 my-sm-0" action="#{loginBean.searchProfessor}" value="Search"/>
+        <h:commandButton styleClass="btn btn-outline-success my-2 my-sm-0" action="#{loginBean.searchPost}" value="Search"/>
     </h:form>
 </nav>
 <f:view>
@@ -28,53 +28,22 @@
     <tr class="card my-5 div-video">
         <td>
             <div style="height: 250%">
-                <h:dataTable var="professor" value="#{loginBean.professores}"
+                <h:dataTable var = "post" value="#{loginBean.posts}"
                              styleClass="order-table" headerClass="order-table-header"
                              rowClasses="order-table-odd-row,order-table-even-row">
                     <h:column>
                         <f:facet name="header">
-                            <h:outputText value="Imagem" />
+                            <h:outputText style="margin-left: 10px" value="Title" />
                         </f:facet>
 
-                        <h:graphicImage height="50" url="/images/#{professor.photo}" />
-                    </h:column>
-
-                    <h:column>
-                        <f:facet name="header">
-                            <h:outputText style="margin-left: 10px" value="Name" />
-                        </f:facet>
-
-                        <h:outputText style="margin-left: 10px" value="#{professor.name}" />
-                    </h:column>
-
-                    <h:column>
-                        <f:facet name="header">
-                            <h:outputText style="margin-left: 10px" value="Email" />
-                        </f:facet>
-
-                        <h:outputText style="margin-left: 10px" value="#{professor.email}" />
+                        <h:outputText style="margin-left: 10px" value="#{post.title}" />
                     </h:column>
                     <h:column>
                         <f:facet name="header">
-                            <h:outputText style="margin-left: 10px" value="Follow" />
+                            <h:outputText style="margin-left: 10px" value="Description" />
                         </f:facet>
-                        <h:form>
-                            <div class="btn-group">
-                                <h:commandButton  action="#{loginBean.follow(professor)}" style="width:6rem; height: 2rem; margin-left: 10px;" styleClass="btn btn-outline-success my-3" value="Follow"/>
-                            </div>
-                        </h:form>
+                        <h:outputText style="margin-left: 10px" value="#{post.description}" />
                     </h:column>
-                    <h:column>
-                        <f:facet name="header">
-                            <h:outputText style="margin-left: 10px" value="Unfollow" />
-                        </f:facet>
-                        <h:form>
-                            <div class="btn-group">
-                                <h:commandButton  action="#{loginBean.unfollow(professor)}" style="width:6rem; height: 2rem; margin-left: 10px;" styleClass="btn btn-danger my-3" value="Unfollow"/>
-                            </div>
-                        </h:form>
-                    </h:column>
-
                 </h:dataTable>
             </div>
         </td>
