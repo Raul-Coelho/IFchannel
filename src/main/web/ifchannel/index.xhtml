@@ -20,10 +20,10 @@
     <a class="navbar-brand">IFPB Channel</a>
     <h:form styleClass="form-inline">
         <h:inputText styleClass="form-control mr-sm-2 w-full" aria-label="Search"/>
-        <h:commandButton styleClass="btn btn-outline-success my-2 my-sm-0" action="#{userBean.openList}" value="Search"/>
+        <h:commandButton styleClass="btn btn-outline-success my-2 my-sm-0" action="#{userBean.openList}" value="#{msg['cabecalho.procurar']}"/>
     </h:form>
     <h:form>
-        <h:commandButton action="#{userBean.openLogin}" styleClass="btn btn-outline-success" value="SIGN-UP"/>
+        <h:commandButton action="#{userBean.openLogin}" styleClass="btn btn-outline-success" value="#{msg['cabecalho.inscrever']}"/>
     </h:form>
 </nav>
 <f:view>
