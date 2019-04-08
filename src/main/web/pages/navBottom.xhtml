@@ -1,3 +1,10 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+<body>
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="/ifchannel/index.xhtml">IFchannel</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Alterna navegação">
@@ -8,5 +15,13 @@
             <a class="nav-item nav-link active" href="#">©Thunder-Cup<span class="sr-only"></span></a>
         </div>
     </div>
+    <h:form prependId="false">
+        <h:selectOneMenu valueChangeListener="#{languageBean.changeLanguage}" styleClass="btn btn-sm btn-outline-success my-2" onchange="submit()" value="#{languageBean.language}">
+            <f:selectItem itemLabel="English" itemValue="en" />
+            <f:selectItem itemLabel="Portuguese BR" itemValue="pt" />
+        </h:selectOneMenu>
+    </h:form>
 </nav>
 
+</body>
+</html>

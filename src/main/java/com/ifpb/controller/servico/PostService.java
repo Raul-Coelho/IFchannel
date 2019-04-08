@@ -5,8 +5,6 @@ import com.ifpb.model.dao.RelashionshipDao;
 import com.ifpb.model.entidades.Post;
 import com.ifpb.model.entidades.User;
 
-import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 public class PostService {
@@ -31,6 +29,10 @@ public class PostService {
 
     public boolean update(Post post){
         return dao.save(post);
+    }
+
+    public List<Post> searchAll(){
+        return dao.searchAll();
     }
 
     public List<Post> searchPost(User user, String title) {

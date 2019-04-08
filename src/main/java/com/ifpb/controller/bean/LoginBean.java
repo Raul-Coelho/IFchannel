@@ -227,15 +227,25 @@ public class LoginBean {
     ///////////////////////////////////////
 
     public String searchPost() throws SQLException {
-        this.professores = new ArrayList<>();
-        this.service = new UserService();
-        this.professores = service.listProfessor();
-        service = null;
 
-        this.posts = new ArrayList<>();
-        this.pService = new PostService();
-        this.posts = pService.searchPost(userLogged,search);
-        pService = null;
+        if (userLogged.getPrivilege().equals("student")){
+
+            this.professores = new ArrayList<>();
+            this.service = new UserService();
+            this.professores = service.listProfessor();
+            service = null;
+
+            this.posts = new ArrayList<>();
+            this.pService = new PostService();
+            this.posts = pService.searchPost(userLogged,search);
+            pService = null;
+        }else {
+            this.posts = new ArrayList<>();
+            this.pService = new PostService();
+            this.posts = pService.searchAll();
+            pService = null;
+        }
+
 
         return "goListPost";
     }

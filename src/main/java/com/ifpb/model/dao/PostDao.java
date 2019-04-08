@@ -136,31 +136,36 @@ public class PostDao {
             return false;
         }
     }
-//    public List<Post> searchPost(String title) {
-//        List<Post> posts = new ArrayList();
-//        String sql = "SELECT u.email, p.title FROM post p JOIN usuario u ON p.userid= u.id WHERE p.title ILIKE ?";
-//
-//        try (Connection connection = factory.getConnection()) {
-//            PreparedStatement st = connection.prepareStatement(sql);
-//
-//            st.setString(1, title);
-//            ResultSet result = st.executeQuery();
-//
-//            while (result.next()) {
-//                Post post = new Post();
-//                User user = new User();
-//                user.setEmail(result.getString("email"));
-//                post.setTitle(result.getString("title"));
-//                post.setUser(user);
-//                posts.add(post);
-//            }
-//            return posts;
-//        } catch (SQLException ex) {
-//            return null;
-//        } catch (ClassNotFoundException ex) {
-//            return null;
-//        }
-//    }
+
+    public  List<Post> searchAll(){
+        List<Post> list = new ArrayList<>();
+        String sql  = "SELECT * FROM post ";
+
+        try(Connection connection = factory.getConnection()){
+            PreparedStatement st = connection.prepareStatement(sql);
+            ResultSet result = st.executeQuery();
+
+            while (result.next()) {
+                Post p = new Post(
+                        result.getInt("id"),
+                        result.getInt("userid"),
+                        result.getString("title"),
+                        result.getString("video"),
+                        result.getFloat("evaluation"),
+                        result.getString("description"),
+                        result.getString("exclusivity")
+
+                );
+                list.add(p);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    return list;
+}
+
 
     public List<Post> searchByTitle(String title, List<User> users){
         List<Post> list = new ArrayList<>();
