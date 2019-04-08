@@ -25,43 +25,43 @@
                 <h:form enctype="multipart/form-data" styleClass="my-5 ml-5">
                     <h:column>
                         <h:panelGrid columns="2" >
-                            <h:outputLabel  styleClass="col-form-label" value="Name: " />
+                            <h:outputLabel  styleClass="col-form-label" value="#{msg['registrar.nome']}" />
                             <h:inputText value="#{userBean.user.name}" styleClass="form-control w-75"/>
 
-                            <h:outputLabel  styleClass="col-form-label" value="Registration: " />
+                            <h:outputLabel  styleClass="col-form-label" value="#{msg['registrar.cadastro']}" />
                             <h:inputText value="#{userBean.user.matriculation}" styleClass="form-control w-75"/>
 
                             <h:outputLabel  styleClass="col-form-label" value="Email: " />
                             <h:inputText value="#{userBean.user.email}" styleClass="form-control w-75"/>
 
-                            <h:outputLabel  styleClass="col-form-label" value="Password: " />
+                            <h:outputLabel  styleClass="col-form-label" value="#{msg['registrar.senha']}" />
                             <h:inputSecret value="#{userBean.user.password}" styleClass="form-control w-75"/>
 
-                            <h:outputLabel  styleClass="col-form-label" value="Gender: " />
+                            <h:outputLabel  styleClass="col-form-label" value="#{msg['registrar.genero']}" />
                             <h:selectOneMenu required="true" value="#{userBean.user.sex}">
                                 <f:selectItem itemValue="M" itemLabel="M"/>
                                 <f:selectItem itemValue="F" itemLabel="F"/>
                             </h:selectOneMenu>
 
-                            <h:outputLabel  styleClass="col-form-label" value="Street: " />
+                            <h:outputLabel  styleClass="col-form-label" value="#{msg['registrar.rua']}" />
                             <h:inputText value="#{userBean.user.street}" styleClass="form-control w-75"/>
 
-                            <h:outputLabel  styleClass="col-form-label" value="Number: " />
+                            <h:outputLabel  styleClass="col-form-label" value="#{msg['registrar.numero']}" />
                             <h:inputText value="#{userBean.user.number}" styleClass="form-control w-75"/>
 
-                            <h:outputLabel  styleClass="col-form-label" value="City: " />
+                            <h:outputLabel  styleClass="col-form-label" value="#{msg['registrar.cidade']}" />
                             <h:inputText value="#{userBean.user.city}" styleClass="form-control w-75"/>
 
-                            <h:outputLabel  styleClass="col-form-label" value="State: " />
+                            <h:outputLabel  styleClass="col-form-label" value="#{msg['registrar.estado']}" />
                             <h:inputText value="#{userBean.user.state}" styleClass="form-control w-75"/>
 
-                            <h:outputLabel  styleClass="col-form-label" value="Postal: " />
+                            <h:outputLabel  styleClass="col-form-label" value="#{msg['registrar.cep']}" />
                             <h:inputText value="#{userBean.user.cep}" styleClass="form-control w-75"/>
 
-                            <h:outputLabel  styleClass="col-form-label" value="Phone: " />
+                            <h:outputLabel  styleClass="col-form-label" value="#{msg['registrar.telefone']}" />
                             <h:inputText value="#{userBean.user.phone}" styleClass="form-control w-75"/>
 
-                            <h:outputLabel  styleClass="col-form-label" value="Photo: " />
+                            <h:outputLabel  styleClass="col-form-label" value="#{msg['registrar.foto']}" />
                             <h:inputFile value="#{userBean.image}" styleClass="form-control w-75"/>
 
                         </h:panelGrid>
