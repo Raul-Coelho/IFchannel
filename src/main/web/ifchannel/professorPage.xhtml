@@ -29,11 +29,11 @@
                 <p class="card-text">Professor of Analysis and Development Systems of IFPB-Cajazeiras .</p>
             </div>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item container-login100-form-btn">#{loginBean.userLogged.matriculation}</li>
-                <li class="list-group-item container-login100-form-btn"><h:link href="https://suap.ifpb.edu.br" value="SUAP"/></li>
-                <li class="list-group-item container-login100-form-btn"><h:link outcome="" value="#{loginBean.userLogged.email}"></h:link> </li>
-                <li class="list-group-item container-login100-form-btn"><h:link outcome="" value="#{loginBean.userLogged.phone}"></h:link> </li>
                 <h:form>
+                    <li class="list-group-item container-login100-form-btn">#{loginBean.userLogged.matriculation}</li>
+                    <li class="list-group-item container-login100-form-btn"><a style="color: #1e7e34;" href="https://suap.ifpb.edu.br" id="Suap" >Suap</a> </li>
+                    <li class="list-group-item container-login100-form-btn"><h:link outcome="gmail" value="#{loginBean.userLogged.email}"></h:link> </li>
+                    <li class="list-group-item container-login100-form-btn"><h:link outcome="" value="#{loginBean.userLogged.phone}"></h:link> </li>
                     <h:commandButton value="Edit Profile" styleClass="my-3 ml-3 btn btn-primary btn-outline-success" action="#{loginBean.openEditUser}"/>
                 </h:form>
             </ul>

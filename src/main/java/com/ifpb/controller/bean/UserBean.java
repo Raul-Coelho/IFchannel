@@ -24,9 +24,9 @@ import java.util.List;
 @ViewScoped
 public class UserBean {
 
-    private String imgSource = "C:\\Users\\Lucas\\Documents\\Projetos\\IFchannel\\src\\main\\web\\images";
+//    private String imgSource = "C:\\Users\\Lucas\\Documents\\Projetos\\IFchannel\\src\\main\\web\\images";
 
-//    private String imgSource = "/home/raul/Documentos/Repositorios/IFchannel/src/main/web/images";
+    private String imgSource = "/home/raul/Documentos/Repositorios/IFchannel/src/main/web/images";
 
     private List<User> users;
 
