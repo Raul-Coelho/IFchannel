@@ -43,13 +43,14 @@ public class PostDao {
                 return false;
             }
         }else{
-            String sql = "UPDATE post SET(title, video, description) = (?,?,?)";
+            String sql = "UPDATE post SET(title, video, description) = (?,?,?) WHERE id = ?";
 
             try(Connection connection = factory.getConnection()){
                 PreparedStatement st = connection.prepareStatement(sql);
                 st.setString(1, post.getTitle());
                 st.setString(2, post.getVideo());
                 st.setString(3, post.getDescription());
+                st.setInt(4, post.getId());
 
                 return st.executeUpdate()>0;
 
