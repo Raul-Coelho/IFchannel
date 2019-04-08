@@ -12,8 +12,8 @@ public class PostService {
 
     private PostDao dao = new PostDao();
 
-    private AvaliationService aDao = new AvaliationService();
-   // private RelashionshipDao rDao = new RelashionshipDao();
+    private EvaluationService aDao = new EvaluationService();
+    private RelashionshipDao rDao = new RelashionshipDao();
 
     public PostService(){
     }
@@ -43,9 +43,9 @@ public class PostService {
         return dao.searchAll();
     }
 
-//    public List<Post> searchPost(User user, String title) {
-//        return dao.searchByTitle(title, rDao.searchFollow(user.getEmail()));
-//    }
+    public List<Post> searchPost(User user, String title) {
+        return dao.searchByTitle(title, rDao.searchFollow(user.getEmail()));
+    }
 
     public List<Post> searchByIdFromProfessor(int userid){
         List<Post> postEvaluated = new ArrayList<>();

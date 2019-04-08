@@ -1,10 +1,8 @@
 package com.ifpb.controller.bean;
 
-import com.ifpb.controller.servico.CommentService;
-import com.ifpb.controller.servico.PostService;
-import com.ifpb.controller.servico.RelashionshipService;
-import com.ifpb.controller.servico.UserService;
+import com.ifpb.controller.servico.*;
 import com.ifpb.model.entidades.Comment;
+import com.ifpb.model.entidades.Evaluation;
 import com.ifpb.model.entidades.Post;
 import com.ifpb.model.entidades.User;
 import javafx.geometry.Pos;
@@ -36,15 +34,11 @@ import java.util.List;
 @SessionScoped
 public class LoginBean {
 
-    private String imgSource = "C:\\Users\\Lucas\\Documents\\Projetos\\IFchannel\\src\\main\\web\\images";
-    private String videoSource = "C:\\Users\\Lucas\\Documents\\Projetos\\IFchannel\\src\\main\\web\\video";
+//    private String imgSource = "C:\\Users\\Lucas\\Documents\\Projetos\\IFchannel\\src\\main\\web\\images";
+//    private String videoSource = "C:\\Users\\Lucas\\Documents\\Projetos\\IFchannel\\src\\main\\web\\video";
 
-//    private String imgSource = "/home/raul/Documentos/Repositorios/IFchannel/src/main/web/images";
-//    private String videoSource = "/home/raul/Documentos/Repositorios/IFchannel/src/main/web/videos";
-
-//    private String imgSource = "/home/romulo/Documentos/Repositorios/IFchannel/src/main/web/images";
-//    private String videoSource = "/home/romulo/Documentos/Repositorios/IFchannel/src/main/web/videos";
-
+    private String imgSource = "/home/raul/Documentos/Repositorios/IFchannel/src/main/web/images";
+    private String videoSource = "/home/raul/Documentos/Repositorios/IFchannel/src/main/web/videos";
 
     private UserService service;
 
@@ -53,6 +47,8 @@ public class LoginBean {
     private CommentService cService;
 
     private PostService pService;
+
+    private EvaluationService eService;
 
     private User userLogged;
 
@@ -163,6 +159,7 @@ public class LoginBean {
         return "savePost";
     }
 
+
     public String savePost(){
         pService = new PostService();
 
@@ -234,7 +231,7 @@ public class LoginBean {
 
             this.posts = new ArrayList<>();
             this.pService = new PostService();
-            //this.posts = pService.searchPost(userLogged,search);
+            this.posts = pService.searchPost(userLogged,search);
             pService = null;
         }else {
             this.posts = new ArrayList<>();
@@ -255,6 +252,17 @@ public class LoginBean {
 
         return "goPosts";
 
+    }
+
+    public String openWatch(Post watch){
+        post = watch;
+        return "goStudent";
+    }
+
+    public void evaluation(){
+        eService = new EvaluationService();
+        eService.save(new Evaluation(post.getIdUser(),post.getId(),evaluationPost));
+        eService = null;
     }
 
     public String openEditPost(Post Editpost){

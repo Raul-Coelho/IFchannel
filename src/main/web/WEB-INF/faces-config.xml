@@ -114,6 +114,16 @@
         </navigation-case>
     </navigation-rule>
 
+    <!--GO Student-->
+    <navigation-rule>
+        <from-view-id>*</from-view-id>
+        <navigation-case>
+            <from-outcome>goStudent</from-outcome>
+            <to-view-id>/ifchannel/studentPage.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+    </navigation-rule>
+
     <!--GO List-->
     <navigation-rule>
         <from-view-id>*</from-view-id>
@@ -167,6 +177,7 @@
     <lifecycle>
         <phase-listener>com.ifpb.controller.listener.AuthListener</phase-listener>
     </lifecycle>
+
     <application>
         <locale-config>
             <default-locale>en</default-locale>

@@ -1,33 +1,30 @@
 package com.ifpb.model.dao;
 
 import com.ifpb.connection.PostgreConFactory;
-import com.ifpb.model.entidades.Avaliation;
+import com.ifpb.model.entidades.Evaluation;
 
-import java.lang.ref.PhantomReference;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.DecimalFormat;
 
-import static java.lang.Float.parseFloat;
-
-public class AvaliationDao {
+public class EvaluationDao {
     private PostgreConFactory factory;
 
-    public AvaliationDao(){
+    public EvaluationDao(){
         factory = new PostgreConFactory();
     }
 
-    public boolean save(Avaliation avaliation){
+    public boolean save(Evaluation evaluation){
 
-        String sql = "INSERT INTO avaliation(userid, postid, evaluation) VALUES(?,?,?)";
+        String sql = "INSERT INTO evaluation (userid, postid, evaluation) VALUES(?,?,?)";
 
         try (Connection connection = factory.getConnection()) {
             PreparedStatement st = connection.prepareStatement(sql);
-            st.setInt(1, avaliation.getUserId());
-            st.setInt(2, avaliation.getPostId());
-            st.setFloat(3, avaliation.getEvaluation());
+            st.setInt(1, evaluation.getUserId());
+            st.setInt(2, evaluation.getPostId());
+            st.setFloat(3, evaluation.getEvaluation());
 
             return st.executeUpdate() > 0;
         } catch (SQLException e) {
@@ -93,14 +90,14 @@ public class AvaliationDao {
 
     }
 
-    public boolean update(Avaliation avaliation){
+    public boolean update(Evaluation evaluation){
         String sql = "UPDATE avaliation SET(evaluation) = (?) WHERE userid = ? AND postid = ?";
 
         try(Connection connection = factory.getConnection()){
             PreparedStatement st = connection.prepareStatement(sql);
-            st.setFloat(1, avaliation.getEvaluation());
-            st.setInt(2, avaliation.getUserId());
-            st.setInt(3, avaliation.getPostId());
+            st.setFloat(1, evaluation.getEvaluation());
+            st.setInt(2, evaluation.getUserId());
+            st.setInt(3, evaluation.getPostId());
 
             return st.executeUpdate()>0;
         } catch (SQLException e) {

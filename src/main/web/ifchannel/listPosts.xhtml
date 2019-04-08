@@ -30,7 +30,7 @@
             <div style="height: 250%">
                 <h3>
                     <b>
-                        <h:outputLabel style="color: #0057AE; margin-left: 230px;" styleClass="my-3" value="Posts"/>
+                        <h:outputLabel style="color: #0057AE; margin-left: 250px;" styleClass="my-3" value="Posts"/>
                     </b>
                 </h3>
                 <h:dataTable var = "post" value="#{loginBean.posts}"
@@ -51,18 +51,19 @@
                     </h:column>
                     <h:column>
                         <f:facet name="header">
-                            <h:outputText style="margin-left: 30px" value="Avaliation" />
+                            <h:outputText style="margin-left: 30px" value="Evaliation" />
                         </f:facet>
 
                         <h:outputText style="margin-left: 30px" value="#{post.evaluation}" />
                     </h:column>
                     <h:column>
-                    <h:column>
                         <f:facet name="header">
                             <h:outputText style="margin-left: 30px" value="To Watch" />
                         </f:facet>
                         <div class="btn-group">
-                            <h:commandButton  action="#{loginBean.follow(professor)}" style="width:6rem; height: 2rem; margin-left: 10px;" styleClass="btn btn-outline-success my-3" value="Watch"/>
+                            <h:form>
+                                <h:commandButton  action="#{loginBean.openWatch(post)}" style="width:6rem; height: 2rem; margin-left: 10px;" styleClass="btn btn-outline-success my-3" value="Watch"/>
+                            </h:form>
                         </div>
                     </h:column>
                 </h:dataTable>

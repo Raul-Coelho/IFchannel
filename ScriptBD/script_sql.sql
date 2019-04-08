@@ -34,7 +34,7 @@ CREATE TABLE post(
     CONSTRAINT  fkey_userid FOREIGN KEY(userid) REFERENCES usuario (id)
     );
 
-CREATE TABLE avaliation(
+CREATE TABLE evaluation(
    id serial,
    userid int,
    postid int,

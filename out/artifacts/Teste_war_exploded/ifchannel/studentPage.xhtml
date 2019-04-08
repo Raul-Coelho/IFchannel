@@ -77,8 +77,11 @@
                                 <td>
                                     <h:outputLabel value="#{msg['estudante.avalie']}"/>
                                     <h:panelGrid columns="1" style="margin-bottom: 10px">
-                                        <p:inputText id="txt3" styleClass="w-75" value="#{loginBean.evaluationPost}" />
-                                        <p:slider styleClass="form-control w-75" for="txt3" step="1" maxValue="5" />
+                                        <h:form>
+                                            <p:inputText id="txt3" styleClass="w-75" value="#{loginBean.evaluationPost}" />
+                                            <p:slider styleClass="form-control w-75" for="txt3" step="1" maxValue="5" />
+                                            <h:commandButton class="form-control btn btn-outline-success w-75" action="#{loginBean.evaluation}" value="#{msg['estudante.enviarAvaliacao']}"/>
+                                        </h:form>
                                     </h:panelGrid>
                                 </td>
                             </tr>

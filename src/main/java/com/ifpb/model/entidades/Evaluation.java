@@ -1,25 +1,25 @@
 package com.ifpb.model.entidades;
 
-public class Avaliation {
+public class Evaluation {
     private int id;
     private int userId;
     private int postId;
     private float evaluation;
 
-    public Avaliation(int id, int userId, int postId, float evaluation) {
+    public Evaluation(int id, int userId, int postId, float evaluation) {
         this.id = id;
         this.userId = userId;
         this.postId = postId;
         this.evaluation = evaluation;
     }
 
-    public Avaliation(int userId, int postId, float evaluation) {
+    public Evaluation(int userId, int postId, float evaluation) {
         this.userId = userId;
         this.postId = postId;
         this.evaluation = evaluation;
     }
 
-    public Avaliation() {
+    public Evaluation() {
     }
 
     public int getId() {

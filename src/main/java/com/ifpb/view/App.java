@@ -1,16 +1,6 @@
 package com.ifpb.view;
 
-import com.ifpb.controller.servico.AvaliationService;
-import com.ifpb.controller.servico.PostService;
-import com.ifpb.controller.servico.RelashionshipService;
-import com.ifpb.controller.servico.UserService;
-import com.ifpb.model.dao.PostDao;
-import com.ifpb.model.entidades.Avaliation;
-import com.ifpb.model.entidades.Post;
-import com.ifpb.model.entidades.User;
-
 import java.sql.SQLException;
-import java.util.List;
 
 public class App {
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
@@ -39,28 +29,28 @@ public class App {
 //        service.save(new Comment(uuid,02,"Esse e um teste no app","Teste"));
 //        System.out.println(service.list());
 
-        PostService service = new PostService();
-
-        AvaliationService aService = new AvaliationService();
-
-        UserService uService = new UserService();
-
-        User aluno = uService.searchByLogin("humano@gmail.com");
-
-        Post post = service.searach(1);
-
-        Avaliation avaliation = new Avaliation(aluno.getId(), post.getId(), 5f);
-
-
-
-        if (aService.save(avaliation)){
-            System.out.println("true");
-        }else {
-            System.out.println("false");
-        }
-
-        System.out.println(aService.media(post));
-
+//        PostService service = new PostService();
+//
+//        EvaluationService aService = new EvaluationService();
+//
+//        UserService uService = new UserService();
+//
+//        User aluno = uService.searchByLogin("humano@gmail.com");
+//
+//        Post post = service.searach(1);
+//
+//        Evaluation avaliation = new Evaluation(aluno.getId(), post.getId(), 5f);
+//
+//
+//
+//        if (aService.save(avaliation)){
+//            System.out.println("true");
+//        }else {
+//            System.out.println("false");
+//        }
+//
+//        System.out.println(aService.media(post));
+//
     }
 
 }
