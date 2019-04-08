@@ -36,11 +36,11 @@ import java.util.List;
 @SessionScoped
 public class LoginBean {
 
-//    private String imgSource = "C:\\Users\\Lucas\\Documents\\Projetos\\IFchannel\\src\\main\\web\\images";
-//    private String videoSource = "C:\\Users\\Lucas\\Documents\\Projetos\\IFchannel\\src\\main\\web\\videos";
+    private String imgSource = "C:\\Users\\Lucas\\Documents\\Projetos\\IFchannel\\src\\main\\web\\images";
+    private String videoSource = "C:\\Users\\Lucas\\Documents\\Projetos\\IFchannel\\src\\main\\web\\video";
 
-    private String imgSource = "/home/raul/Documentos/Repositorios/IFchannel/src/main/web/images";
-    private String videoSource = "/home/raul/Documentos/Repositorios/IFchannel/src/main/web/videos";
+//    private String imgSource = "/home/raul/Documentos/Repositorios/IFchannel/src/main/web/images";
+//    private String videoSource = "/home/raul/Documentos/Repositorios/IFchannel/src/main/web/videos";
 
 //    private String imgSource = "/home/romulo/Documentos/Repositorios/IFchannel/src/main/web/images";
 //    private String videoSource = "/home/romulo/Documentos/Repositorios/IFchannel/src/main/web/videos";
@@ -234,7 +234,7 @@ public class LoginBean {
 
             this.posts = new ArrayList<>();
             this.pService = new PostService();
-            this.posts = pService.searchPost(userLogged,search);
+            //this.posts = pService.searchPost(userLogged,search);
             pService = null;
         }else {
             this.posts = new ArrayList<>();

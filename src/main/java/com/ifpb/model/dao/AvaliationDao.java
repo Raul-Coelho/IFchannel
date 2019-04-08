@@ -18,7 +18,7 @@ public class AvaliationDao {
 
     public boolean save(Avaliation avaliation){
 
-        String sql = "INSERT INTO avaliation(userid, postid, evaluarion) VALUES(?,?,?)";
+        String sql = "INSERT INTO avaliation(userid, postid, evaluation) VALUES(?,?,?)";
 
         try (Connection connection = factory.getConnection()) {
             PreparedStatement st = connection.prepareStatement(sql);
@@ -37,13 +37,21 @@ public class AvaliationDao {
     }
 
     public boolean wasEvaluated(int userId, int postId){
-        String sql = "SELECT * FROM avaliation WHERE userid = : AND postId = ?";
+        String sql = "SELECT id FROM avaliation WHERE userid = ? AND postId = ?";
 
         try(Connection connection = factory.getConnection()){
             PreparedStatement st  = connection.prepareStatement(sql);
 
+            st.setInt(1, userId);
+            st.setInt(2, postId);
+
             ResultSet result = st.executeQuery();
-            return (!result.next());
+            result.next();
+            if(result.getInt(1) == 0){
+                return false;
+            }else {
+                return true;
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {

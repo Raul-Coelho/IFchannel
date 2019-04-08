@@ -38,6 +38,13 @@
                              rowClasses="order-table-odd-row,order-table-even-row">
                     <h:column>
                         <f:facet name="header">
+                            <h:outputText style="margin-left: 10px" value="Video" />
+                        </f:facet>
+
+                        <p:media value="/video/#{post.video}" player="quicktime" />
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
                             <h:outputText style="margin-left: 10px" value="Title" />
                         </f:facet>
 

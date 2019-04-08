@@ -167,5 +167,14 @@
     <lifecycle>
         <phase-listener>com.ifpb.controller.listener.AuthListener</phase-listener>
     </lifecycle>
+    <application>
+        <locale-config>
+            <default-locale>en</default-locale>
+        </locale-config>
+        <resource-bundle>
+            <base-name>messages.mensagens</base-name>
+            <var>msg</var>
+        </resource-bundle>
+    </application>
 
 </faces-config>

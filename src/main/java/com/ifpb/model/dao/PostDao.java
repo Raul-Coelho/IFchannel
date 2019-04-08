@@ -73,6 +73,7 @@ public class PostDao {
             if (resultSet.next()){
                 Post p = new Post(
                         resultSet.getInt("id"),
+                        resultSet.getInt("userid"),
                         resultSet.getString("title"),
                         resultSet.getString("video"),
                         resultSet.getFloat("evaluation"),

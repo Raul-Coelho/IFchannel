@@ -27,7 +27,7 @@
             <h:graphicImage styleClass="card-img-top h-50 w-100" value="/images/#{loginBean.userLogged.photo}" alt="Card image cap"/>
             <div class="card-body">
                 <h5 class="card-title">#{loginBean.userLogged.name}</h5>
-                <p>Student of Analysis and Development Systems of IFPB-Cajazeiras .</p>
+                <p><h:outputText value="#{msg['estudante.descricao']}"></h:outputText></p>
             </div>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">#{loginBean.userLogged.matriculation}</li>
@@ -48,7 +48,7 @@
                                 <td>
                                     <p>
                                         <h3>
-                                        <h:outputLabel value="Video Title"/>
+                                        <h:outputLabel value="#{msg['estudante.tituloVideo']}"/>
                                         </h3>
                                     </p>
                                 </td>
@@ -59,8 +59,8 @@
                                         <h5>
                                             <h:form>
                                                 <h:panelGrid columns="1">
-                                                    <h:outputLabel value="Professor Name"/>
-                                                    <h:commandButton class="btn btn-primary btn-outline-success" action="#{loginBean.searchProfessor}" value="Follow"/>
+                                                    <h:outputLabel value="#{msg['estudante.nomeProfessor']}"/>
+                                                    <h:commandButton class="btn btn-primary btn-outline-success" action="#{loginBean.searchProfessor}" value="#{msg['estudante.botaoFollow']}"/>
                                                 </h:panelGrid>
                                             </h:form>
                                         </h5>
@@ -69,13 +69,13 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <p>Descrição</p>
+                                    <p><h:outputLabel value="#{msg['estudante.descricaoVideo']}"/></p>
                                     <textarea name="descricao" style="width: 300px; height: 100px" readonly="readonly"></textarea>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <h:outputLabel value="Evaluate"/>
+                                    <h:outputLabel value="#{msg['estudante.avalie']}"/>
                                     <h:panelGrid columns="1" style="margin-bottom: 10px">
                                         <p:inputText id="txt3" styleClass="w-75" value="#{loginBean.evaluationPost}" />
                                         <p:slider styleClass="form-control w-75" for="txt3" step="1" maxValue="5" />
@@ -85,19 +85,19 @@
                             <tr>
                                 <td>
                                     <h:form>
-                                        <font face="Poppins-Regular" size="3" color="#0057AE"><b>Comment:</b></font>
+                                        <font face="Poppins-Regular" size="3" color="#0057AE"><b><h:outputLabel value="#{msg['estudante.comentario']}"/></b></font>
                                         <br/>
                                         <h:inputTextarea id="comentarios" style="width: 300px" value="#{loginBean.textComment}"/>
                                         <br/>
-                                        <h:commandButton class="form-control mr-sm-2 btn btn-outline-success" action="#{loginBean.saveComment}" value="Send Comment"/>
+                                        <h:commandButton class="form-control mr-sm-2 btn btn-outline-success" action="#{loginBean.saveComment}" value="#{msg['estudante.enviarComentario']}"/>
                                     </h:form>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <font face="Poppins-Regular" size="3" color="#0057AE"><b>Comments:</b></font>
+                                    <font face="Poppins-Regular" size="3" color="#0057AE"><b><h:outputLabel value="#{msg['estudante.comentarios']}"/></b></font>
                                     <h:form>
-                                        <h:commandButton class="form-control mr-sm-2 btn btn-primary btn-sm" action="#{loginBean.listComments}" value="List Comments"/>
+                                        <h:commandButton class="form-control mr-sm-2 btn btn-primary btn-sm" action="#{loginBean.listComments}" value="#{msg['estudante.listaComentarios']}"/>
                                     </h:form>
                                 </td>
                             </tr>
@@ -116,7 +116,7 @@
 
                                         <h:column>
                                             <h:form>
-                                            <h:commandButton class="form-control mr-sm-2 btn btn-danger btn-sm" action="#{loginBean.removeComment(comment)}" value="Delete"/>
+                                            <h:commandButton class="form-control mr-sm-2 btn btn-danger btn-sm" action="#{loginBean.removeComment(comment)}" value="#{msg['estudante.deletarComentario']}"/>
                                             </h:form>
                                         </h:column>
                                     </h:dataTable>
@@ -130,6 +130,9 @@
     </div>
 </div>
 </f:view>
+
+
+
 <!--NAV-BOTTOM-->
 <ui:include src="/pages/navBottom.xhtml"/>
 </h:body>

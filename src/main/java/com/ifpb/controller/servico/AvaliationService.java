@@ -12,7 +12,9 @@ public class AvaliationService {
     }
 
     public boolean save(Avaliation avaliation){
+        System.out.println(dao.wasEvaluated(avaliation.getUserId(), avaliation.getPostId()));
         if(dao.wasEvaluated(avaliation.getUserId(), avaliation.getPostId())){
+            System.out.println(dao.wasEvaluated(avaliation.getUserId(), avaliation.getPostId()));
             return dao.update(avaliation);
         }else {
             return dao.save(avaliation);
