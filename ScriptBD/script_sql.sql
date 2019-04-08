@@ -33,3 +33,13 @@ CREATE TABLE post(
     CONSTRAINT  post_pkey PRIMARY KEY (id),
     CONSTRAINT  fkey_userid FOREIGN KEY(userid) REFERENCES usuario (id)
     );
+
+CREATE TABLE avaliation(
+   id serial,
+   userid int,
+   postid int,
+   evaluation float,
+   CONSTRAINT  avaliation_pkey PRIMARY KEY (id),
+   CONSTRAINT  fkey_userid FOREIGN KEY(userid) REFERENCES usuario (id),
+   CONSTRAINT  fkey_postid FOREIGN KEY(postid) REFERENCES post (id)
+);
