@@ -31,15 +31,19 @@
                             <h:outputLabel  styleClass="col-form-label" value="Your Name: " />
                             <h:outputLabel value="#{loginBean.userLogged.name}" styleClass="form-control w-75"/>
 
-                            <h:outputLabel  styleClass="col-form-label" value="Video: " />
-                            <h:inputFile value="#{loginBean.post.video}" styleClass="form-control w-75"/>
-
                             <h:outputLabel  styleClass="col-form-label" value="Description: " />
                             <h:inputText value="#{loginBean.post.description}" styleClass="form-control w-75"/>
 
+                            <h:outputLabel  styleClass="col-form-label" value="Private Exclusivity: " />
+                            <h:selectBooleanCheckbox value="#{loginBean.post.exclusivity}" styleClass="form-control w-75"/>
+
+                            <h:outputLabel  styleClass="col-form-label" value="Video: " />
+                            <h:inputFile value="#{loginBean.post.video}" styleClass="form-control w-75"/>
+
+
                         </h:panelGrid>
                     </h:column>
-                    <h:commandButton styleClass="btn btn-primary btn-outline-success my-5" action="#{loginBean.editUser}" style="width: 20rem;height: 3rem; margin-right: 50px" value="Save Edits"/>
+                    <h:commandButton styleClass="btn btn-primary btn-outline-success my-5" action="#{loginBean.editPosts}" style="width: 20rem;height: 3rem; margin-right: 50px" value="Save Edits"/>
                 </h:form>
             </div>
         </center>

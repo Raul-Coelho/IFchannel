@@ -19,6 +19,13 @@ public class Post {
     public Post() {
     }
 
+    public Post(String title, String video, String description, String exclusivity) {
+        this.title = title;
+        this.video = video;
+        this.description = description;
+        this.exclusivity = exclusivity;
+    }
+
     public Post(int id, int idUser, String title, String video, List<Comment> comments, Float evaluation, String description, String exclusivity, double lat, double lng) {
         this.id = id;
         this.idUser = idUser;

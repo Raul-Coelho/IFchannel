@@ -7,6 +7,7 @@ import com.ifpb.controller.servico.UserService;
 import com.ifpb.model.entidades.Comment;
 import com.ifpb.model.entidades.Post;
 import com.ifpb.model.entidades.User;
+import javafx.geometry.Pos;
 import org.primefaces.model.map.DefaultMapModel;
 import org.primefaces.model.map.LatLng;
 import org.primefaces.model.map.MapModel;
@@ -125,13 +126,6 @@ public class LoginBean {
     }
 
     ///////////////////////////////////
-
-    public String openEditUser(){
-        return "edit";
-    }
-
-    public String openEditPost(){ return "editPost";
-    }
 
     public String editUser() throws SQLException {
         service = new UserService();
@@ -261,6 +255,19 @@ public class LoginBean {
 
         return "goPosts";
 
+    }
+
+    public String openEditPost(Post Editpost){
+        post = Editpost;
+        return "goEditPost";
+    }
+
+    public String editPosts(){
+        pService = new PostService();
+        pService.save(post);
+        pService = null;
+
+        return "goPosts";
     }
 
     public void deletePost(Post post){
