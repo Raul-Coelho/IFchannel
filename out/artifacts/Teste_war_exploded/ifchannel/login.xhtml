@@ -55,18 +55,21 @@
                 </div>
 
                 <div class="container-login100-form-btn">
-                    <h:commandButton class="login100-form-btn" value="Login" action="#{loginBean.autenticate}"></h:commandButton>
+                    <h:commandButton class="login100-form-btn" value="#{msg['login.entrar']}" action="#{loginBean.autenticate}"></h:commandButton>
                 </div>
             </h:form>
             <h:form>
                 <div class="container-login100-form-btn" style="margin-left: 155%; width: 18rem">
-                    <i><h:commandLink value="Create your Account  ->" action="#{userBean.openRegister}"/> </i>
+                    <i><h:commandLink value="#{msg['login.criarConta']}" action="#{userBean.openRegister}"/> </i>
                 </div>
             </h:form>
         </div>
     </div>
 </div>
 </f:view>
+<ui:insert name="bottom">
+    <ui:include src="../pages/navBottom.xhtml"/>
+</ui:insert>
 
 
 

@@ -8,6 +8,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DecimalFormat;
+
+import static java.lang.Float.parseFloat;
 
 public class AvaliationDao {
     private PostgreConFactory factory;
@@ -64,6 +67,7 @@ public class AvaliationDao {
         String sql = "SELECT evaluation FROM avaliation WHERE postid = ?";
         int cont = 0;
         float media = 0;
+        DecimalFormat df = new DecimalFormat("#,00");
 
         try(Connection connection = factory.getConnection()) {
             PreparedStatement st = connection.prepareStatement(sql);
@@ -77,7 +81,7 @@ public class AvaliationDao {
             if(cont == 0){
                 return 0;
             }else {
-                return media/cont;
+                return Float.parseFloat(df.format(media/cont));
             }
 
         } catch (SQLException e) {

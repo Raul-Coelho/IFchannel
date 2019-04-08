@@ -5,11 +5,14 @@ import com.ifpb.model.dao.RelashionshipDao;
 import com.ifpb.model.entidades.Post;
 import com.ifpb.model.entidades.User;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class PostService {
 
     private PostDao dao = new PostDao();
+
+    private AvaliationService aDao = new AvaliationService();
    // private RelashionshipDao rDao = new RelashionshipDao();
 
     public PostService(){
@@ -20,7 +23,12 @@ public class PostService {
     }
 
     public List<Post> list(int idUser){
-        return dao.list(idUser);
+        List<Post> postEvaluated = new ArrayList<>();
+        for (Post post: dao.list(idUser)) {
+            post.setEvaluation(aDao.media(post));
+            postEvaluated.add(post);
+        }
+        return postEvaluated;
     }
 
     public boolean delete(int id){
@@ -40,10 +48,15 @@ public class PostService {
 //    }
 
     public List<Post> searchByIdFromProfessor(int userid){
-        return dao.searchByIdFromProfessor(userid);
+        List<Post> postEvaluated = new ArrayList<>();
+        for (Post post: dao.searchByIdFromProfessor(userid)) {
+            post.setEvaluation(aDao.media(post));
+            postEvaluated.add(post);
+        }
+        return postEvaluated;
     }
 
-    public Post searach(int id){
+    public Post search(int id){
         return dao.searchById(id);
     }
 
