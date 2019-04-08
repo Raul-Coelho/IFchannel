@@ -130,6 +130,9 @@ public class LoginBean {
         return "edit";
     }
 
+    public String openEditPost(){ return "editPost";
+    }
+
     public String editUser() throws SQLException {
         service = new UserService();
         User user = service.searchById(userLogged.getId());
