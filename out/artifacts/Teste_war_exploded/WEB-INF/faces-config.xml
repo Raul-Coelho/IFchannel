@@ -74,6 +74,15 @@
         </navigation-case>
     </navigation-rule>
 
+    <!--Edit Post-->
+    <navigation-rule>
+        <from-view-id>*</from-view-id>
+        <navigation-case>
+            <from-outcome>editPost</from-outcome>
+            <to-view-id>/ifchannel/editPost.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+    </navigation-rule>
 
     <!--Edit User-->
     <navigation-rule>

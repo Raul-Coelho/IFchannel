@@ -28,6 +28,11 @@
     <tr class="card my-5 div-video">
         <td>
             <div style="height: 250%">
+                <h3>
+                    <b>
+                        <h:outputLabel style="color: #0057AE; margin-left: 210px;" styleClass="my-3" value="Your Posts"/>
+                    </b>
+                </h3>
                 <h:dataTable var = "post" value="#{loginBean.posts}"
                              styleClass="order-table" headerClass="order-table-header"
                              rowClasses="order-table-odd-row,order-table-even-row">
@@ -46,11 +51,21 @@
                     </h:column>
                     <h:column>
                         <f:facet name="header">
+                            <h:outputText style="margin-left: 30px" value="Edit" />
+                        </f:facet>
+                        <div class="btn-group">
+                            <h:form>
+                                <h:commandButton  action="#{loginBean.editPost(post)}" style="width:6rem; height: 2rem; margin-left: 10px;" styleClass="btn btn-outline-primary my-3" value="Edit"/>
+                            </h:form>
+                        </div>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
                             <h:outputText style="margin-left: 30px" value="Delete" />
                         </f:facet>
                         <div class="btn-group">
                             <h:form>
-                                <h:commandButton  action="#{loginBean.deletePost(post)}" style="width:6rem; height: 2rem; margin-left: 10px;" styleClass="btn btn-danger my-3" value="Delete"/>
+                                <h:commandButton  action="#{loginBean.deletePost(post)}" style="width:6rem; height: 2rem; margin-left: 10px;" styleClass="btn btn-outline-danger my-3" value="Delete"/>
                             </h:form>
                         </div>
                     </h:column>
