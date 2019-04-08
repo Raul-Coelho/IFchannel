@@ -8,10 +8,10 @@
     <a class="navbar-brand">IFPB Channel</a>
     <h:form styleClass="form-inline">
         <h:inputText styleClass="form-control mr-sm-2 w-full" aria-label="Search" value="#{loginBean.search}"/>
-        <h:commandButton styleClass="btn btn-outline-success my-2 my-sm-0" action="#{loginBean.searchPost}" value="Search"/>
+        <h:commandButton styleClass="btn btn-outline-success my-2 my-sm-0" action="#{loginBean.searchPost}" value="#{msg['cabecalho.procurar']}"/>
     </h:form>
     <h:form>
-        <h:commandButton styleClass="btn btn-outline-success mr-sm-3 my-2 my-sm-0" value="Log out" action="#{loginBean.logout}"/>
+        <h:commandButton styleClass="btn btn-outline-success mr-sm-3 my-2 my-sm-0" value="#{msg['cabecalho.sair']}" action="#{loginBean.logout}"/>
     </h:form>
 </nav>
 </body>
