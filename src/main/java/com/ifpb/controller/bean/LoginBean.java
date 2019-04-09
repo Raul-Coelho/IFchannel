@@ -34,15 +34,15 @@ import java.util.List;
 @SessionScoped
 public class LoginBean {
 
-//    private String imgSource = "C:\\Users\\Lucas\\Documents\\Projetos\\IFchannel\\src\\main\\web\\images";
-//    private String videoSource = "C:\\Users\\Lucas\\Documents\\Projetos\\IFchannel\\src\\main\\web\\video";
+    private String imgSource = "C:\\Users\\Lucas\\Documents\\Projetos\\IFchannel\\src\\main\\web\\images";
+    private String videoSource = "C:\\Users\\Lucas\\Documents\\Projetos\\IFchannel\\src\\main\\web\\video";
 
-    private String imgSource = "/home/raul/Documentos/Repositorios/IFchannel/src/main/web/images";
-    private String videoSource = "/home/raul/Documentos/Repositorios/IFchannel/src/main/web/videos";
+//    private String imgSource = "/home/raul/Documentos/Repositorios/IFchannel/src/main/web/images";
+//    private String videoSource = "/home/raul/Documentos/Repositorios/IFchannel/src/main/web/videos";
 
     private UserService service;
 
-    private RelashionshipService rService;
+//    private RelashionshipService rService;
 
     private CommentService cService;
 
@@ -86,6 +86,8 @@ public class LoginBean {
         service = new UserService();
         comment = new Comment();
         emptyModel = new DefaultMapModel();
+        this.post = new Post();
+        post.setVideo("developer.mp4");
     }
 
     public String autenticate() throws SQLException {
@@ -203,20 +205,20 @@ public class LoginBean {
     }
 
 
-    public void follow(User professor){
-        rService = new RelashionshipService();
-        rService.createRelashionship(userLogged.getEmail(), professor.getEmail());
-        rService = null;
+//    public void follow(User professor){
+//        rService = new RelashionshipService();
+//        rService.createRelashionship(userLogged.getEmail(), professor.getEmail());
+//        rService = null;
+//
+//    }
 
-    }
 
-
-    public void unfollow(User professor){
-        rService = new RelashionshipService();
-        rService.unfollow(userLogged.getEmail(), professor.getEmail());
-        rService = null;
-
-    }
+//    public void unfollow(User professor){
+//        rService = new RelashionshipService();
+//        rService.unfollow(userLogged.getEmail(), professor.getEmail());
+//        rService = null;
+//
+//    }
 
     ///////////////////////////////////////
 
@@ -231,7 +233,7 @@ public class LoginBean {
 
             this.posts = new ArrayList<>();
             this.pService = new PostService();
-            this.posts = pService.searchPost(userLogged,search);
+//            this.posts = pService.searchPost(userLogged,search);
             pService = null;
         }else {
             this.posts = new ArrayList<>();
@@ -281,6 +283,17 @@ public class LoginBean {
 
     public String editPosts(){
         pService = new PostService();
+        String archive = LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyy-HH-mm-ss")) + "-" + video.getSubmittedFileName();
+
+        archive = archive.replaceAll(":", "-");
+
+        try(InputStream file = video.getInputStream()){
+            Files.copy(file, new File(videoSource + "/" + archive).toPath(), StandardCopyOption.REPLACE_EXISTING);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        post.setVideo(archive);
         pService.save(post);
         pService = null;
 
