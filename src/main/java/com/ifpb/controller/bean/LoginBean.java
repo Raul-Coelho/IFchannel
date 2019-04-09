@@ -34,15 +34,15 @@ import java.util.List;
 @SessionScoped
 public class LoginBean {
 
-    private String imgSource = "C:\\Users\\Lucas\\Documents\\Projetos\\IFchannel\\src\\main\\web\\images";
-    private String videoSource = "C:\\Users\\Lucas\\Documents\\Projetos\\IFchannel\\src\\main\\web\\video";
+//    private String imgSource = "C:\\Users\\Lucas\\Documents\\Projetos\\IFchannel\\src\\main\\web\\images";
+//    private String videoSource = "C:\\Users\\Lucas\\Documents\\Projetos\\IFchannel\\src\\main\\web\\video";
 
-//    private String imgSource = "/home/raul/Documentos/Repositorios/IFchannel/src/main/web/images";
-//    private String videoSource = "/home/raul/Documentos/Repositorios/IFchannel/src/main/web/videos";
+    private String imgSource = "/home/raul/Documentos/Repositorios/IFchannel/src/main/web/images";
+    private String videoSource = "/home/raul/Documentos/Repositorios/IFchannel/src/main/web/video";
 
     private UserService service;
 
-//    private RelashionshipService rService;
+    private RelashionshipService rService;
 
     private CommentService cService;
 
@@ -205,20 +205,20 @@ public class LoginBean {
     }
 
 
-//    public void follow(User professor){
-//        rService = new RelashionshipService();
-//        rService.createRelashionship(userLogged.getEmail(), professor.getEmail());
-//        rService = null;
-//
-//    }
+    public void follow(User professor){
+        rService = new RelashionshipService();
+        rService.createRelashionship(userLogged.getEmail(), professor.getEmail());
+        rService = null;
+
+    }
 
 
-//    public void unfollow(User professor){
-//        rService = new RelashionshipService();
-//        rService.unfollow(userLogged.getEmail(), professor.getEmail());
-//        rService = null;
-//
-//    }
+    public void unfollow(User professor){
+        rService = new RelashionshipService();
+        rService.unfollow(userLogged.getEmail(), professor.getEmail());
+        rService = null;
+
+    }
 
     ///////////////////////////////////////
 
@@ -233,7 +233,7 @@ public class LoginBean {
 
             this.posts = new ArrayList<>();
             this.pService = new PostService();
-//            this.posts = pService.searchPost(userLogged,search);
+            this.posts = pService.searchPost(userLogged,search);
             pService = null;
         }else {
             this.posts = new ArrayList<>();

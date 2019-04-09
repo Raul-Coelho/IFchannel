@@ -42,13 +42,13 @@
             <tr class="card div-video">
                 <td>
                     <div style="height: 100%">
-                        <p:media value="/video/#{loginBean.post.video}"/>
+                        <p:media value="/video/#{loginBean.post.video}" player="quicktime" style="width: 600px; height: 400px;"/>
                         <table class="ml-3">
                             <tr>
                                 <td>
                                     <p>
                                         <h3>
-                                        <h:outputLabel value="#{msg['estudante.tituloVideo']}"/>
+                                            <h:outputLabel value="#{loginBean.post.title}"/>
                                         </h3>
                                     </p>
                                 </td>
@@ -70,7 +70,7 @@
                             <tr>
                                 <td>
                                     <p><h:outputLabel value="#{msg['estudante.descricaoVideo']}"/></p>
-                                    <textarea name="descricao" style="width: 300px; height: 100px" readonly="readonly"></textarea>
+                                    <h:inputTextarea value="#{loginBean.post.description}" style="width: 300px; height: 100px" readonly="true   "/>
                                 </td>
                             </tr>
                             <tr>
