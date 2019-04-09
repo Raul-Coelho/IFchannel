@@ -256,14 +256,23 @@ public class LoginBean {
 
     public String openWatch(Post watch){
         post = watch;
-        return "goStudent";
+        if (userLogged.getPrivilege().equals("student")){
+            return "goStudent";
+        }
+        else {
+            return "goProfessor";
+        }
     }
+
+    /////////////////////////////////
 
     public void evaluation(){
         eService = new EvaluationService();
         eService.save(new Evaluation(post.getIdUser(),post.getId(),evaluationPost));
         eService = null;
     }
+
+    /////////////////////////////
 
     public String openEditPost(Post Editpost){
         post = Editpost;

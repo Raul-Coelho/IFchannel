@@ -1,4 +1,4 @@
---CREATE DATABASE IFchannel;
+--CREATE DATABASE ifchannel;
 
 CREATE TABLE usuario(
     id serial,

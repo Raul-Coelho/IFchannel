@@ -124,6 +124,16 @@
         </navigation-case>
     </navigation-rule>
 
+    <!--GO Professor-->
+    <navigation-rule>
+        <from-view-id>*</from-view-id>
+        <navigation-case>
+            <from-outcome>goProfessor</from-outcome>
+            <to-view-id>/ifchannel/professorPage.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+    </navigation-rule>
+
     <!--GO List-->
     <navigation-rule>
         <from-view-id>*</from-view-id>

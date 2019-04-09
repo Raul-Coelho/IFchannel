@@ -5,7 +5,6 @@
       xmlns:p="http://primefaces.org/ui">
 <head>
     <title>Professor</title>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     <link rel="icon" type="image/png" href="../images/icons/favicon.ico"/>
@@ -21,8 +20,8 @@
 <!--PROFILE PROFESSOR-->
 <f:view>
 <div class="container">
-    <div class="row profile">
-        <div class="card my-3 mr-2 my-2" style="width: 18rem; left: -40px;">
+        <div class="row profile">
+        <div class="card my-3 mr-2 my-2" style="width: 20rem; left: -40px;">
             <h:graphicImage  styleClass="h-50 w-100" value="/images/#{loginBean.userLogged.photo}" />
             <div class="card-body">
                 <h5 class="card-title">#{loginBean.userLogged.name}</h5>
@@ -35,33 +34,108 @@
                     <li class="list-group-item container-login100-form-btn"><h:link outcome="gmail" value="#{loginBean.userLogged.email}"></h:link> </li>
                     <li class="list-group-item container-login100-form-btn"><h:link outcome="" value="#{loginBean.userLogged.phone}"></h:link> </li>
                     <h:commandButton value="#{msg['professor.editarPerfil']}" styleClass="my-3 ml-3 btn btn-primary btn-outline-success" action="#{loginBean.openEditUser}"/>
+                    <li class="list-group-item container-login100-form-btn"><h:outputLabel style="color: #1e7e34; margin-left: 80px;" styleClass="" value="#{msg['professor.materiais']}"/></li>
+                    <li class="list-group-item container-login100-form-btn">
+                        <table style="margin-left: 40px">
+                            <tr>
+                                <td><h:commandButton styleClass="btn btn-primary btn-outline-success" action="#{loginBean.openSavePost}" value="#{msg['professor.registrar']}"/></td>
+                                <td><h:commandButton styleClass="btn btn-primary btn-outline-success" action="#{loginBean.listPosts}" value="#{msg['professor.listar']}"/></td>
+                            </tr>
+                        </table>
+                    </li>
                 </h:form>
             </ul>
         </div>
-        <div class="card my-3 mr-2 my-2" style="width: 40rem; height: auto; left: 50px">
-           <table style="margin-left: 100px; margin-top: 100px">
-               <tr>
-                   <h:form>
-                    <h3>
-                        <h:outputLabel style="color: #1e7e34; margin-left: 250px;" styleClass="my-5" value="#{msg['professor.materiais']}"/>
-                    </h3>
-                   </h:form>
-               </tr>
-               <tr>
-                   <td>
-                       <h:form >
-                           <h:commandButton styleClass="btn btn-primary btn-outline-success btn-size" action="#{loginBean.openSavePost}" value="#{msg['professor.registrar']}"/>
-                       </h:form>
-                   </td>
-                   <td>
-                       <h:form >
-                           <h:commandButton styleClass="btn btn-primary btn-outline-success btn-size" action="#{loginBean.listPosts}" value="#{msg['professor.listar']}"/>
-                       </h:form>
-                   </td>
-               </tr>
-           </table>
+        <table style="margin-left: 10%; margin-top: 15px">
+                <tr class="card div-video">
+                    <td>
+                        <div style="height: 100%">
+                            <video controls="controls"  src="../video/developer.mp4"></video>
+                            <table class="ml-3">
+                                <tr>
+                                    <td>
+                                        <p>
+                                            <h3>
+                                                <h:outputLabel value="#{msg['estudante.tituloVideo']}"/>
+                                            </h3>
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p>
+                                            <h5>
+                                                <h:panelGrid columns="1">
+                                                    <h:outputLabel value="#{msg['estudante.nomeProfessor']}"/>
+                                                </h:panelGrid>
+                                            </h5>
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p><h:outputLabel value="#{msg['estudante.descricaoVideo']}"/></p>
+                                        <textarea name="descricao" style="width: 300px; height: 100px" readonly="readonly"></textarea>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h:outputLabel value="#{msg['estudante.avalie']}"/>
+                                        <h:panelGrid columns="1" style="margin-bottom: 10px">
+                                            <h:form>
+                                                <p:inputText id="txt3" styleClass="w-75" value="#{loginBean.evaluationPost}" />
+                                                <p:slider styleClass="form-control w-75" for="txt3" step="1" maxValue="5" />
+                                                <h:commandButton class="form-control btn btn-outline-success w-75" action="#{loginBean.evaluation}" value="#{msg['estudante.enviarAvaliacao']}"/>
+                                            </h:form>
+                                        </h:panelGrid>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h:form>
+                                            <font face="Poppins-Regular" size="3" color="#0057AE"><b><h:outputLabel value="#{msg['estudante.comentario']}"/></b></font>
+                                            <br/>
+                                            <h:inputTextarea id="comentarios" style="width: 300px" value="#{loginBean.textComment}"/>
+                                            <br/>
+                                            <h:commandButton class="form-control mr-sm-2 btn btn-outline-success" action="#{loginBean.saveComment}" value="#{msg['estudante.enviarComentario']}"/>
+                                        </h:form>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <font face="Poppins-Regular" size="3" color="#0057AE"><b><h:outputLabel value="#{msg['estudante.comentarios']}"/></b></font>
+                                        <h:form>
+                                            <h:commandButton class="form-control mr-sm-2 btn btn-primary btn-sm" action="#{loginBean.listComments}" value="#{msg['estudante.listaComentarios']}"/>
+                                        </h:form>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h:dataTable var="comment" value="#{loginBean.comments}"
+                                                     styleClass="order-table" headerClass="order-table-header"
+                                                     rowClasses="order-table-odd-row,order-table-even-row">
+                                            <h:column>
+                                                <h:outputText style="margin-left: 10px" value="#{comment.username}: " />
+                                            </h:column>
+
+                                            <h:column>
+                                                <h:outputText style="margin-left: 10px" value="#{comment.comment}" />
+                                            </h:column>
+
+                                            <h:column>
+                                                <h:form>
+                                                    <h:commandButton class="form-control mr-sm-2 btn btn-danger btn-sm" action="#{loginBean.removeComment(comment)}" value="#{msg['estudante.deletarComentario']}"/>
+                                                </h:form>
+                                            </h:column>
+                                        </h:dataTable>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+            </table>
         </div>
-    </div>
 </div>
 </f:view>
 <!--NAV-BOTTOM-->
